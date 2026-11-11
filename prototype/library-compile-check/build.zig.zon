@@ -1,0 +1,17 @@
+.{
+    .name = .spike,
+    .version = "0.0.0",
+    .fingerprint = 0xefb81a8acbbfd0ee,
+    .minimum_zig_version = "0.17.1",
+    .paths = .{""},
+    .dependencies = .{
+        .pg = .{
+            .url = "git+https://github.com/karlseguin/pg.zig#a9fb17023e2f534dd1712628c80eaa9a551473a5",
+            .hash = "pg-0.0.0-Wp_7gRJyBwC7ca9P685_O1w7RLoLXAdYpDMgHEmkDJpM",
+        },
+        .httpz = .{
+            .url = "git+https://github.com/karlseguin/http.zig#1bb71ff128a044b1645df91046473c38abbf965c",
+            .hash = "httpz-0.0.0-PNVzrFNMCQBySpfunggKlQQoD_FvF3yADlqg3xfbdX8p",
+        },
+    },
+}
