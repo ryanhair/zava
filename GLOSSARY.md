@@ -93,6 +93,14 @@ _Avoid_: Generated code, output, facade
 A unit outside the kernel that adds declaration options and derivations.
 _Avoid_: Plugin, adapter, module
 
+**Description**:
+Data by which an extension states a type or function a developer will write code against, for the kernel to write into generated source.
+_Avoid_: Template, stub, spec
+
+**Command**:
+A named piece of an extension that the build runs on request, with the model as data, to write files that nothing compiles.
+_Avoid_: Task, script, generator, build-run code
+
 **Data layer**:
 An extension that persists and retrieves records.
 _Avoid_: Backend, store, repository
