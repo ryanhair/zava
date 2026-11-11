@@ -1,0 +1,32 @@
+$ zig build run
+kernel action:        register -> a@b.c | ann
+described function:   Author.get(.{ .id = 7 })
+  [postgres] select * from authors where id = .{ .id = 7 }
+described enum + fn:  select * from authors order by email_address
+
+model, read at runtime:
+  author: pk id, 3 attributes, 2 actions, table authors
+  post: pk id, 4 attributes, 1 actions, table posts
+  ping: pk id, 1 attributes, 0 actions, table (none)
+
+$ zig build zava
+postgres.migrate
+
+$ zig build zava -- postgres.migrate migrations
+postgres.migrate: wrote migrations/0001.sql
+create table authors ();
+alter table authors add column id bigint not null;
+alter table authors add column email_address text not null;
+alter table authors add column name text not null;
+create table posts ();
+alter table posts add column id bigint not null;
+alter table posts add column author_id bigint not null;
+alter table posts add column title text not null;
+alter table posts add column body text;
+
+$ zig build zava -- postgres.migrate migrations   (again)
+postgres.migrate: nothing to do (3 resources in the model)
+
+$ zig run probe_sibling_declaration.zig
+Author table: authors
+Post table:   null   <- typo, no error

@@ -1,0 +1,170 @@
+=== [developer] 1 misspelled extension key
+    domain.zig: `.extensions = .{ .postgres = .{ .table = "posts" } }` -> `.extensions = .{ .postgers = .{ .table = "posts" } }`
+domain.zig:35:27: error: no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Post)'
+        .extensions = .{ .postgers = .{ .table = "posts" } },
+                          ^~~~~~~~
+zava.zig:45:12: note: struct declared here
+    return @Struct(.auto, null, &names, &types, &attrs);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [developer] 2 misspelled extension option
+    domain.zig: `.{ .table = "posts" }` -> `.{ .tabel = "posts" }`
+domain.zig:35:42: error: no field named 'tabel' in struct 'postgres.Options(domain.Post)'
+        .extensions = .{ .postgres = .{ .tabel = "posts" } },
+                                         ^~~~~
+postgres.zig:13:12: note: struct declared here
+    return struct {
+           ^~~~~~
+
+=== [developer] 3 misspelled attribute in the extension's per-attribute block
+    domain.zig: `.attributes = .{ .email = .{ .column` -> `.attributes = .{ .emial = .{ .column`
+domain.zig:20:31: error: no field named 'emial' in struct 'zava.PerAttribute(domain.Author,postgres.AttributeOptions)'
+            .attributes = .{ .emial = .{ .column = "email_address" } },
+                              ^~~~~
+zava.zig:30:12: note: struct declared here
+    return @Struct(.auto, null, names, &types, &attrs);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [developer] 4 wrong value type for an extension option
+    domain.zig: `.column = "email_address"` -> `.column = 5`
+domain.zig:20:43: error: expected type '?[]const u8', found 'comptime_int'
+            .attributes = .{ .email = .{ .column = 5 } },
+                                         ~^~~~~~~~~~
+
+=== [developer] 5 extension's own rule: two attributes, one column
+    domain.zig: `.column = "email_address"` -> `.column = "name"`
+postgres.zig:46:13: error: postgres: resource 'author': attributes 'email' and 'name' both map to column 'name'
+            @compileError("postgres: resource '" ++ res.name ++ "': attributes '" ++ c.attribute ++ "' and '" ++ a.name ++ "' both map to column '" ++ column ++ "'");
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:125:28: note: called at comptime here
+    comptime return E.lower(R, resource(R), @field(@as(Options(R), R.resource).extensions, E.name));
+                    ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+postgres.zig:107:31: note: called at comptime here
+        const t = zava.options(Self, R) orelse return &.{};
+                  ~~~~~~~~~~~~^~~~~~~~~
+zava.zig:267:28: note: called at comptime here
+            for (E.describe(R)) |d| {
+                 ~~~~~~~~~~^~~
+zava.zig:282:33: note: called at comptime here
+        comptime checkCollisions(R);
+                 ~~~~~~~~~~~~~~~^~~
+
+=== [developer] 6 attribute type the extension cannot map
+    domain.zig: `body: ?[]const u8,` -> `body: ?f32,`
+postgres.zig:51:17: error: postgres: resource 'post': attribute 'body' has type '?f32', which has no Postgres mapping
+                @compileError("postgres: resource '" ++ res.name ++ "': attribute '" ++ a.name ++ "' has type '" ++ a.zig_type ++ "', which has no Postgres mapping"),
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:125:28: note: called at comptime here
+    comptime return E.lower(R, resource(R), @field(@as(Options(R), R.resource).extensions, E.name));
+                    ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+postgres.zig:107:31: note: called at comptime here
+        const t = zava.options(Self, R) orelse return &.{};
+                  ~~~~~~~~~~~~^~~~~~~~~
+zava.zig:267:28: note: called at comptime here
+            for (E.describe(R)) |d| {
+                 ~~~~~~~~~~^~~
+zava.zig:282:33: note: called at comptime here
+        comptime checkCollisions(R);
+                 ~~~~~~~~~~~~~~~^~~
+
+=== [developer] 7 extension used but not registered
+    domain.zig: `pub const extensions = .{postgres};` -> `pub const extensions = .{};`
+domain.zig:18:27: error: no field named 'postgres' in struct 'zava.ExtensionBlock(domain.Author)'
+        .extensions = .{ .postgres = .{
+                          ^~~~~~~~
+zava.zig:45:12: note: struct declared here
+    return @Struct(.auto, null, &names, &types, &attrs);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [developer] 8 app misuses a described type
+    app.zig: `.{ .id = 7 }` -> `.{ .idd = 7 }`
+app.zig:11:28: error: no field named 'idd' in struct 'api.Author.PrimaryKey'
+    _ = api.Author.get(.{ .idd = 7 });
+                           ^~~
+.zig-cache/o/37abedd4ee7751377c4aa09e7d8d5a63/api.zig:31:28: note: struct declared here
+    pub const PrimaryKey = struct {
+                           ^~~~~~
+
+=== [developer] 9 app misuses a described enum
+    app.zig: `api.Author.SortBy = .email` -> `api.Author.SortBy = .emial`
+app.zig:13:36: error: enum 'api.Author.SortBy' has no member named 'emial'
+    var sort: api.Author.SortBy = .emial;
+                                  ~^~~~~
+.zig-cache/o/1859f24ef2887c03f52607f05c343f24/api.zig:36:24: note: enum declared here
+    pub const SortBy = enum { id, email, name, };
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [extension author] 10 delegate names a function that does not exist
+    postgres.zig: `.delegate = .get,` -> `.delegate = .gett,`
+postgres.zig:124:30: error: enum 'meta.DeclEnum(postgres)' has no member named 'gett'
+                .delegate = .gett,
+                            ~^~~~
+zava.zig:267:28: note: called at comptime here
+            for (E.describe(R)) |d| {
+                 ~~~~~~~~~~^~~
+zava.zig:282:33: note: called at comptime here
+        comptime checkCollisions(R);
+                 ~~~~~~~~~~~~~~~^~~
+
+=== [extension author] 11 reference to a described type that does not exist
+    postgres.zig: `.{ .described = "PrimaryKey" }` -> `.{ .described = "PrimaryKeyy" }`
+.zig-cache/o/6ac7169142d4784be4cd653908d97e0d/api.zig:39:20: error: use of undeclared identifier 'PrimaryKeyy'
+    pub fn get(pk: PrimaryKeyy) ?domain.Author {
+                   ^~~~~~~~~~~
+.zig-cache/o/6ac7169142d4784be4cd653908d97e0d/api.zig:74:20: error: use of undeclared identifier 'PrimaryKeyy'
+    pub fn get(pk: PrimaryKeyy) ?domain.Post {
+                   ^~~~~~~~~~~
+
+=== [extension author] 12 field type with no spelling
+    postgres.zig: `.{ .type = Limit }` -> `.{ .type = struct { count: u32 } }`
+zava.zig:235:9: error: extension 'postgres', description 'Author.listSql': type 'postgres.describe__struct_859' has no spelling in generated source; use a primitive, a record, or a public declaration of the extension
+        @compileError(where ++ ": type '" ++ @typeName(T) ++ "' has no spelling in generated source; " ++
+        ^~~~~~~~~~~~~
+zava.zig:242:27: note: called at comptime here
+        .type => |T| spell(T, where),
+                     ~~~~~^~~~~~~~~~
+zava.zig:315:139: note: called at comptime here
+                        inline for (f.params, 0..) |p, i| try w.print("{s}{s}: {s}", .{ if (i > 0) ", " else "", p.name, comptime spellRef(p.type, where) });
+                                                                                                                                  ~~~~~~~~^~~~~~~~~~~~~~~
+
+=== [extension author] 13 delegate signature disagrees with the description
+    postgres.zig: `.returns = .{ .type = ?R },` -> `.returns = .{ .type = R },`
+.zig-cache/o/a4d447ba753fdc6b5c1edbeb21127780/api.zig:40:28: error: expected type 'domain.Author', found '?domain.Author'
+        return postgres.get(domain.Author, pk);
+               ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+.zig-cache/o/a4d447ba753fdc6b5c1edbeb21127780/api.zig:40:28: note: cannot convert optional to payload type
+.zig-cache/o/a4d447ba753fdc6b5c1edbeb21127780/api.zig:40:28: note: consider using '.?', 'orelse', or 'if'
+pub const Author = struct {
+domain.zig:5:20: note: struct declared here
+pub const Author = struct {
+                   ^~~~~~
+.zig-cache/o/a4d447ba753fdc6b5c1edbeb21127780/api.zig:39:38: note: function return type declared here
+    pub fn get(pk: PrimaryKey) domain.Author {
+                               ~~~~~~^~~~~~~
+
+=== [extension author] 14 describes a name the kernel already generates
+    postgres.zig: `.name = "get",` -> `.name = "register",`
+zava.zig:270:21: error: extension 'postgres' describes 'Author.register', already described by the kernel
+                    @compileError("extension '" ++ E.name ++ "' describes '" ++ res.type_name ++ "." ++ n ++ "', already described by " ++ o);
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:282:33: note: called at comptime here
+        comptime checkCollisions(R);
+                 ~~~~~~~~~~~~~~~^~~
+
+=== [extension author] 15 contract breach: no `lower`
+    postgres.zig: `pub fn lower(` -> `pub fn lowerr(`
+zava.zig:125:22: error: root source file struct 'postgres' has no member named 'lower'
+    comptime return E.lower(R, resource(R), @field(@as(Options(R), R.resource).extensions, E.name));
+                    ~^~~~~~
+postgres.zig:1:1: note: struct declared here
+//! PROTOTYPE, throwaway. One extension. It imports the kernel; the kernel never imports it.
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+postgres.zig:107:31: note: called at comptime here
+        const t = zava.options(Self, R) orelse return &.{};
+                  ~~~~~~~~~~~~^~~~~~~~~
+zava.zig:267:28: note: called at comptime here
+            for (E.describe(R)) |d| {
+                 ~~~~~~~~~~^~~
+zava.zig:282:33: note: called at comptime here
+        comptime checkCollisions(R);
+                 ~~~~~~~~~~~~~~~^~~
