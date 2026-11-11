@@ -1,0 +1,12 @@
+N=10  -fno-emit-bin comptime    :   0.34s    98 MB
+N=10  -fno-emit-bin handwritten :   0.25s    96 MB
+N=10  -femit-bin=/t comptime    :   1.88s   266 MB
+N=10  -femit-bin=/t handwritten :   1.96s   284 MB
+N=50  -fno-emit-bin comptime    :   0.68s   104 MB
+N=50  -fno-emit-bin handwritten :   0.32s   101 MB
+N=50  -femit-bin=/t comptime    :   2.33s   294 MB
+N=50  -femit-bin=/t handwritten :   3.15s   399 MB
+N=200 -fno-emit-bin comptime    :   2.05s   127 MB
+N=200 -fno-emit-bin handwritten :   0.60s   111 MB
+N=200 -femit-bin=/t comptime    :   4.44s   388 MB
+N=200 -femit-bin=/t handwritten :   7.68s   832 MB

@@ -1,0 +1,139 @@
+=== e1_duplicate_attribute.zig
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:98:17: error: resource 'user': duplicate attribute 'email'
+                @compileError("resource '" ++ spec.name ++ "': duplicate attribute '" ++ attr.name ++ "'");
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:32:22: note: called at comptime here
+    comptime validate(spec);
+             ~~~~~~~~^~~~~~
+e1_duplicate_attribute.zig:4:27: note: called at comptime here
+const User = zava.Resource(.{
+             ~~~~~~~~~~~~~^
+referenced by:
+    main: e1_duplicate_attribute.zig:18:32
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=5' to see all references
+=== e2_unknown_accept.zig
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:106:17: error: resource 'user', action 'register': accepts unknown attribute 'emial'
+                @compileError("resource '" ++ spec.name ++ "', action '" ++ act.name ++
+                ^~~~~~~~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:32:22: note: called at comptime here
+    comptime validate(spec);
+             ~~~~~~~~^~~~~~
+e2_unknown_accept.zig:4:27: note: called at comptime here
+const User = zava.Resource(.{
+             ~~~~~~~~~~~~~^
+referenced by:
+    main: e2_unknown_accept.zig:17:32
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=5' to see all references
+=== e3_unmappable_type.zig
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:169:17: error: resource 'user', attribute 'score': no Postgres type for Zig type 'f128'
+        else => @compileError("resource '" ++ spec.name ++ "', attribute '" ++ attr.name ++
+                ^~~~~~~~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:94:20: note: called at comptime here
+        _ = sqlType(spec, attr);
+            ~~~~~~~^~~~~~~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:32:22: note: called at comptime here
+    comptime validate(spec);
+             ~~~~~~~~^~~~~~
+e3_unmappable_type.zig:4:27: note: called at comptime here
+const User = zava.Resource(.{
+             ~~~~~~~~~~~~~^
+referenced by:
+    main: e3_unmappable_type.zig:18:32
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=5' to see all references
+=== e4_no_primary_key.zig
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:102:9: error: resource 'user': exactly one attribute must be the primary key
+        @compileError("resource '" ++ spec.name ++ "': exactly one attribute must be the primary key");
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:32:22: note: called at comptime here
+    comptime validate(spec);
+             ~~~~~~~~^~~~~~
+e4_no_primary_key.zig:4:27: note: called at comptime here
+const User = zava.Resource(.{
+             ~~~~~~~~~~~~~^
+referenced by:
+    main: e4_no_primary_key.zig:16:32
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=5' to see all references
+=== e5_misspelled_spec_field.zig
+e5_misspelled_spec_field.zig:8:61: error: no field named 'generatd' in struct 'zava.Attribute'
+        .{ .name = "id", .type = i64, .primary_key = true, .generatd = true },
+                                                            ^~~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:6:23: note: struct declared here
+pub const Attribute = struct {
+                      ^~~~~~
+referenced by:
+    main: e5_misspelled_spec_field.zig:17:32
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=5' to see all references
+=== e6_unknown_action.zig
+e6_unknown_action.zig:17:42: error: enum 'zava.ActionEnum(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })' has no member named 'regster'
+    std.debug.print("{s}\n", .{User.sql(.regster)});
+                                        ~^~~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:156:12: note: enum declared here
+    return @Enum(u8, .exhaustive, &names, &values);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=4' to see all references
+=== e7_unknown_record_field.zig
+e7_unknown_record_field.zig:18:7: error: no field named 'emial' in struct 'zava.RecordOf(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })'
+    r.emial = "x";
+      ^~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:136:12: note: struct declared here
+    return @Struct(.auto, null, &names, &types, &@splat(.{}));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=4' to see all references
+=== e8_wrong_field_type.zig
+e8_wrong_field_type.zig:17:49: error: expected type '[]const u8', found 'comptime_int'
+    const r: User.Record = .{ .id = 1, .email = 5 };
+                                                ^
+referenced by:
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=4' to see all references
+=== e9_method_on_record.zig
+e9_method_on_record.zig:18:6: error: no field or member function named 'save' in 'zava.RecordOf(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })'
+    r.save();
+    ~^~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:136:12: note: struct declared here
+    return @Struct(.auto, null, &names, &types, &@splat(.{}));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=4' to see all references
+=== e10_unused_resource_bad_decl.zig
+=== e11_bad_kind.zig
+e11_bad_kind.zig:12:41: error: enum 'zava.ActionKind' has no member named 'upsert'
+        .{ .name = "register", .kind = .upsert, .accept = &.{"email"} },
+                                       ~^~~~~~
+/Users/ryanhair/Projects/zava/prototype/comptime-spike/zava.zig:14:24: note: enum declared here
+pub const ActionKind = enum { create, read };
+                       ^~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    main: e11_bad_kind.zig:17:32
+    callMain [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:729:20
+    main: /Users/ryanhair/.local/share/mise/installs/zig/0.17.0/lib/std/start.zig:754:28
+    1 reference(s) hidden; use '-freference-trace=5' to see all references
