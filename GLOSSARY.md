@@ -83,7 +83,11 @@ _Avoid_: Core
 
 **Derivation**:
 Anything produced from the model at build time, such as SQL, request handlers, or an OpenAPI description.
-_Avoid_: Generator, codegen
+_Avoid_: Generator, codegen, code generation
+
+**Generated source**:
+Zig source written by the kernel at build time and compiled into the program; it holds the types and signatures a developer writes code against, other than records.
+_Avoid_: Generated code, output, facade
 
 **Extension**:
 A unit outside the kernel that adds declaration options and derivations.
