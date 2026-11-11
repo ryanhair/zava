@@ -100,3 +100,7 @@ _Avoid_: Backend, store, repository
 **API surface**:
 An extension that exposes actions to callers outside the program.
 _Avoid_: Interface, transport, frontend
+
+**Binding**:
+The part of an extension that connects it to one third-party library.
+_Avoid_: Adapter, driver, wrapper, integration
