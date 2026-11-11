@@ -1,0 +1,294 @@
+====================================================================================================
+MISTAKE 1 action accepts a misspelled attribute
+====================================================================================================
+
+--- A: data literals ---
+core.zig:62:17: error: resource 'author', action 'register': accepts unknown attribute 'emial'
+                @compileError("resource '" ++ r.name ++ "', action '" ++ act.name ++
+                ^~~~~~~~~~~~~
+shape_a.zig:7:21: note: called at comptime here
+    core.validateRes(spec);
+    ~~~~~~~~~~~~~~~~^~~~~~
+_err_a.zig:4:33: note: called at comptime here
+pub const Author = zava.Resource(.{
+                   ~~~~~~~~~~~~~^
+
+--- B: annotated structs ---
+_err_b.zig:18:68: error: enum 'meta.FieldEnum(_err_b.Author)' has no member named 'emial'
+            .{ .name = "register", .kind = .create, .accept = &.{ .emial, .name } },
+                                                                  ~^~~~~
+~/.local/share/mise/installs/zig/0.17.0/lib/std/meta.zig:423:12: note: enum declared here
+    return @Enum(IntTag, .exhaustive, field_names, &std.simd.iota(IntTag, field_names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- C: builder functions ---
+shape_c.zig:56:17: error: resource 'author', action 'register': accepts unknown attribute 'emial'
+                @compileError("resource '" ++ self.res.name ++ "', action '" ++ act.name ++
+                ^~~~~~~~~~~~~
+shape_c.zig:44:27: note: called at comptime here
+        return self.action(.{ .name = name, .kind = .create, .accept = accept });
+               ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_err_c.zig:9:12: note: called at comptime here
+    .create("register", &.{ "emial", "name" })
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+core.zig:62:17: error: resource 'author', action 'register': accepts unknown attribute 'emial'
+                @compileError("resource '" ++ r.name ++ "', action '" ++ act.name ++
+                ^~~~~~~~~~~~~
+gen.zig:9:48: note: called at comptime here
+    for (domain.resources) |r| core.validateRes(r);
+                               ~~~~~~~~~~~~~~~~^~~
+
+====================================================================================================
+MISTAKE 2 relationship names a resource that does not exist
+====================================================================================================
+
+--- A: data literals ---
+core.zig:85:17: error: resource 'author', relationship 'posts': unknown destination resource 'psot'
+                @compileError("resource '" ++ m.name ++ "', relationship '" ++ rel.name ++
+                ^~~~~~~~~~~~~
+core.zig:120:19: note: called at comptime here
+    validateDomain(&final);
+    ~~~~~~~~~~~~~~^~~~~~~~
+_err_a.zig:41:31: note: called at comptime here
+pub const domain = zava.Domain(.{ Author, Post });
+                   ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+--- B: annotated structs ---
+_err_b.zig:15:35: error: use of undeclared identifier 'Psot'
+            zava.hasMany("posts", Psot, .author_id),
+                                  ^~~~
+
+--- C: builder functions ---
+core.zig:85:17: error: resource 'author', relationship 'posts': unknown destination resource 'psot'
+                @compileError("resource '" ++ m.name ++ "', relationship '" ++ rel.name ++
+                ^~~~~~~~~~~~~
+core.zig:120:19: note: called at comptime here
+    validateDomain(&final);
+    ~~~~~~~~~~~~~~^~~~~~~~
+_err_c.zig:25:31: note: called at comptime here
+pub const domain = zava.Domain(.{ Author, Post });
+                   ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+core.zig:85:17: error: resource 'author', relationship 'posts': unknown destination resource 'psot'
+                @compileError("resource '" ++ m.name ++ "', relationship '" ++ rel.name ++
+                ^~~~~~~~~~~~~
+gen.zig:10:24: note: called at comptime here
+    core.validateDomain(domain.resources);
+    ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+====================================================================================================
+MISTAKE 3 has_many key is not an attribute of the destination
+====================================================================================================
+
+--- A: data literals ---
+core.zig:88:17: error: resource 'author', relationship 'posts': destination 'post' has no attribute 'writer_id'
+                @compileError("resource '" ++ m.name ++ "', relationship '" ++ rel.name ++
+                ^~~~~~~~~~~~~
+core.zig:120:19: note: called at comptime here
+    validateDomain(&final);
+    ~~~~~~~~~~~~~~^~~~~~~~
+_err_a.zig:41:31: note: called at comptime here
+pub const domain = zava.Domain(.{ Author, Post });
+                   ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+--- B: annotated structs ---
+_err_b.zig:15:42: error: enum 'meta.FieldEnum(_err_b.Post)' has no member named 'writer_id'
+            zava.hasMany("posts", Post, .writer_id),
+                                        ~^~~~~~~~~
+~/.local/share/mise/installs/zig/0.17.0/lib/std/meta.zig:423:12: note: enum declared here
+    return @Enum(IntTag, .exhaustive, field_names, &std.simd.iota(IntTag, field_names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- C: builder functions ---
+core.zig:88:17: error: resource 'author', relationship 'posts': destination 'post' has no attribute 'writer_id'
+                @compileError("resource '" ++ m.name ++ "', relationship '" ++ rel.name ++
+                ^~~~~~~~~~~~~
+core.zig:120:19: note: called at comptime here
+    validateDomain(&final);
+    ~~~~~~~~~~~~~~^~~~~~~~
+_err_c.zig:25:31: note: called at comptime here
+pub const domain = zava.Domain(.{ Author, Post });
+                   ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+core.zig:88:17: error: resource 'author', relationship 'posts': destination 'post' has no attribute 'writer_id'
+                @compileError("resource '" ++ m.name ++ "', relationship '" ++ rel.name ++
+                ^~~~~~~~~~~~~
+gen.zig:10:24: note: called at comptime here
+    core.validateDomain(domain.resources);
+    ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+====================================================================================================
+MISTAKE 4 duplicate attribute
+====================================================================================================
+
+--- A: data literals ---
+core.zig:55:17: error: resource 'author': duplicate attribute 'email'
+                @compileError("resource '" ++ r.name ++ "': duplicate attribute '" ++ a.name ++ "'");
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+shape_a.zig:7:21: note: called at comptime here
+    core.validateRes(spec);
+    ~~~~~~~~~~~~~~~~^~~~~~
+_err_a.zig:4:33: note: called at comptime here
+pub const Author = zava.Resource(.{
+                   ~~~~~~~~~~~~~^
+
+--- B: annotated structs ---
+_err_b.zig:6:5: error: duplicate struct member name 'email'
+    email: []const u8,
+    ^~~~~
+_err_b.zig:8:5: note: duplicate name here
+    email: []const u8,
+    ^~~~~
+_err_b.zig:4:20: note: struct declared here
+pub const Author = struct {
+                   ^~~~~~
+
+--- C: builder functions ---
+shape_c.zig:18:13: error: resource 'author': duplicate attribute 'email'
+            @compileError("resource '" ++ self.res.name ++ "': duplicate attribute '" ++ name ++ "'");
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_err_c.zig:8:15: note: called at comptime here
+    .attribute("email", []const u8, .{})
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+core.zig:55:17: error: resource 'author': duplicate attribute 'email'
+                @compileError("resource '" ++ r.name ++ "': duplicate attribute '" ++ a.name ++ "'");
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gen.zig:9:48: note: called at comptime here
+    for (domain.resources) |r| core.validateRes(r);
+                               ~~~~~~~~~~~~~~~~^~~
+
+====================================================================================================
+MISTAKE 5 misspelled option
+====================================================================================================
+
+--- A: data literals ---
+_err_a.zig:8:40: error: no field named 'primry_key' in struct 'core.Attr'
+        .{ .name = "id", .type = i64, .primry_key = true, .generated = true },
+                                       ^~~~~~~~~~
+core.zig:6:18: note: struct declared here
+pub const Attr = struct {
+                 ^~~~~~
+
+--- B: annotated structs ---
+_err_b.zig:12:10: error: no field named 'primry_key' in struct 'shape_b.Options(_err_b.Author)'
+        .primry_key = .id,
+         ^~~~~~~~~~
+shape_b.zig:21:12: note: struct declared here
+    return struct {
+           ^~~~~~
+
+--- C: builder functions ---
+_err_c.zig:5:31: error: no field named 'primry_key' in struct 'shape_c.AttrOpts'
+    .attribute("id", i64, .{ .primry_key = true, .generated = true })
+                              ^~~~~~~~~~
+shape_c.zig:7:22: note: struct declared here
+pub const AttrOpts = struct { primary_key: bool = false, generated: bool = false };
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+_err_d.zig:11:44: error: no field named 'primry_key' in struct 'core.Attr'
+            .{ .name = "id", .type = i64, .primry_key = true, .generated = true },
+                                           ^~~~~~~~~~
+core.zig:6:18: note: struct declared here
+pub const Attr = struct {
+                 ^~~~~~
+
+====================================================================================================
+MISTAKE 6 attribute type with no Postgres mapping
+====================================================================================================
+
+--- A: data literals ---
+core.zig:147:17: error: resource 'author', attribute 'name': no Postgres type for Zig type 'f32'
+        else => @compileError("resource '" ++ r.name ++ "', attribute '" ++ a.name ++
+                ^~~~~~~~~~~~~
+core.zig:51:20: note: called at comptime here
+        _ = sqlType(r, a);
+            ~~~~~~~^~~~~~
+shape_a.zig:7:21: note: called at comptime here
+    core.validateRes(spec);
+    ~~~~~~~~~~~~~~~~^~~~~~
+_err_a.zig:4:33: note: called at comptime here
+pub const Author = zava.Resource(.{
+                   ~~~~~~~~~~~~~^
+
+--- B: annotated structs ---
+core.zig:147:17: error: resource 'author', attribute 'name': no Postgres type for Zig type 'f32'
+        else => @compileError("resource '" ++ r.name ++ "', attribute '" ++ a.name ++
+                ^~~~~~~~~~~~~
+core.zig:51:20: note: called at comptime here
+        _ = sqlType(r, a);
+            ~~~~~~~^~~~~~
+shape_b.zig:70:21: note: called at comptime here
+    core.validateRes(res);
+    ~~~~~~~~~~~~~~~~^~~~~
+shape_b.zig:82:48: note: called at comptime here
+    inline for (0..n) |i| wrapped[i] = Resource(tuple[i]);
+                                       ~~~~~~~~^~~~~~~~~~
+_err_b.zig:47:31: note: called at comptime here
+pub const domain = zava.Domain(.{ Author, Post });
+                   ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+--- C: builder functions ---
+core.zig:147:17: error: resource 'author', attribute 'name': no Postgres type for Zig type 'f32'
+        else => @compileError("resource '" ++ r.name ++ "', attribute '" ++ a.name ++
+                ^~~~~~~~~~~~~
+shape_c.zig:20:25: note: called at comptime here
+        _ = core.sqlType(self.res, a);
+            ~~~~~~~~~~~~^~~~~~~~~~~~~
+_err_c.zig:7:15: note: called at comptime here
+    .attribute("name", f32, .{})
+              ^~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+core.zig:147:17: error: resource 'author', attribute 'name': no Postgres type for Zig type 'f32'
+        else => @compileError("resource '" ++ r.name ++ "', attribute '" ++ a.name ++
+                ^~~~~~~~~~~~~
+core.zig:51:20: note: called at comptime here
+        _ = sqlType(r, a);
+            ~~~~~~~^~~~~~
+gen.zig:9:48: note: called at comptime here
+    for (domain.resources) |r| core.validateRes(r);
+                               ~~~~~~~~~~~~~~~~^~~
+
+====================================================================================================
+MISTAKE 7 application code misspells a record field
+====================================================================================================
+
+--- A: data literals ---
+_err_a.zig:49:7: error: no field named 'emial' in struct 'core.RecordOf(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .relationships = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })'
+    r.emial = "x";
+      ^~~~~
+core.zig:134:12: note: struct declared here
+    return @Struct(.auto, null, &names, &types, &@splat(.{}));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- B: annotated structs ---
+_err_b.zig:55:7: error: no field named 'emial' in struct '_err_b.Author'
+    r.emial = "x";
+      ^~~~~
+_err_b.zig:4:20: note: struct declared here
+pub const Author = struct {
+                   ^~~~~~
+
+--- C: builder functions ---
+_err_c.zig:33:7: error: no field named 'emial' in struct 'core.RecordOf(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .relationships = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })'
+    r.emial = "x";
+      ^~~~~
+core.zig:134:12: note: struct declared here
+    return @Struct(.auto, null, &names, &types, &@splat(.{}));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- D: build-step generated ---
+_err_d.zig:4:7: error: no field named 'emial' in struct '_generated.Author'
+    r.emial = "x";
+      ^~~~~
+_generated.zig:3:20: note: struct declared here
+pub const Author = struct {
+                   ^~~~~~
+

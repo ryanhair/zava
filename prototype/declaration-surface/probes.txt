@@ -1,0 +1,11 @@
+--- probe_a_type_refs.zig
+error: dependency loop with length 2
+    probe_a_type_refs.zig:10:84: note: value of declaration 'probe_a_type_refs.Author' uses value of declaration 'probe_a_type_refs.Post' here
+        .relationships = &.{.{ .name = "posts", .kind = .has_many, .destination_type = Post, .key = "author_id" }},
+                                                                                       ^~~~
+    probe_a_type_refs.zig:17:87: note: value of declaration 'probe_a_type_refs.Post' uses value of declaration 'probe_a_type_refs.Author' here
+        .relationships = &.{.{ .name = "author", .kind = .belongs_to, .destination_type = Author, .key = "author_id" }},
+                                                                                          ^~~~~~
+    note: eliminate any one of these dependencies to break the loop
+--- probe_b_attr_options.zig
+email unique: true, column email_address; name unique: false

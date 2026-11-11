@@ -1,0 +1,40 @@
+== D: build-step generated ==
+  record type: generated.Author
+    create table authors (id bigint not null generated always as identity primary key, email text not null, name text not null)
+  record type: generated.Post
+    create table posts (id bigint not null generated always as identity primary key, author_id bigint not null references authors, title text not null, body text, published boolean not null)
+  input type : generated.Post.DraftInput
+  method call: Post.draft(...)  -> POST  /posts/draft {author_id, title, body}
+  relationship method type: fn (generated.Post) ?generated.Author
+.)], .attributes = &.{ ... }[0..(...)], .relationships = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })
+    belongs_to author -> author (key author_id)
+    create table posts (id bigint not null generated always as identity primary key, author_id bigint not null references authors, title text not null, body text, published boolean not null)
+    POST  /posts/draft {author_id, title, body}
+    PATCH /posts/publish {published}
+    GET   /posts/by_author {author_id}
+
+== B: annotated struct types ==
+  resource author  record type: domain_b.Author
+    has_many posts -> post (key author_id)
+    create table authors (id bigint not null generated always as identity primary key, email text not null, name text not null)
+    POST  /authors/register {email, name}
+    GET   /authors/by_email {email}
+  resource post  record type: domain_b.Post
+    belongs_to author -> author (key author_id)
+    create table posts (id bigint not null generated always as identity primary key, author_id bigint not null references authors, title text not null, body text, published boolean not null)
+    POST  /posts/draft {author_id, title, body}
+    PATCH /posts/publish {published}
+    GET   /posts/by_author {author_id}
+
+== C: builder functions ==
+  resource author  record type: core.RecordOf(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .relationships = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })
+    has_many posts -> post (key author_id)
+    create table authors (id bigint not null generated always as identity primary key, email text not null, name text not null)
+    POST  /authors/register {email, name}
+    GET   /authors/by_email {email}
+  resource post  record type: core.RecordOf(.{ .name = &.{ ... }[0..(...)], .table = &.{ ... }[0..(...)], .attributes = &.{ ... }[0..(...)], .relationships = &.{ ... }[0..(...)], .actions = &.{ ... }[0..(...)] })
+    belongs_to author -> author (key author_id)
+    create table posts (id bigint not null generated always as identity primary key, author_id bigint not null references authors, title text not null, body text, published boolean not null)
+    POST  /posts/draft {author_id, title, body}
+    PATCH /posts/publish {published}
+    GET   /posts/by_author {author_id}
