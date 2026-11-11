@@ -1,0 +1,6486 @@
+{
+ "zls_version": "0.17.0",
+ "zig_version": "0.17.0",
+ "probes": {
+  "derived.zig:literal_fields_author_register": {
+   "method": "textDocument/completion",
+   "anchor": "run(Author, .register, .{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 90,
+    "character": 47
+   },
+   "result": null
+  },
+  "derived.zig:literal_fields_post_draft": {
+   "method": "textDocument/completion",
+   "anchor": "run(Post, .draft, .{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 96,
+    "character": 40
+   },
+   "result": null
+  },
+  "derived.zig:literal_fields_typed_decl": {
+   "method": "textDocument/completion",
+   "anchor": "var in: Input(Author, .register) = .{ .\u00a7 };",
+   "edited": true,
+   "position": {
+    "line": 85,
+    "character": 43
+   },
+   "result": null
+  },
+  "derived.zig:action_name_author": {
+   "method": "textDocument/completion",
+   "anchor": "const lit = try run(Author, .\u00a7, .{});",
+   "edited": true,
+   "position": {
+    "line": 90,
+    "character": 33
+   },
+   "result": null
+  },
+  "derived.zig:action_name_author_unclosed": {
+   "method": "textDocument/completion",
+   "anchor": "const lit = try run(Author, .\u00a7",
+   "edited": true,
+   "position": {
+    "line": 90,
+    "character": 33
+   },
+   "result": null
+  },
+  "derived.zig:action_name_post": {
+   "method": "textDocument/completion",
+   "anchor": "const d = try run(Post, .\u00a7, .{});",
+   "edited": true,
+   "position": {
+    "line": 96,
+    "character": 29
+   },
+   "result": null
+  },
+  "derived.zig:action_name_in_type_expr": {
+   "method": "textDocument/completion",
+   "anchor": "var in: Input(Author, .\u00a7) = undefined;",
+   "edited": true,
+   "position": {
+    "line": 85,
+    "character": 27
+   },
+   "result": null
+  },
+  "derived.zig:hover_input_arg_at_call": {
+   "method": "textDocument/hover",
+   "anchor": "run(Author, .register, i\u00a7n);",
+   "edited": false,
+   "position": {
+    "line": 87,
+    "character": 42
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nvar in: Input(Author, .register) = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 87,
+      "character": 41
+     },
+     "end": {
+      "line": 87,
+      "character": 43
+     }
+    }
+   }
+  },
+  "derived.zig:hover_var_of_derived_type": {
+   "method": "textDocument/hover",
+   "anchor": "var i\u00a7n: Input(Author, .register)",
+   "edited": false,
+   "position": {
+    "line": 85,
+    "character": 9
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nvar in: Input(Author, .register) = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 85,
+      "character": 8
+     },
+     "end": {
+      "line": 85,
+      "character": 10
+     }
+    }
+   }
+  },
+  "derived.zig:hover_hook_param": {
+   "method": "textDocument/hover",
+   "anchor": "fn normalize(in\u00a7put: *Input(Author, .register))",
+   "edited": false,
+   "position": {
+    "line": 71,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\ninput: *Input(Author, .register)\n```\n```zig\n(*(unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 71,
+      "character": 13
+     },
+     "end": {
+      "line": 71,
+      "character": 18
+     }
+    }
+   }
+  },
+  "derived.zig:hover_run_param_input": {
+   "method": "textDocument/hover",
+   "anchor": "in\u00a7put: Input(R, action)) Error!R {\n    var r",
+   "edited": false,
+   "position": {
+    "line": 47,
+    "character": 63
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\ninput: Input(R, action)\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 47,
+      "character": 61
+     },
+     "end": {
+      "line": 47,
+      "character": 66
+     }
+    }
+   }
+  },
+  "derived.zig:hover_run_result": {
+   "method": "textDocument/hover",
+   "anchor": "const \u00a7a = try run(Author, .register, in);",
+   "edited": false,
+   "position": {
+    "line": 87,
+    "character": 10
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst a = try run(Author, .register, in)\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/derived.zig#L7)"
+    },
+    "range": {
+     "start": {
+      "line": 87,
+      "character": 10
+     },
+     "end": {
+      "line": 87,
+      "character": 11
+     }
+    }
+   }
+  },
+  "derived.zig:hover_run_callee": {
+   "method": "textDocument/hover",
+   "anchor": "const a = try r\u00a7un(Author, .register, in);",
+   "edited": false,
+   "position": {
+    "line": 87,
+    "character": 19
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nfn run(comptime R: type, comptime action: ActionName(R), input: Input(R, action)) Error!R\n```\n```zig\n(fn (comptime type, comptime (unknown type), (unknown type)) error{...}!R)\n```\n\nGo to [R](file:///WORKSPACE/derived.zig#L48)"
+    },
+    "range": {
+     "start": {
+      "line": 87,
+      "character": 18
+     },
+     "end": {
+      "line": 87,
+      "character": 21
+     }
+    }
+   }
+  },
+  "derived.zig:hover_derived_type_expr": {
+   "method": "textDocument/hover",
+   "anchor": "var in: Inp\u00a7ut(Author, .register)",
+   "edited": false,
+   "position": {
+    "line": 85,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nfn Input(comptime R: type, comptime action: ActionName(R)) type\n```\n```zig\n(fn (comptime type, comptime (unknown type)) type)\n```"
+    },
+    "range": {
+     "start": {
+      "line": 85,
+      "character": 12
+     },
+     "end": {
+      "line": 85,
+      "character": 17
+     }
+    }
+   }
+  },
+  "derived.zig:hover_action_enum_literal": {
+   "method": "textDocument/hover",
+   "anchor": "const a = try run(Author, .regi\u00a7ster, in);",
+   "edited": false,
+   "position": {
+    "line": 87,
+    "character": 35
+   },
+   "result": null
+  },
+  "derived.zig:hover_field_on_derived_var": {
+   "method": "textDocument/hover",
+   "anchor": "_ = in.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 88,
+    "character": 13
+   },
+   "result": null
+  },
+  "derived.zig:hover_post_input_var": {
+   "method": "textDocument/hover",
+   "anchor": "const post_\u00a7in: Input(Post, .publish)",
+   "edited": false,
+   "position": {
+    "line": 93,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst post_in: Input(Post, .publish) = .{ .published = true }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 93,
+      "character": 10
+     },
+     "end": {
+      "line": 93,
+      "character": 17
+     }
+    }
+   }
+  },
+  "derived.zig:hover_post_result": {
+   "method": "textDocument/hover",
+   "anchor": "const \u00a7p = try run(Post, .publish, post_in);",
+   "edited": false,
+   "position": {
+    "line": 94,
+    "character": 10
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst p = try run(Post, .publish, post_in)\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///WORKSPACE/derived.zig#L17)"
+    },
+    "range": {
+     "start": {
+      "line": 94,
+      "character": 10
+     },
+     "end": {
+      "line": 94,
+      "character": 11
+     }
+    }
+   }
+  },
+  "derived.zig:fields_on_derived_var": {
+   "method": "textDocument/completion",
+   "anchor": "_ = in.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 88,
+    "character": 11
+   },
+   "result": null
+  },
+  "derived.zig:fields_on_run_result": {
+   "method": "textDocument/completion",
+   "anchor": "_ = a.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 89,
+    "character": 10
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 89,
+         "character": 10
+        },
+        "end": {
+         "line": 89,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 89,
+         "character": 10
+        },
+        "end": {
+         "line": 89,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 89,
+         "character": 10
+        },
+        "end": {
+         "line": 89,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 89,
+         "character": 10
+        },
+        "end": {
+         "line": 89,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 89,
+         "character": 10
+        },
+        "end": {
+         "line": 89,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 89,
+         "character": 10
+        },
+        "end": {
+         "line": 89,
+         "character": 10
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "derived.zig:fields_on_post_input_var": {
+   "method": "textDocument/completion",
+   "anchor": "_ = post_in.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 95,
+    "character": 16
+   },
+   "result": null
+  },
+  "derived.zig:fields_on_post_result": {
+   "method": "textDocument/completion",
+   "anchor": "_ = p.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 95,
+    "character": 10
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "author_id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_author_id",
+      "filterText": "author_id",
+      "textEdit": {
+       "newText": "author_id",
+       "insert": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "title",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_title",
+      "filterText": "title",
+      "textEdit": {
+       "newText": "title",
+       "insert": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "body",
+      "labelDetails": {
+       "description": "?[]const u8"
+      },
+      "kind": 5,
+      "detail": "?[]const u8",
+      "sortText": "2_body",
+      "filterText": "body",
+      "textEdit": {
+       "newText": "body",
+       "insert": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "published",
+      "labelDetails": {
+       "description": "bool"
+      },
+      "kind": 5,
+      "detail": "bool",
+      "sortText": "2_published",
+      "filterText": "published",
+      "textEdit": {
+       "newText": "published",
+       "insert": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 95,
+         "character": 10
+        },
+        "end": {
+         "line": 95,
+         "character": 10
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "derived.zig:fields_on_hook_param": {
+   "method": "textDocument/completion",
+   "anchor": "input.\u00a7;\n}\n\nfn normalizeAlias",
+   "edited": true,
+   "position": {
+    "line": 72,
+    "character": 10
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "*",
+      "kind": 24,
+      "detail": "(unknown type)",
+      "sortText": "1_*",
+      "filterText": "*",
+      "textEdit": {
+       "newText": "*",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "derived.zig:def_derived_type": {
+   "method": "textDocument/definition",
+   "anchor": "var in: Inp\u00a7ut(Author, .register)",
+   "edited": false,
+   "position": {
+    "line": 85,
+    "character": 15
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 85,
+       "character": 12
+      },
+      "end": {
+       "line": 85,
+       "character": 17
+      }
+     },
+     "targetUri": "file:///WORKSPACE/derived.zig",
+     "targetRange": {
+      "start": {
+       "line": 34,
+       "character": 7
+      },
+      "end": {
+       "line": 34,
+       "character": 12
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 34,
+       "character": 7
+      },
+      "end": {
+       "line": 34,
+       "character": 12
+      }
+     }
+    }
+   ]
+  },
+  "derived.zig:typedef_derived_var": {
+   "method": "textDocument/typeDefinition",
+   "anchor": "_ = i\u00a7n.email;",
+   "edited": false,
+   "position": {
+    "line": 88,
+    "character": 9
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 88,
+       "character": 8
+      },
+      "end": {
+       "line": 88,
+       "character": 10
+      }
+     },
+     "targetUri": "file:///WORKSPACE/derived.zig",
+     "targetRange": {
+      "start": {
+       "line": 85,
+       "character": 12
+      },
+      "end": {
+       "line": 85,
+       "character": 36
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 85,
+       "character": 12
+      },
+      "end": {
+       "line": 85,
+       "character": 36
+      }
+     }
+    }
+   ]
+  },
+  "derived.zig:def_field_of_derived": {
+   "method": "textDocument/definition",
+   "anchor": "_ = in.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 88,
+    "character": 13
+   },
+   "result": null
+  },
+  "derived.zig:def_field_in_literal": {
+   "method": "textDocument/definition",
+   "anchor": "run(Author, .register, .{ .em\u00a7ail = \"x\"",
+   "edited": false,
+   "position": {
+    "line": 90,
+    "character": 49
+   },
+   "result": null
+  },
+  "derived.zig:def_action_enum_literal": {
+   "method": "textDocument/definition",
+   "anchor": "const a = try run(Author, .regi\u00a7ster, in);",
+   "edited": false,
+   "position": {
+    "line": 87,
+    "character": 35
+   },
+   "result": null
+  },
+  "derived.zig:def_field_of_run_result": {
+   "method": "textDocument/definition",
+   "anchor": "_ = a.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 89,
+    "character": 12
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 89,
+       "character": 10
+      },
+      "end": {
+       "line": 89,
+       "character": 15
+      }
+     },
+     "targetUri": "file:///WORKSPACE/derived.zig",
+     "targetRange": {
+      "start": {
+       "line": 8,
+       "character": 4
+      },
+      "end": {
+       "line": 8,
+       "character": 9
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 8,
+       "character": 4
+      },
+      "end": {
+       "line": 8,
+       "character": 9
+      }
+     }
+    }
+   ]
+  },
+  "derived.zig:sig_run_third_arg": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "const a = try run(Author, .register, \u00a7in);",
+   "edited": false,
+   "position": {
+    "line": 87,
+    "character": 41
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn run(comptime R: type, comptime action: (unknown type), input: (unknown type)) error{...}!R",
+      "parameters": [
+       {
+        "label": "comptime R: type"
+       },
+       {
+        "label": "comptime action: (unknown type)"
+       },
+       {
+        "label": "input: (unknown type)"
+       }
+      ],
+      "activeParameter": 2
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 2
+   }
+  },
+  "derived.zig:sig_run_empty": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "const a = try run(\u00a7);",
+   "edited": true,
+   "position": {
+    "line": 87,
+    "character": 22
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn run(comptime R: type, comptime action: (unknown type), input: (unknown type)) error{...}!R",
+      "parameters": [
+       {
+        "label": "comptime R: type"
+       },
+       {
+        "label": "comptime action: (unknown type)"
+       },
+       {
+        "label": "input: (unknown type)"
+       }
+      ],
+      "activeParameter": 0
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 0
+   }
+  },
+  "derived.zig:alias_hover_var": {
+   "method": "textDocument/hover",
+   "anchor": "var alia\u00a7sed: RegisterInput",
+   "edited": false,
+   "position": {
+    "line": 99,
+    "character": 12
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nvar aliased: RegisterInput = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 99,
+      "character": 8
+     },
+     "end": {
+      "line": 99,
+      "character": 15
+     }
+    }
+   }
+  },
+  "derived.zig:alias_hover_decl": {
+   "method": "textDocument/hover",
+   "anchor": "pub const Register\u00a7Input = Input(Author, .register);",
+   "edited": false,
+   "position": {
+    "line": 68,
+    "character": 18
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst RegisterInput = Input(Author, .register)\n```\n```zig\n(type)\n```\n\nVariation: a named alias for the derived type."
+    },
+    "range": {
+     "start": {
+      "line": 68,
+      "character": 10
+     },
+     "end": {
+      "line": 68,
+      "character": 23
+     }
+    }
+   }
+  },
+  "derived.zig:alias_fields_on_var": {
+   "method": "textDocument/completion",
+   "anchor": "_ = aliased.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 101,
+    "character": 16
+   },
+   "result": null
+  },
+  "derived.zig:alias_literal_fields": {
+   "method": "textDocument/completion",
+   "anchor": "var aliased: RegisterInput = .{ .\u00a7 };",
+   "edited": true,
+   "position": {
+    "line": 99,
+    "character": 37
+   },
+   "result": null
+  },
+  "derived.zig:alias_def_field": {
+   "method": "textDocument/definition",
+   "anchor": "_ = aliased.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 101,
+    "character": 18
+   },
+   "result": null
+  },
+  "derived.zig:alias_typedef_var": {
+   "method": "textDocument/typeDefinition",
+   "anchor": "_ = alia\u00a7sed.email;",
+   "edited": false,
+   "position": {
+    "line": 101,
+    "character": 12
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 101,
+       "character": 8
+      },
+      "end": {
+       "line": 101,
+       "character": 15
+      }
+     },
+     "targetUri": "file:///WORKSPACE/derived.zig",
+     "targetRange": {
+      "start": {
+       "line": 99,
+       "character": 17
+      },
+      "end": {
+       "line": 99,
+       "character": 30
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 99,
+       "character": 17
+      },
+      "end": {
+       "line": 99,
+       "character": 30
+      }
+     }
+    }
+   ]
+  },
+  "derived.zig:ns_hover_var": {
+   "method": "textDocument/hover",
+   "anchor": "const ns_\u00a7in: Api(Author).In(.register)",
+   "edited": false,
+   "position": {
+    "line": 103,
+    "character": 13
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst ns_in: Api(Author).In(.register) = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 103,
+      "character": 10
+     },
+     "end": {
+      "line": 103,
+      "character": 15
+     }
+    }
+   }
+  },
+  "derived.zig:ns_fields_on_var": {
+   "method": "textDocument/completion",
+   "anchor": "_ = ns_in.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 104,
+    "character": 14
+   },
+   "result": null
+  },
+  "derived.zig:ns_action_name": {
+   "method": "textDocument/completion",
+   "anchor": "try Api(Author).call(.\u00a7, ns_in);",
+   "edited": true,
+   "position": {
+    "line": 105,
+    "character": 39
+   },
+   "result": null
+  },
+  "derived.zig:ns_action_name_via_const": {
+   "method": "textDocument/completion",
+   "anchor": "try AuthorApi.call(.\u00a7, .{});",
+   "edited": true,
+   "position": {
+    "line": 108,
+    "character": 37
+   },
+   "result": null
+  },
+  "derived.zig:ns_literal_fields": {
+   "method": "textDocument/completion",
+   "anchor": "try AuthorApi.call(.rename, .{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 108,
+    "character": 49
+   },
+   "result": null
+  },
+  "derived.zig:ns_hover_result": {
+   "method": "textDocument/hover",
+   "anchor": "const ns_\u00a7a = try Api(Author)",
+   "edited": false,
+   "position": {
+    "line": 105,
+    "character": 13
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst ns_a = try Api(Author).call(.register, ns_in)\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/derived.zig#L7)"
+    },
+    "range": {
+     "start": {
+      "line": 105,
+      "character": 10
+     },
+     "end": {
+      "line": 105,
+      "character": 14
+     }
+    }
+   }
+  },
+  "derived.zig:ns_fields_on_result": {
+   "method": "textDocument/completion",
+   "anchor": "_ = ns_a.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 106,
+    "character": 13
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 106,
+         "character": 13
+        },
+        "end": {
+         "line": 106,
+         "character": 13
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 106,
+         "character": 13
+        },
+        "end": {
+         "line": 106,
+         "character": 13
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 106,
+         "character": 13
+        },
+        "end": {
+         "line": 106,
+         "character": 13
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 106,
+         "character": 13
+        },
+        "end": {
+         "line": 106,
+         "character": 13
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 106,
+         "character": 13
+        },
+        "end": {
+         "line": 106,
+         "character": 13
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 106,
+         "character": 13
+        },
+        "end": {
+         "line": 106,
+         "character": 13
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "derived.zig:ns_members": {
+   "method": "textDocument/completion",
+   "anchor": "const AuthorApi = Api(Author).\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 107,
+    "character": 34
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "Name",
+      "labelDetails": {
+       "description": "type"
+      },
+      "kind": 21,
+      "detail": "type",
+      "sortText": "6_Name",
+      "filterText": "Name",
+      "textEdit": {
+       "newText": "Name",
+       "insert": {
+        "start": {
+         "line": 107,
+         "character": 34
+        },
+        "end": {
+         "line": 107,
+         "character": 34
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 107,
+         "character": 34
+        },
+        "end": {
+         "line": 107,
+         "character": 34
+        }
+       }
+      }
+     },
+     {
+      "label": "In",
+      "labelDetails": {
+       "detail": "(comptime action: (unknown type))",
+       "description": "type"
+      },
+      "kind": 22,
+      "detail": "fn (comptime action: (unknown type)) type",
+      "sortText": "6_In",
+      "filterText": "In",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "In(${1:comptime action: (unknown type)})",
+       "insert": {
+        "start": {
+         "line": 107,
+         "character": 34
+        },
+        "end": {
+         "line": 107,
+         "character": 34
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 107,
+         "character": 34
+        },
+        "end": {
+         "line": 107,
+         "character": 34
+        }
+       }
+      }
+     },
+     {
+      "label": "call",
+      "labelDetails": {
+       "detail": "(comptime action: (unknown type), input: (unknown type))",
+       "description": "error{...}!R"
+      },
+      "kind": 3,
+      "detail": "fn (comptime action: (unknown type), input: (unknown type)) error{...}!R",
+      "sortText": "5_call",
+      "filterText": "call",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "call(${1:comptime action: (unknown type)}, ${2:input: (unknown type)})",
+       "insert": {
+        "start": {
+         "line": 107,
+         "character": 34
+        },
+        "end": {
+         "line": 107,
+         "character": 34
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 107,
+         "character": 34
+        },
+        "end": {
+         "line": 107,
+         "character": 34
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "derived.zig:ns_sig_call": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "try Api(Author).call(.register, \u00a7ns_in);",
+   "edited": false,
+   "position": {
+    "line": 105,
+    "character": 49
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn call(comptime action: (unknown type), input: (unknown type)) error{...}!R",
+      "parameters": [
+       {
+        "label": "comptime action: (unknown type)"
+       },
+       {
+        "label": "input: (unknown type)"
+       }
+      ],
+      "activeParameter": 1
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 1
+   }
+  },
+  "derived.zig:control_hover_param": {
+   "method": "textDocument/hover",
+   "anchor": "fn control(auth\u00a7or: Author)",
+   "edited": false,
+   "position": {
+    "line": 80,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nauthor: Author\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/derived.zig#L7)"
+    },
+    "range": {
+     "start": {
+      "line": 80,
+      "character": 11
+     },
+     "end": {
+      "line": 80,
+      "character": 17
+     }
+    }
+   }
+  },
+  "derived.zig:control_fields_on_param": {
+   "method": "textDocument/completion",
+   "anchor": "return author.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 81,
+    "character": 18
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 81,
+         "character": 18
+        },
+        "end": {
+         "line": 81,
+         "character": 18
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 81,
+         "character": 18
+        },
+        "end": {
+         "line": 81,
+         "character": 18
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 81,
+         "character": 18
+        },
+        "end": {
+         "line": 81,
+         "character": 18
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 81,
+         "character": 18
+        },
+        "end": {
+         "line": 81,
+         "character": 18
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 81,
+         "character": 18
+        },
+        "end": {
+         "line": 81,
+         "character": 18
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 81,
+         "character": 18
+        },
+        "end": {
+         "line": 81,
+         "character": 18
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "derived.zig:control_def_field": {
+   "method": "textDocument/definition",
+   "anchor": "return author.na\u00a7me;",
+   "edited": false,
+   "position": {
+    "line": 81,
+    "character": 20
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 81,
+       "character": 18
+      },
+      "end": {
+       "line": 81,
+       "character": 22
+      }
+     },
+     "targetUri": "file:///WORKSPACE/derived.zig",
+     "targetRange": {
+      "start": {
+       "line": 9,
+       "character": 4
+      },
+      "end": {
+       "line": 9,
+       "character": 8
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 9,
+       "character": 4
+      },
+      "end": {
+       "line": 9,
+       "character": 8
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:literal_fields_author_register": {
+   "method": "textDocument/completion",
+   "anchor": "Author.register(.{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 67,
+    "character": 40
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "email",
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "email = ",
+       "insert": {
+        "start": {
+         "line": 67,
+         "character": 40
+        },
+        "end": {
+         "line": 67,
+         "character": 40
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 67,
+         "character": 40
+        },
+        "end": {
+         "line": 67,
+         "character": 40
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "name = ",
+       "insert": {
+        "start": {
+         "line": 67,
+         "character": 40
+        },
+        "end": {
+         "line": 67,
+         "character": 40
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 67,
+         "character": 40
+        },
+        "end": {
+         "line": 67,
+         "character": 40
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:literal_fields_post_draft": {
+   "method": "textDocument/completion",
+   "anchor": "Post.draft(.{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 73,
+    "character": 33
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "author_id",
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_author_id",
+      "filterText": "author_id",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "author_id = ",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 33
+        },
+        "end": {
+         "line": 73,
+         "character": 33
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 33
+        },
+        "end": {
+         "line": 73,
+         "character": 33
+        }
+       }
+      }
+     },
+     {
+      "label": "title",
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_title",
+      "filterText": "title",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "title = ",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 33
+        },
+        "end": {
+         "line": 73,
+         "character": 33
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 33
+        },
+        "end": {
+         "line": 73,
+         "character": 33
+        }
+       }
+      }
+     },
+     {
+      "label": "body",
+      "kind": 5,
+      "detail": "?[]const u8",
+      "sortText": "2_body",
+      "filterText": "body",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "body = ",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 33
+        },
+        "end": {
+         "line": 73,
+         "character": 33
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 33
+        },
+        "end": {
+         "line": 73,
+         "character": 33
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:literal_fields_typed_decl": {
+   "method": "textDocument/completion",
+   "anchor": "var in: Author.RegisterInput = .{ .\u00a7 };",
+   "edited": true,
+   "position": {
+    "line": 62,
+    "character": 39
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "email",
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "email = ",
+       "insert": {
+        "start": {
+         "line": 62,
+         "character": 39
+        },
+        "end": {
+         "line": 62,
+         "character": 39
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 62,
+         "character": 39
+        },
+        "end": {
+         "line": 62,
+         "character": 39
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "name = ",
+       "insert": {
+        "start": {
+         "line": 62,
+         "character": 39
+        },
+        "end": {
+         "line": 62,
+         "character": 39
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 62,
+         "character": 39
+        },
+        "end": {
+         "line": 62,
+         "character": 39
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:action_name_author": {
+   "method": "textDocument/completion",
+   "anchor": "const lit = try Author.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 67,
+    "character": 27
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "RegisterInput",
+      "labelDetails": {
+       "description": "type"
+      },
+      "kind": 22,
+      "detail": "type",
+      "sortText": "6_RegisterInput",
+      "filterText": "RegisterInput",
+      "textEdit": {
+       "newText": "RegisterInput",
+       "insert": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       }
+      }
+     },
+     {
+      "label": "register",
+      "labelDetails": {
+       "detail": "(input: RegisterInput)",
+       "description": "error{...}!Author"
+      },
+      "kind": 3,
+      "detail": "fn (input: RegisterInput) error{...}!Author",
+      "sortText": "5_register",
+      "filterText": "register",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "register(${1:input: RegisterInput})",
+       "insert": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       }
+      }
+     },
+     {
+      "label": "RenameInput",
+      "labelDetails": {
+       "description": "type"
+      },
+      "kind": 22,
+      "detail": "type",
+      "sortText": "6_RenameInput",
+      "filterText": "RenameInput",
+      "textEdit": {
+       "newText": "RenameInput",
+       "insert": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       }
+      }
+     },
+     {
+      "label": "rename",
+      "labelDetails": {
+       "detail": "(input: RenameInput)",
+       "description": "error{...}!Author"
+      },
+      "kind": 3,
+      "detail": "fn (input: RenameInput) error{...}!Author",
+      "sortText": "5_rename",
+      "filterText": "rename",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "rename(${1:input: RenameInput})",
+       "insert": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 67,
+         "character": 27
+        },
+        "end": {
+         "line": 67,
+         "character": 27
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:action_name_post": {
+   "method": "textDocument/completion",
+   "anchor": "const d = try Post.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 73,
+    "character": 23
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "DraftInput",
+      "labelDetails": {
+       "description": "type"
+      },
+      "kind": 22,
+      "detail": "type",
+      "sortText": "6_DraftInput",
+      "filterText": "DraftInput",
+      "textEdit": {
+       "newText": "DraftInput",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       }
+      }
+     },
+     {
+      "label": "draft",
+      "labelDetails": {
+       "detail": "(input: DraftInput)",
+       "description": "error{...}!Post"
+      },
+      "kind": 3,
+      "detail": "fn (input: DraftInput) error{...}!Post",
+      "sortText": "5_draft",
+      "filterText": "draft",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "draft(${1:input: DraftInput})",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       }
+      }
+     },
+     {
+      "label": "PublishInput",
+      "labelDetails": {
+       "description": "type"
+      },
+      "kind": 22,
+      "detail": "type",
+      "sortText": "6_PublishInput",
+      "filterText": "PublishInput",
+      "textEdit": {
+       "newText": "PublishInput",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       }
+      }
+     },
+     {
+      "label": "publish",
+      "labelDetails": {
+       "detail": "(input: PublishInput)",
+       "description": "error{...}!Post"
+      },
+      "kind": 3,
+      "detail": "fn (input: PublishInput) error{...}!Post",
+      "sortText": "5_publish",
+      "filterText": "publish",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "publish(${1:input: PublishInput})",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 23
+        },
+        "end": {
+         "line": 73,
+         "character": 23
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:hover_input_arg_at_call": {
+   "method": "textDocument/hover",
+   "anchor": "Author.register(i\u00a7n);",
+   "edited": false,
+   "position": {
+    "line": 64,
+    "character": 35
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nvar in: Author.RegisterInput = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12)"
+    },
+    "range": {
+     "start": {
+      "line": 64,
+      "character": 34
+     },
+     "end": {
+      "line": 64,
+      "character": 36
+     }
+    }
+   }
+  },
+  "generated.zig:hover_var_of_derived_type": {
+   "method": "textDocument/hover",
+   "anchor": "var i\u00a7n: Author.RegisterInput",
+   "edited": false,
+   "position": {
+    "line": 62,
+    "character": 9
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nvar in: Author.RegisterInput = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12)"
+    },
+    "range": {
+     "start": {
+      "line": 62,
+      "character": 8
+     },
+     "end": {
+      "line": 62,
+      "character": 10
+     }
+    }
+   }
+  },
+  "generated.zig:hover_hook_param": {
+   "method": "textDocument/hover",
+   "anchor": "fn normalize(in\u00a7put: *Author.RegisterInput)",
+   "edited": false,
+   "position": {
+    "line": 52,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\ninput: *Author.RegisterInput\n```\n```zig\n(*RegisterInput)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12)"
+    },
+    "range": {
+     "start": {
+      "line": 52,
+      "character": 13
+     },
+     "end": {
+      "line": 52,
+      "character": 18
+     }
+    }
+   }
+  },
+  "generated.zig:hover_run_result": {
+   "method": "textDocument/hover",
+   "anchor": "const \u00a7a = try Author.register(in);",
+   "edited": false,
+   "position": {
+    "line": 64,
+    "character": 10
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst a = try Author.register(in)\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/generated.zig#L7)"
+    },
+    "range": {
+     "start": {
+      "line": 64,
+      "character": 10
+     },
+     "end": {
+      "line": 64,
+      "character": 11
+     }
+    }
+   }
+  },
+  "generated.zig:hover_run_callee": {
+   "method": "textDocument/hover",
+   "anchor": "const a = try Author.regi\u00a7ster(in);",
+   "edited": false,
+   "position": {
+    "line": 64,
+    "character": 29
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nfn register(input: RegisterInput) Error!Author\n```\n```zig\n(fn (RegisterInput) error{...}!Author)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12) | [Author](file:///WORKSPACE/generated.zig#L7)"
+    },
+    "range": {
+     "start": {
+      "line": 64,
+      "character": 25
+     },
+     "end": {
+      "line": 64,
+      "character": 33
+     }
+    }
+   }
+  },
+  "generated.zig:hover_derived_type_expr": {
+   "method": "textDocument/hover",
+   "anchor": "var in: Author.Register\u00a7Input",
+   "edited": false,
+   "position": {
+    "line": 62,
+    "character": 27
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```"
+    },
+    "range": {
+     "start": {
+      "line": 62,
+      "character": 19
+     },
+     "end": {
+      "line": 62,
+      "character": 32
+     }
+    }
+   }
+  },
+  "generated.zig:hover_field_on_derived_var": {
+   "method": "textDocument/hover",
+   "anchor": "_ = in.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 65,
+    "character": 13
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+    },
+    "range": {
+     "start": {
+      "line": 65,
+      "character": 11
+     },
+     "end": {
+      "line": 65,
+      "character": 16
+     }
+    }
+   }
+  },
+  "generated.zig:hover_post_input_var": {
+   "method": "textDocument/hover",
+   "anchor": "const post_\u00a7in: Post.PublishInput",
+   "edited": false,
+   "position": {
+    "line": 70,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst post_in: Post.PublishInput = .{ .published = true }\n```\n```zig\n(PublishInput)\n```\n\nGo to [PublishInput](file:///WORKSPACE/generated.zig#L44)"
+    },
+    "range": {
+     "start": {
+      "line": 70,
+      "character": 10
+     },
+     "end": {
+      "line": 70,
+      "character": 17
+     }
+    }
+   }
+  },
+  "generated.zig:hover_post_result": {
+   "method": "textDocument/hover",
+   "anchor": "const \u00a7p = try Post.publish(post_in);",
+   "edited": false,
+   "position": {
+    "line": 71,
+    "character": 10
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst p = try Post.publish(post_in)\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///WORKSPACE/generated.zig#L28)"
+    },
+    "range": {
+     "start": {
+      "line": 71,
+      "character": 10
+     },
+     "end": {
+      "line": 71,
+      "character": 11
+     }
+    }
+   }
+  },
+  "generated.zig:fields_on_derived_var": {
+   "method": "textDocument/completion",
+   "anchor": "_ = in.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 65,
+    "character": 11
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 65,
+         "character": 11
+        },
+        "end": {
+         "line": 65,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 65,
+         "character": 11
+        },
+        "end": {
+         "line": 65,
+         "character": 11
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 65,
+         "character": 11
+        },
+        "end": {
+         "line": 65,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 65,
+         "character": 11
+        },
+        "end": {
+         "line": 65,
+         "character": 11
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:fields_on_run_result": {
+   "method": "textDocument/completion",
+   "anchor": "_ = a.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 66,
+    "character": 10
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 66,
+         "character": 10
+        },
+        "end": {
+         "line": 66,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 66,
+         "character": 10
+        },
+        "end": {
+         "line": 66,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 66,
+         "character": 10
+        },
+        "end": {
+         "line": 66,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 66,
+         "character": 10
+        },
+        "end": {
+         "line": 66,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 66,
+         "character": 10
+        },
+        "end": {
+         "line": 66,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 66,
+         "character": 10
+        },
+        "end": {
+         "line": 66,
+         "character": 10
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:fields_on_post_input_var": {
+   "method": "textDocument/completion",
+   "anchor": "_ = post_in.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 72,
+    "character": 16
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "published",
+      "labelDetails": {
+       "description": "bool"
+      },
+      "kind": 5,
+      "detail": "bool",
+      "sortText": "2_published",
+      "filterText": "published",
+      "textEdit": {
+       "newText": "published",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 16
+        },
+        "end": {
+         "line": 72,
+         "character": 16
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 16
+        },
+        "end": {
+         "line": 72,
+         "character": 16
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:fields_on_post_result": {
+   "method": "textDocument/completion",
+   "anchor": "_ = p.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 72,
+    "character": 10
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "author_id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_author_id",
+      "filterText": "author_id",
+      "textEdit": {
+       "newText": "author_id",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "title",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_title",
+      "filterText": "title",
+      "textEdit": {
+       "newText": "title",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "body",
+      "labelDetails": {
+       "description": "?[]const u8"
+      },
+      "kind": 5,
+      "detail": "?[]const u8",
+      "sortText": "2_body",
+      "filterText": "body",
+      "textEdit": {
+       "newText": "body",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "published",
+      "labelDetails": {
+       "description": "bool"
+      },
+      "kind": 5,
+      "detail": "bool",
+      "sortText": "2_published",
+      "filterText": "published",
+      "textEdit": {
+       "newText": "published",
+       "insert": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 72,
+         "character": 10
+        },
+        "end": {
+         "line": 72,
+         "character": 10
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:fields_on_hook_param": {
+   "method": "textDocument/completion",
+   "anchor": "input.\u00a7;\n}\n\n// Control",
+   "edited": true,
+   "position": {
+    "line": 53,
+    "character": 10
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "*",
+      "kind": 24,
+      "detail": "RegisterInput",
+      "sortText": "1_*",
+      "filterText": "*",
+      "textEdit": {
+       "newText": "*",
+       "insert": {
+        "start": {
+         "line": 53,
+         "character": 10
+        },
+        "end": {
+         "line": 53,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 53,
+         "character": 10
+        },
+        "end": {
+         "line": 53,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 53,
+         "character": 10
+        },
+        "end": {
+         "line": 53,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 53,
+         "character": 10
+        },
+        "end": {
+         "line": 53,
+         "character": 10
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 53,
+         "character": 10
+        },
+        "end": {
+         "line": 53,
+         "character": 10
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 53,
+         "character": 10
+        },
+        "end": {
+         "line": 53,
+         "character": 10
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:def_derived_type": {
+   "method": "textDocument/definition",
+   "anchor": "var in: Author.Register\u00a7Input",
+   "edited": false,
+   "position": {
+    "line": 62,
+    "character": 27
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 62,
+       "character": 19
+      },
+      "end": {
+       "line": 62,
+       "character": 32
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 11,
+       "character": 30
+      },
+      "end": {
+       "line": 11,
+       "character": 36
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 11,
+       "character": 30
+      },
+      "end": {
+       "line": 11,
+       "character": 36
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:typedef_derived_var": {
+   "method": "textDocument/typeDefinition",
+   "anchor": "_ = i\u00a7n.email;",
+   "edited": false,
+   "position": {
+    "line": 65,
+    "character": 9
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 65,
+       "character": 8
+      },
+      "end": {
+       "line": 65,
+       "character": 10
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 11,
+       "character": 30
+      },
+      "end": {
+       "line": 11,
+       "character": 36
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 11,
+       "character": 30
+      },
+      "end": {
+       "line": 11,
+       "character": 36
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:def_field_of_derived": {
+   "method": "textDocument/definition",
+   "anchor": "_ = in.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 65,
+    "character": 13
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 65,
+       "character": 11
+      },
+      "end": {
+       "line": 65,
+       "character": 16
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 12,
+       "character": 8
+      },
+      "end": {
+       "line": 12,
+       "character": 13
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 12,
+       "character": 8
+      },
+      "end": {
+       "line": 12,
+       "character": 13
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:def_field_in_literal": {
+   "method": "textDocument/definition",
+   "anchor": "Author.register(.{ .em\u00a7ail = \"x\"",
+   "edited": false,
+   "position": {
+    "line": 67,
+    "character": 42
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 67,
+       "character": 40
+      },
+      "end": {
+       "line": 67,
+       "character": 45
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 12,
+       "character": 8
+      },
+      "end": {
+       "line": 12,
+       "character": 13
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 12,
+       "character": 8
+      },
+      "end": {
+       "line": 12,
+       "character": 13
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:def_action_enum_literal": {
+   "method": "textDocument/definition",
+   "anchor": "const a = try Author.regi\u00a7ster(in);",
+   "edited": false,
+   "position": {
+    "line": 64,
+    "character": 29
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 64,
+       "character": 25
+      },
+      "end": {
+       "line": 64,
+       "character": 33
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 15,
+       "character": 11
+      },
+      "end": {
+       "line": 15,
+       "character": 19
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 15,
+       "character": 11
+      },
+      "end": {
+       "line": 15,
+       "character": 19
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:def_field_of_run_result": {
+   "method": "textDocument/definition",
+   "anchor": "_ = a.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 66,
+    "character": 12
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 66,
+       "character": 10
+      },
+      "end": {
+       "line": 66,
+       "character": 15
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 8,
+       "character": 4
+      },
+      "end": {
+       "line": 8,
+       "character": 9
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 8,
+       "character": 4
+      },
+      "end": {
+       "line": 8,
+       "character": 9
+      }
+     }
+    }
+   ]
+  },
+  "generated.zig:sig_run_third_arg": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "const a = try Author.register(\u00a7in);",
+   "edited": false,
+   "position": {
+    "line": 64,
+    "character": 34
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn register(input: RegisterInput) error{...}!Author",
+      "parameters": [
+       {
+        "label": "input: RegisterInput"
+       }
+      ],
+      "activeParameter": 0
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 0
+   }
+  },
+  "generated.zig:sig_run_empty": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "const a = try Author.register(\u00a7);",
+   "edited": true,
+   "position": {
+    "line": 64,
+    "character": 34
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn register(input: RegisterInput) error{...}!Author",
+      "parameters": [
+       {
+        "label": "input: RegisterInput"
+       }
+      ],
+      "activeParameter": 0
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 0
+   }
+  },
+  "generated.zig:control_hover_param": {
+   "method": "textDocument/hover",
+   "anchor": "fn control(auth\u00a7or: Author)",
+   "edited": false,
+   "position": {
+    "line": 57,
+    "character": 15
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nauthor: Author\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/generated.zig#L7)"
+    },
+    "range": {
+     "start": {
+      "line": 57,
+      "character": 11
+     },
+     "end": {
+      "line": 57,
+      "character": 17
+     }
+    }
+   }
+  },
+  "generated.zig:control_fields_on_param": {
+   "method": "textDocument/completion",
+   "anchor": "return author.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 58,
+    "character": 18
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 58,
+         "character": 18
+        },
+        "end": {
+         "line": 58,
+         "character": 18
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 58,
+         "character": 18
+        },
+        "end": {
+         "line": 58,
+         "character": 18
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 58,
+         "character": 18
+        },
+        "end": {
+         "line": 58,
+         "character": 18
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 58,
+         "character": 18
+        },
+        "end": {
+         "line": 58,
+         "character": 18
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 58,
+         "character": 18
+        },
+        "end": {
+         "line": 58,
+         "character": 18
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 58,
+         "character": 18
+        },
+        "end": {
+         "line": 58,
+         "character": 18
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "generated.zig:control_def_field": {
+   "method": "textDocument/definition",
+   "anchor": "return author.na\u00a7me;",
+   "edited": false,
+   "position": {
+    "line": 58,
+    "character": 20
+   },
+   "result": [
+    {
+     "originSelectionRange": {
+      "start": {
+       "line": 58,
+       "character": 18
+      },
+      "end": {
+       "line": 58,
+       "character": 22
+      }
+     },
+     "targetUri": "file:///WORKSPACE/generated.zig",
+     "targetRange": {
+      "start": {
+       "line": 9,
+       "character": 4
+      },
+      "end": {
+       "line": 9,
+       "character": 8
+      }
+     },
+     "targetSelectionRange": {
+      "start": {
+       "line": 9,
+       "character": 4
+      },
+      "end": {
+       "line": 9,
+       "character": 8
+      }
+     }
+    }
+   ]
+  },
+  "variations.zig:v1_struct_literal_hover": {
+   "method": "textDocument/hover",
+   "anchor": "const v\u00a71: V1",
+   "edited": false,
+   "position": {
+    "line": 68,
+    "character": 11
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst v1: V1 = .{ .email = \"e\", .name = \"n\" }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 68,
+      "character": 10
+     },
+     "end": {
+      "line": 68,
+      "character": 12
+     }
+    }
+   }
+  },
+  "variations.zig:v1_struct_literal_fields": {
+   "method": "textDocument/completion",
+   "anchor": "_ = v1.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 69,
+    "character": 11
+   },
+   "result": null
+  },
+  "variations.zig:v1_struct_literal_init": {
+   "method": "textDocument/completion",
+   "anchor": "const v1: V1 = .{ .\u00a7 };",
+   "edited": true,
+   "position": {
+    "line": 68,
+    "character": 23
+   },
+   "result": null
+  },
+  "variations.zig:v2_enum_literal_hover": {
+   "method": "textDocument/hover",
+   "anchor": "const v\u00a72: V2",
+   "edited": false,
+   "position": {
+    "line": 70,
+    "character": 11
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst v2: V2 = .register\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 70,
+      "character": 10
+     },
+     "end": {
+      "line": 70,
+      "character": 12
+     }
+    }
+   }
+  },
+  "variations.zig:v2_enum_literal_members": {
+   "method": "textDocument/completion",
+   "anchor": "const v2: V2 = .\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 70,
+    "character": 20
+   },
+   "result": null
+  },
+  "variations.zig:v3_generic_struct_hover": {
+   "method": "textDocument/hover",
+   "anchor": "const v\u00a73: V3(Author)",
+   "edited": false,
+   "position": {
+    "line": 72,
+    "character": 11
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst v3: V3(Author) = .{ .email = \"e\", .record = undefined }\n```\n```zig\n(V3(Author))\n```\n\nGo to [V3](file:///WORKSPACE/variations.zig#L25) | [Author](file:///WORKSPACE/variations.zig#L6)"
+    },
+    "range": {
+     "start": {
+      "line": 72,
+      "character": 10
+     },
+     "end": {
+      "line": 72,
+      "character": 12
+     }
+    }
+   }
+  },
+  "variations.zig:v3_generic_struct_fields": {
+   "method": "textDocument/completion",
+   "anchor": "_ = v3.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 73,
+    "character": 11
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "email",
+      "labelDetails": {},
+      "kind": 5,
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 11
+        },
+        "end": {
+         "line": 73,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 11
+        },
+        "end": {
+         "line": 73,
+         "character": 11
+        }
+       }
+      }
+     },
+     {
+      "label": "record",
+      "labelDetails": {
+       "description": "Author"
+      },
+      "kind": 5,
+      "detail": "Author",
+      "sortText": "2_record",
+      "filterText": "record",
+      "textEdit": {
+       "newText": "record",
+       "insert": {
+        "start": {
+         "line": 73,
+         "character": 11
+        },
+        "end": {
+         "line": 73,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 73,
+         "character": 11
+        },
+        "end": {
+         "line": 73,
+         "character": 11
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "variations.zig:v3_generic_struct_init": {
+   "method": "textDocument/completion",
+   "anchor": "const v3: V3(Author) = .{ .\u00a7 };",
+   "edited": true,
+   "position": {
+    "line": 72,
+    "character": 31
+   },
+   "result": null
+  },
+  "variations.zig:v3_generic_struct_field_hover": {
+   "method": "textDocument/hover",
+   "anchor": "_ = v3.em\u00a7ail;",
+   "edited": false,
+   "position": {
+    "line": 73,
+    "character": 13
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nemail: @FieldType(R, \"email\")\n```\n```zig\n(unknown)\n```"
+    },
+    "range": {
+     "start": {
+      "line": 73,
+      "character": 11
+     },
+     "end": {
+      "line": 73,
+      "character": 16
+     }
+    }
+   }
+  },
+  "variations.zig:v4_selected_enum_arg": {
+   "method": "textDocument/completion",
+   "anchor": "v4(Author, .\u00a7);",
+   "edited": true,
+   "position": {
+    "line": 74,
+    "character": 16
+   },
+   "result": null
+  },
+  "variations.zig:v4_sig": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "v4(Author, \u00a7.register);",
+   "edited": false,
+   "position": {
+    "line": 74,
+    "character": 15
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn v4(comptime R: type, action: (unknown type)) void",
+      "parameters": [
+       {
+        "label": "comptime R: type"
+       },
+       {
+        "label": "action: (unknown type)"
+       }
+      ],
+      "activeParameter": 1
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 1
+   }
+  },
+  "variations.zig:v4b_selected_enum_var_hover": {
+   "method": "textDocument/hover",
+   "anchor": "const v4\u00a7b: V4Name(Author)",
+   "edited": false,
+   "position": {
+    "line": 75,
+    "character": 12
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst v4b: V4Name(Author) = .register\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 75,
+      "character": 10
+     },
+     "end": {
+      "line": 75,
+      "character": 13
+     }
+    }
+   }
+  },
+  "variations.zig:v4b_selected_enum_var_members": {
+   "method": "textDocument/completion",
+   "anchor": "const v4b: V4Name(Author) = .\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 75,
+    "character": 33
+   },
+   "result": null
+  },
+  "variations.zig:v5_switch_hover": {
+   "method": "textDocument/hover",
+   "anchor": "const v5_\u00a7in: V5(Author, .register)",
+   "edited": false,
+   "position": {
+    "line": 77,
+    "character": 13
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst v5_in: V5(Author, .register) = .{ .email = \"e\", .name = \"n\" }\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 77,
+      "character": 10
+     },
+     "end": {
+      "line": 77,
+      "character": 15
+     }
+    }
+   }
+  },
+  "variations.zig:v5_switch_fields": {
+   "method": "textDocument/completion",
+   "anchor": "_ = v5_in.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 78,
+    "character": 14
+   },
+   "result": null
+  },
+  "variations.zig:v5_switch_action_arg": {
+   "method": "textDocument/completion",
+   "anchor": "v5(Author, .\u00a7, .{});",
+   "edited": true,
+   "position": {
+    "line": 79,
+    "character": 16
+   },
+   "result": null
+  },
+  "variations.zig:v5_switch_literal_fields": {
+   "method": "textDocument/completion",
+   "anchor": "v5(Author, .register, .{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 79,
+    "character": 30
+   },
+   "result": null
+  },
+  "variations.zig:v6_ns_fn_members": {
+   "method": "textDocument/completion",
+   "anchor": "const v6 = V6(Author).\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 80,
+    "character": 26
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "register",
+      "labelDetails": {
+       "detail": "(input: (unknown type))",
+       "description": "R"
+      },
+      "kind": 3,
+      "detail": "fn (input: (unknown type)) R",
+      "sortText": "5_register",
+      "filterText": "register",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "register(${1:input: (unknown type)})",
+       "insert": {
+        "start": {
+         "line": 80,
+         "character": 26
+        },
+        "end": {
+         "line": 80,
+         "character": 26
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 80,
+         "character": 26
+        },
+        "end": {
+         "line": 80,
+         "character": 26
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "variations.zig:v6_ns_fn_literal_fields": {
+   "method": "textDocument/completion",
+   "anchor": "const v6 = V6(Author).register(.{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 80,
+    "character": 39
+   },
+   "result": null
+  },
+  "variations.zig:v6_ns_fn_sig": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "const v6 = V6(Author).register(\u00a7.{ .email",
+   "edited": false,
+   "position": {
+    "line": 80,
+    "character": 35
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn register(input: (unknown type)) R",
+      "parameters": [
+       {
+        "label": "input: (unknown type)"
+       }
+      ],
+      "activeParameter": 0
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 0
+   }
+  },
+  "variations.zig:v6_ns_fn_result_fields": {
+   "method": "textDocument/completion",
+   "anchor": "_ = v6.\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 81,
+    "character": 11
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "id",
+      "labelDetails": {
+       "description": "i64"
+      },
+      "kind": 5,
+      "detail": "i64",
+      "sortText": "2_id",
+      "filterText": "id",
+      "textEdit": {
+       "newText": "id",
+       "insert": {
+        "start": {
+         "line": 81,
+         "character": 11
+        },
+        "end": {
+         "line": 81,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 81,
+         "character": 11
+        },
+        "end": {
+         "line": 81,
+         "character": 11
+        }
+       }
+      }
+     },
+     {
+      "label": "email",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_email",
+      "filterText": "email",
+      "textEdit": {
+       "newText": "email",
+       "insert": {
+        "start": {
+         "line": 81,
+         "character": 11
+        },
+        "end": {
+         "line": 81,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 81,
+         "character": 11
+        },
+        "end": {
+         "line": 81,
+         "character": 11
+        }
+       }
+      }
+     },
+     {
+      "label": "name",
+      "labelDetails": {
+       "description": "[]const u8"
+      },
+      "kind": 5,
+      "detail": "[]const u8",
+      "sortText": "2_name",
+      "filterText": "name",
+      "textEdit": {
+       "newText": "name",
+       "insert": {
+        "start": {
+         "line": 81,
+         "character": 11
+        },
+        "end": {
+         "line": 81,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 81,
+         "character": 11
+        },
+        "end": {
+         "line": 81,
+         "character": 11
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "variations.zig:v6_alias_literal_fields": {
+   "method": "textDocument/completion",
+   "anchor": "const v6b = AuthorV6.register(.{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 83,
+    "character": 38
+   },
+   "result": null
+  },
+  "variations.zig:v8_generic_struct_param_literal": {
+   "method": "textDocument/completion",
+   "anchor": "v8(.{ .\u00a7 });",
+   "edited": true,
+   "position": {
+    "line": 85,
+    "character": 11
+   },
+   "result": {
+    "isIncomplete": false,
+    "items": [
+     {
+      "label": "email",
+      "kind": 5,
+      "detail": "@FieldType(R, \"email\")",
+      "sortText": "2_email",
+      "filterText": "email",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "email = ",
+       "insert": {
+        "start": {
+         "line": 85,
+         "character": 11
+        },
+        "end": {
+         "line": 85,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 85,
+         "character": 11
+        },
+        "end": {
+         "line": 85,
+         "character": 11
+        }
+       }
+      }
+     },
+     {
+      "label": "record",
+      "kind": 5,
+      "detail": "Author",
+      "sortText": "2_record",
+      "filterText": "record",
+      "insertTextFormat": 2,
+      "textEdit": {
+       "newText": "record = ",
+       "insert": {
+        "start": {
+         "line": 85,
+         "character": 11
+        },
+        "end": {
+         "line": 85,
+         "character": 11
+        }
+       },
+       "replace": {
+        "start": {
+         "line": 85,
+         "character": 11
+        },
+        "end": {
+         "line": 85,
+         "character": 11
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "variations.zig:v8_sig": {
+   "method": "textDocument/signatureHelp",
+   "anchor": "v8(\u00a7.{ .email",
+   "edited": false,
+   "position": {
+    "line": 85,
+    "character": 7
+   },
+   "result": {
+    "signatures": [
+     {
+      "label": "fn v8(input: V3(Author)) void",
+      "parameters": [
+       {
+        "label": "input: V3(Author)"
+       }
+      ],
+      "activeParameter": 0
+     }
+    ],
+    "activeSignature": 0,
+    "activeParameter": 0
+   }
+  },
+  "variations.zig:v7_fieldenum_hover": {
+   "method": "textDocument/hover",
+   "anchor": "const v\u00a77: V7",
+   "edited": false,
+   "position": {
+    "line": 86,
+    "character": 11
+   },
+   "result": {
+    "contents": {
+     "kind": "markdown",
+     "value": "```zig\nconst v7: V7 = .email\n```\n```zig\n((unknown type))\n```"
+    },
+    "range": {
+     "start": {
+      "line": 86,
+      "character": 10
+     },
+     "end": {
+      "line": 86,
+      "character": 12
+     }
+    }
+   }
+  },
+  "variations.zig:v7_fieldenum_members": {
+   "method": "textDocument/completion",
+   "anchor": "const v7: V7 = .\u00a7;",
+   "edited": true,
+   "position": {
+    "line": 86,
+    "character": 20
+   },
+   "result": null
+  }
+ },
+ "diagnostics": {
+  "no_build_on_save:derived.zig": [],
+  "no_build_on_save:generated.zig": [],
+  "no_build_on_save:derived_bad.zig": [],
+  "no_build_on_save:generated_bad.zig": [],
+  "enable_build_on_save=null (default):derived.zig": null,
+  "enable_build_on_save=null (default):generated.zig": null,
+  "enable_build_on_save=null (default):derived_bad.zig": [
+   {
+    "range": {
+     "start": {
+      "line": 6,
+      "character": 45
+     },
+     "end": {
+      "line": 6,
+      "character": 50
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "no field named 'emial' in struct 'derived.Input(derived.Author,.register)'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/derived.zig",
+       "range": {
+        "start": {
+         "line": 42,
+         "character": 11
+        },
+        "end": {
+         "line": 42,
+         "character": 61
+        }
+       }
+      },
+      "message": "struct declared here"
+     }
+    ]
+   },
+   {
+    "range": {
+     "start": {
+      "line": 11,
+      "character": 30
+     },
+     "end": {
+      "line": 11,
+      "character": 38
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "enum 'derived.ActionName(derived.Author)' has no member named 'regster'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/derived.zig",
+       "range": {
+        "start": {
+         "line": 31,
+         "character": 11
+        },
+        "end": {
+         "line": 31,
+         "character": 76
+        }
+       }
+      },
+      "message": "enum declared here"
+     }
+    ]
+   }
+  ],
+  "enable_build_on_save=null (default):generated_bad.zig": [
+   {
+    "range": {
+     "start": {
+      "line": 6,
+      "character": 36
+     },
+     "end": {
+      "line": 6,
+      "character": 41
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "no field named 'emial' in struct 'generated.Author.RegisterInput'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/generated.zig",
+       "range": {
+        "start": {
+         "line": 11,
+         "character": 30
+        },
+        "end": {
+         "line": 11,
+         "character": 36
+        }
+       }
+      },
+      "message": "struct declared here"
+     }
+    ]
+   },
+   {
+    "range": {
+     "start": {
+      "line": 11,
+      "character": 14
+     },
+     "end": {
+      "line": 11,
+      "character": 30
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "struct 'generated.Author' has no member named 'regster'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/generated.zig",
+       "range": {
+        "start": {
+         "line": 6,
+         "character": 19
+        },
+        "end": {
+         "line": 6,
+         "character": 25
+        }
+       }
+      },
+      "message": "struct declared here"
+     }
+    ]
+   }
+  ],
+  "enable_build_on_save=null (default):log": [
+   {
+    "t": 0.0,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Starting ZLS      0.17.0 @ '~/.local/share/mise/installs/zls/0.17.0/zls'"
+    }
+   },
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Log File:         ~/Library/Caches/zls/zls.log (info)"
+    }
+   },
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 5,
+     "message": "Offset Encoding:  'utf-16'"
+    }
+   },
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "added Workspace Folder: file:///WORKSPACE (6 files)"
+    }
+   },
+   {
+    "t": 0.13,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'builtin_path' to \"~/Library/Caches/zls/builtin.zig\""
+    }
+   },
+   {
+    "t": 0.13,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'zig_lib_path' to \"~/.local/share/mise/installs/zig/0.17.0/lib\""
+    }
+   },
+   {
+    "t": 0.13,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'zig_exe_path' to \"~/.local/share/mise/installs/zig/0.17.0/zig\""
+    }
+   },
+   {
+    "t": 0.13,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'global_cache_path' to \"~/Library/Caches/zls\""
+    }
+   },
+   {
+    "t": 0.48,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Build-On-Save is running for \"/WORKSPACE/\""
+    }
+   }
+  ],
+  "enable_build_on_save=true:derived.zig": null,
+  "enable_build_on_save=true:generated.zig": null,
+  "enable_build_on_save=true:derived_bad.zig": [
+   {
+    "range": {
+     "start": {
+      "line": 6,
+      "character": 45
+     },
+     "end": {
+      "line": 6,
+      "character": 50
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "no field named 'emial' in struct 'derived.Input(derived.Author,.register)'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/derived.zig",
+       "range": {
+        "start": {
+         "line": 42,
+         "character": 11
+        },
+        "end": {
+         "line": 42,
+         "character": 61
+        }
+       }
+      },
+      "message": "struct declared here"
+     }
+    ]
+   },
+   {
+    "range": {
+     "start": {
+      "line": 11,
+      "character": 30
+     },
+     "end": {
+      "line": 11,
+      "character": 38
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "enum 'derived.ActionName(derived.Author)' has no member named 'regster'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/derived.zig",
+       "range": {
+        "start": {
+         "line": 31,
+         "character": 11
+        },
+        "end": {
+         "line": 31,
+         "character": 76
+        }
+       }
+      },
+      "message": "enum declared here"
+     }
+    ]
+   }
+  ],
+  "enable_build_on_save=true:generated_bad.zig": [
+   {
+    "range": {
+     "start": {
+      "line": 6,
+      "character": 36
+     },
+     "end": {
+      "line": 6,
+      "character": 41
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "no field named 'emial' in struct 'generated.Author.RegisterInput'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/generated.zig",
+       "range": {
+        "start": {
+         "line": 11,
+         "character": 30
+        },
+        "end": {
+         "line": 11,
+         "character": 36
+        }
+       }
+      },
+      "message": "struct declared here"
+     }
+    ]
+   },
+   {
+    "range": {
+     "start": {
+      "line": 11,
+      "character": 14
+     },
+     "end": {
+      "line": 11,
+      "character": 30
+     }
+    },
+    "severity": 1,
+    "source": "zls",
+    "message": "struct 'generated.Author' has no member named 'regster'",
+    "relatedInformation": [
+     {
+      "location": {
+       "uri": "file:///WORKSPACE/generated.zig",
+       "range": {
+        "start": {
+         "line": 6,
+         "character": 19
+        },
+        "end": {
+         "line": 6,
+         "character": 25
+        }
+       }
+      },
+      "message": "struct declared here"
+     }
+    ]
+   }
+  ],
+  "enable_build_on_save=true:log": [
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Starting ZLS      0.17.0 @ '~/.local/share/mise/installs/zls/0.17.0/zls'"
+    }
+   },
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Log File:         ~/Library/Caches/zls/zls.log (info)"
+    }
+   },
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 5,
+     "message": "Offset Encoding:  'utf-16'"
+    }
+   },
+   {
+    "t": 0.01,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "added Workspace Folder: file:///WORKSPACE (6 files)"
+    }
+   },
+   {
+    "t": 0.14,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'enable_build_on_save' to true"
+    }
+   },
+   {
+    "t": 0.14,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'builtin_path' to \"~/Library/Caches/zls/builtin.zig\""
+    }
+   },
+   {
+    "t": 0.14,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'zig_lib_path' to \"~/.local/share/mise/installs/zig/0.17.0/lib\""
+    }
+   },
+   {
+    "t": 0.14,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'zig_exe_path' to \"~/.local/share/mise/installs/zig/0.17.0/zig\""
+    }
+   },
+   {
+    "t": 0.14,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Set config option 'global_cache_path' to \"~/Library/Caches/zls\""
+    }
+   },
+   {
+    "t": 0.23,
+    "jsonrpc": "2.0",
+    "method": "window/logMessage",
+    "params": {
+     "type": 3,
+     "message": "Build-On-Save is running for \"/WORKSPACE/\""
+    }
+   }
+  ]
+ },
+ "inlay_hints": {
+  "derived.zig": [
+   {
+    "position": {
+     "line": 2,
+     "character": 9
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 4,
+     "character": 16
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 6,
+     "character": 16
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 11,
+     "character": 16
+    },
+    "label": ": [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 11,
+     "character": 38
+    },
+    "label": ": []const [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 12,
+     "character": 16
+    },
+    "label": ": [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 12,
+     "character": 36
+    },
+    "label": ": []const [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 16,
+     "character": 14
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 23,
+     "character": 16
+    },
+    "label": ": [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 23,
+     "character": 35
+    },
+    "label": ": []const [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 24,
+     "character": 16
+    },
+    "label": ": [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 24,
+     "character": 37
+    },
+    "label": ": []const [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 30,
+     "character": 30
+    },
+    "label": ": usize",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 31,
+     "character": 17
+    },
+    "label": "TagInt:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 31,
+     "character": 21
+    },
+    "label": "mode:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  Type.Enum.Mode\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 31,
+     "character": 34
+    },
+    "label": "field_names:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 31,
+     "character": 42
+    },
+    "label": "field_values:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  *const [field_names.len]TagInt\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 31,
+     "character": 57
+    },
+    "label": "T:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 31,
+     "character": 61
+    },
+    "label": "len:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime usize\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 38,
+     "character": 29
+    },
+    "label": ": usize",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 30
+    },
+    "label": "Type:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 33
+    },
+    "label": "field_name:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 42,
+     "character": 19
+    },
+    "label": "layout:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  Type.ContainerLayout\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 42,
+     "character": 26
+    },
+    "label": "BackingInt:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  ?type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 42,
+     "character": 32
+    },
+    "label": "field_names:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 42,
+     "character": 40
+    },
+    "label": "field_types:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  *const [field_names.len]type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 42,
+     "character": 48
+    },
+    "label": "field_attrs:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  *const [field_names.len]Type.Struct.FieldAttributes\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 45,
+     "character": 15
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 74
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 77
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 50,
+     "character": 67
+    },
+    "label": ": [:0]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 50,
+     "character": 76
+    },
+    "label": "lhs:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n anytype\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 50,
+     "character": 79
+    },
+    "label": "field_name:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 50,
+     "character": 91
+    },
+    "label": "lhs:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n anytype\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 50,
+     "character": 98
+    },
+    "label": "field_name:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 57,
+     "character": 22
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 59,
+     "character": 25
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 59,
+     "character": 28
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 61,
+     "character": 56
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 61,
+     "character": 59
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 62,
+     "character": 23
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 62,
+     "character": 26
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 62,
+     "character": 34
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 68,
+     "character": 23
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 68,
+     "character": 32
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 68,
+     "character": 40
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 71,
+     "character": 27
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 71,
+     "character": 35
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 85,
+     "character": 18
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 85,
+     "character": 26
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 87,
+     "character": 11
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 87,
+     "character": 22
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 87,
+     "character": 30
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 87,
+     "character": 41
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 90,
+     "character": 13
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 90,
+     "character": 24
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 90,
+     "character": 32
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 90,
+     "character": 43
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 93,
+     "character": 25
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 93,
+     "character": 31
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 94,
+     "character": 11
+    },
+    "label": ": Post",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 94,
+     "character": 22
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 94,
+     "character": 28
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 94,
+     "character": 38
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 96,
+     "character": 11
+    },
+    "label": ": Post",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 96,
+     "character": 22
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 96,
+     "character": 28
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 96,
+     "character": 36
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 105,
+     "character": 14
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 105,
+     "character": 38
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 105,
+     "character": 49
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 107,
+     "character": 19
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 108,
+     "character": 14
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 108,
+     "character": 36
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 108,
+     "character": 45
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 112,
+     "character": 20
+    },
+    "label": "fmt:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 112,
+     "character": 33
+    },
+    "label": "args:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\nanytype\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   }
+  ],
+  "generated.zig": [
+   {
+    "position": {
+     "line": 2,
+     "character": 9
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 4,
+     "character": 15
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 6,
+     "character": 16
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 11,
+     "character": 27
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 16,
+     "character": 21
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 16,
+     "character": 33
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 16,
+     "character": 54
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 19,
+     "character": 25
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 23,
+     "character": 21
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 23,
+     "character": 33
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 23,
+     "character": 45
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 27,
+     "character": 14
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 34,
+     "character": 24
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 21
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 37
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 63
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 84
+    },
+    "label": ": ?[]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 40,
+     "character": 109
+    },
+    "label": ": bool",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 43,
+     "character": 26
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 21
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 37
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 49
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 61
+    },
+    "label": ": ?[]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 47,
+     "character": 80
+    },
+    "label": ": bool",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 62,
+     "character": 44
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 62,
+     "character": 61
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 64,
+     "character": 11
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 67,
+     "character": 13
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 67,
+     "character": 45
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 67,
+     "character": 58
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 70,
+     "character": 52
+    },
+    "label": ": bool",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 71,
+     "character": 11
+    },
+    "label": ": Post",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 73,
+     "character": 11
+    },
+    "label": ": Post",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 73,
+     "character": 42
+    },
+    "label": ": i64",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 73,
+     "character": 54
+    },
+    "label": ": []const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 73,
+     "character": 67
+    },
+    "label": ": ?[]const u8",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 77,
+     "character": 20
+    },
+    "label": "fmt:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 77,
+     "character": 33
+    },
+    "label": "args:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\nanytype\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   }
+  ],
+  "variations.zig": [
+   {
+    "position": {
+     "line": 3,
+     "character": 9
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 5,
+     "character": 16
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 11,
+     "character": 24
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 12,
+     "character": 27
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 13,
+     "character": 25
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 17,
+     "character": 12
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 17,
+     "character": 23
+    },
+    "label": "layout:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  Type.ContainerLayout\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 17,
+     "character": 30
+    },
+    "label": "BackingInt:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  ?type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 17,
+     "character": 36
+    },
+    "label": "field_names:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 17,
+     "character": 59
+    },
+    "label": "field_types:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  *const [field_names.len]type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 17,
+     "character": 89
+    },
+    "label": "field_attrs:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  *const [field_names.len]Type.Struct.FieldAttributes\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 20,
+     "character": 12
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 20,
+     "character": 21
+    },
+    "label": "TagInt:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 20,
+     "character": 25
+    },
+    "label": "mode:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  Type.Enum.Mode\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 20,
+     "character": 38
+    },
+    "label": "field_names:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 20,
+     "character": 66
+    },
+    "label": "field_values:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  *const [field_names.len]TagInt\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 26,
+     "character": 26
+    },
+    "label": "Type:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 26,
+     "character": 29
+    },
+    "label": "field_name:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime  []const u8\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 46,
+     "character": 69
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 46,
+     "character": 72
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 65,
+     "character": 12
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 72,
+     "character": 51
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 74,
+     "character": 7
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 74,
+     "character": 15
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 77,
+     "character": 20
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 77,
+     "character": 28
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 79,
+     "character": 7
+    },
+    "label": "R:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime type\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 79,
+     "character": 15
+    },
+    "label": "action:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\ncomptime (unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 79,
+     "character": 26
+    },
+    "label": "input:",
+    "kind": 2,
+    "tooltip": {
+     "kind": "markdown",
+     "value": "```zig\n(unknown type)\n```"
+    },
+    "paddingLeft": false,
+    "paddingRight": true
+   },
+   {
+    "position": {
+     "line": 80,
+     "character": 12
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 82,
+     "character": 18
+    },
+    "label": ": type",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 83,
+     "character": 13
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   },
+   {
+    "position": {
+     "line": 85,
+     "character": 31
+    },
+    "label": ": Author",
+    "kind": 1,
+    "paddingLeft": false,
+    "paddingRight": false
+   }
+  ]
+ },
+ "server_info": {
+  "name": "zls",
+  "version": "0.17.0"
+ },
+ "server_capabilities": {
+  "positionEncoding": "utf-16",
+  "textDocumentSync": {
+   "openClose": true,
+   "change": 2,
+   "willSaveWaitUntil": true,
+   "save": true
+  },
+  "completionProvider": {
+   "triggerCharacters": [
+    ".",
+    ":",
+    "@",
+    "]",
+    "\"",
+    "/"
+   ],
+   "resolveProvider": false,
+   "completionItem": {
+    "labelDetailsSupport": true
+   }
+  },
+  "hoverProvider": true,
+  "signatureHelpProvider": {
+   "triggerCharacters": [
+    "("
+   ],
+   "retriggerCharacters": [
+    ","
+   ]
+  },
+  "declarationProvider": true,
+  "definitionProvider": true,
+  "typeDefinitionProvider": true,
+  "referencesProvider": true,
+  "documentHighlightProvider": true,
+  "documentSymbolProvider": true,
+  "codeActionProvider": {
+   "codeActionKinds": [
+    "quickfix",
+    "refactor",
+    "source",
+    "source.organizeImports",
+    "source.fixAll"
+   ]
+  },
+  "colorProvider": false,
+  "workspaceSymbolProvider": true,
+  "documentFormattingProvider": true,
+  "documentRangeFormattingProvider": false,
+  "renameProvider": {
+   "prepareProvider": true
+  },
+  "foldingRangeProvider": true,
+  "selectionRangeProvider": true,
+  "semanticTokensProvider": {
+   "legend": {
+    "tokenTypes": [
+     "namespace",
+     "type",
+     "class",
+     "enum",
+     "interface",
+     "struct",
+     "typeParameter",
+     "parameter",
+     "variable",
+     "property",
+     "enumMember",
+     "event",
+     "function",
+     "method",
+     "macro",
+     "keyword",
+     "modifier",
+     "comment",
+     "string",
+     "escapeSequence",
+     "number",
+     "regexp",
+     "operator",
+     "decorator",
+     "errorTag",
+     "builtin",
+     "label",
+     "keywordLiteral"
+    ],
+    "tokenModifiers": [
+     "declaration",
+     "definition",
+     "readonly",
+     "static",
+     "deprecated",
+     "abstract",
+     "async",
+     "modification",
+     "documentation",
+     "defaultLibrary",
+     "generic",
+     "mutable",
+     "_"
+    ]
+   },
+   "range": true,
+   "full": true
+  },
+  "inlayHintProvider": true,
+  "workspace": {
+   "workspaceFolders": {
+    "supported": true,
+    "changeNotifications": true
+   }
+  }
+ },
+ "phase1_log": [
+  {
+   "t": 0.0,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Starting ZLS      0.17.0 @ '~/.local/share/mise/installs/zls/0.17.0/zls'"
+   }
+  },
+  {
+   "t": 0.0,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Log File:         ~/Library/Caches/zls/zls.log (info)"
+   }
+  },
+  {
+   "t": 0.0,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 5,
+    "message": "Offset Encoding:  'utf-16'"
+   }
+  },
+  {
+   "t": 0.01,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "added Workspace Folder: file:///WORKSPACE (6 files)"
+   }
+  },
+  {
+   "t": 0.12,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Set config option 'enable_build_on_save' to false"
+   }
+  },
+  {
+   "t": 0.12,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Set config option 'builtin_path' to \"~/Library/Caches/zls/builtin.zig\""
+   }
+  },
+  {
+   "t": 0.12,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Set config option 'zig_lib_path' to \"~/.local/share/mise/installs/zig/0.17.0/lib\""
+   }
+  },
+  {
+   "t": 0.12,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Set config option 'zig_exe_path' to \"~/.local/share/mise/installs/zig/0.17.0/zig\""
+   }
+  },
+  {
+   "t": 0.12,
+   "jsonrpc": "2.0",
+   "method": "window/logMessage",
+   "params": {
+    "type": 3,
+    "message": "Set config option 'global_cache_path' to \"~/Library/Caches/zls\""
+   }
+  }
+ ]
+}

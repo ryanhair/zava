@@ -1,0 +1,399 @@
+ZLS 0.17.0  Zig 0.17.0
+
+===== derived.zig =====
+[literal_fields_author_register] completion @ 'run(Author, .register, .{ .§ });'
+    -> null
+[literal_fields_post_draft] completion @ 'run(Post, .draft, .{ .§ });'
+    -> null
+[literal_fields_typed_decl] completion @ 'var in: Input(Author, .register) = .{ .§ };'
+    -> null
+[action_name_author] completion @ 'const lit = try run(Author, .§, .{});'
+    -> null
+[action_name_author_unclosed] completion @ 'const lit = try run(Author, .§'
+    -> null
+[action_name_post] completion @ 'const d = try run(Post, .§, .{});'
+    -> null
+[action_name_in_type_expr] completion @ 'var in: Input(Author, .§) = undefined;'
+    -> null
+[hover_input_arg_at_call] hover @ 'run(Author, .register, i§n);'
+    -> "```zig\nvar in: Input(Author, .register) = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+[hover_var_of_derived_type] hover @ 'var i§n: Input(Author, .register)'
+    -> "```zig\nvar in: Input(Author, .register) = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+[hover_hook_param] hover @ 'fn normalize(in§put: *Input(Author, .register))'
+    -> "```zig\ninput: *Input(Author, .register)\n```\n```zig\n(*(unknown type))\n```"
+[hover_run_param_input] hover @ 'in§put: Input(R, action)) Error!R {\n    var r'
+    -> "```zig\ninput: Input(R, action)\n```\n```zig\n((unknown type))\n```"
+[hover_run_result] hover @ 'const §a = try run(Author, .register, in);'
+    -> "```zig\nconst a = try run(Author, .register, in)\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/derived.zig#L7)"
+[hover_run_callee] hover @ 'const a = try r§un(Author, .register, in);'
+    -> "```zig\nfn run(comptime R: type, comptime action: ActionName(R), input: Input(R, action)) Error!R\n```\n```zig\n(fn (comptime type, comptime (unknown type), (unknown type)) error{...}!R)\n```\n\nGo to [R](file:///WORKSPACE/derived.zig#L48)"
+[hover_derived_type_expr] hover @ 'var in: Inp§ut(Author, .register)'
+    -> "```zig\nfn Input(comptime R: type, comptime action: ActionName(R)) type\n```\n```zig\n(fn (comptime type, comptime (unknown type)) type)\n```"
+[hover_action_enum_literal] hover @ 'const a = try run(Author, .regi§ster, in);'
+    -> null
+[hover_field_on_derived_var] hover @ '_ = in.em§ail;'
+    -> null
+[hover_post_input_var] hover @ 'const post_§in: Input(Post, .publish)'
+    -> "```zig\nconst post_in: Input(Post, .publish) = .{ .published = true }\n```\n```zig\n((unknown type))\n```"
+[hover_post_result] hover @ 'const §p = try run(Post, .publish, post_in);'
+    -> "```zig\nconst p = try run(Post, .publish, post_in)\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///WORKSPACE/derived.zig#L17)"
+[fields_on_derived_var] completion @ '_ = in.§;'
+    -> null
+[fields_on_run_result] completion @ '_ = a.§;'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[fields_on_post_input_var] completion @ '_ = post_in.§;'
+    -> null
+[fields_on_post_result] completion @ '_ = p.§;'
+    -> 5 items: id [i64]; author_id [i64]; title [[]const u8]; body [?[]const u8]; published [bool]
+[fields_on_hook_param] completion @ 'input.§;\n}\n\nfn normalizeAlias'
+    -> 1 items: * [(unknown type)]
+[def_derived_type] definition @ 'var in: Inp§ut(Author, .register)'
+    -> derived.zig:35:8
+[typedef_derived_var] typeDefinition @ '_ = i§n.email;'
+    -> derived.zig:86:13
+[def_field_of_derived] definition @ '_ = in.em§ail;'
+    -> null
+[def_field_in_literal] definition @ 'run(Author, .register, .{ .em§ail = "x"'
+    -> null
+[def_action_enum_literal] definition @ 'const a = try run(Author, .regi§ster, in);'
+    -> null
+[def_field_of_run_result] definition @ '_ = a.em§ail;'
+    -> derived.zig:9:5
+[sig_run_third_arg] signatureHelp @ 'const a = try run(Author, .register, §in);'
+    -> activeParameter=2 fn run(comptime R: type, comptime action: (unknown type), input: (unknown type)) error{...}!R params=["comptime R: type", "comptime action: (unknown type)", "input: (unknown type)"]
+[sig_run_empty] signatureHelp @ 'const a = try run(§);'
+    -> activeParameter=0 fn run(comptime R: type, comptime action: (unknown type), input: (unknown type)) error{...}!R params=["comptime R: type", "comptime action: (unknown type)", "input: (unknown type)"]
+[alias_hover_var] hover @ 'var alia§sed: RegisterInput'
+    -> "```zig\nvar aliased: RegisterInput = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+[alias_hover_decl] hover @ 'pub const Register§Input = Input(Author, .register);'
+    -> "```zig\nconst RegisterInput = Input(Author, .register)\n```\n```zig\n(type)\n```\n\nVariation: a named alias for the derived type."
+[alias_fields_on_var] completion @ '_ = aliased.§;'
+    -> null
+[alias_literal_fields] completion @ 'var aliased: RegisterInput = .{ .§ };'
+    -> null
+[alias_def_field] definition @ '_ = aliased.em§ail;'
+    -> null
+[alias_typedef_var] typeDefinition @ '_ = alia§sed.email;'
+    -> derived.zig:100:18
+[ns_hover_var] hover @ 'const ns_§in: Api(Author).In(.register)'
+    -> "```zig\nconst ns_in: Api(Author).In(.register) = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n((unknown type))\n```"
+[ns_fields_on_var] completion @ '_ = ns_in.§;'
+    -> null
+[ns_action_name] completion @ 'try Api(Author).call(.§, ns_in);'
+    -> null
+[ns_action_name_via_const] completion @ 'try AuthorApi.call(.§, .{});'
+    -> null
+[ns_literal_fields] completion @ 'try AuthorApi.call(.rename, .{ .§ });'
+    -> null
+[ns_hover_result] hover @ 'const ns_§a = try Api(Author)'
+    -> "```zig\nconst ns_a = try Api(Author).call(.register, ns_in)\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/derived.zig#L7)"
+[ns_fields_on_result] completion @ '_ = ns_a.§;'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[ns_members] completion @ 'const AuthorApi = Api(Author).§;'
+    -> 3 items: Name [type]; In [fn (comptime action: (unknown type)) type]; call [fn (comptime action: (unknown type), input: (unknown type)) error{...}!R]
+[ns_sig_call] signatureHelp @ 'try Api(Author).call(.register, §ns_in);'
+    -> activeParameter=1 fn call(comptime action: (unknown type), input: (unknown type)) error{...}!R params=["comptime action: (unknown type)", "input: (unknown type)"]
+[control_hover_param] hover @ 'fn control(auth§or: Author)'
+    -> "```zig\nauthor: Author\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/derived.zig#L7)"
+[control_fields_on_param] completion @ 'return author.§;'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[control_def_field] definition @ 'return author.na§me;'
+    -> derived.zig:10:5
+[inlay_hints] 77 hints
+    L3:10 kind=1 ': type'   | const std = @import("std");
+    L5:17 kind=1 ': type'   | pub const Action = struct { name: [:0]const u8, accept: []const [:0]const u8 };
+    L7:17 kind=1 ': type'   | pub const Author = struct {
+    L12:17 kind=1 ': [:0]const u8'   | .{ .name = "register", .accept = &.{ "email", "name" } },
+    L12:39 kind=1 ': []const [:0]const u8'   | .{ .name = "register", .accept = &.{ "email", "name" } },
+    L13:17 kind=1 ': [:0]const u8'   | .{ .name = "rename", .accept = &.{"name"} },
+    L13:37 kind=1 ': []const [:0]const u8'   | .{ .name = "rename", .accept = &.{"name"} },
+    L17:15 kind=1 ': type'   | pub const Post = struct {
+    L24:17 kind=1 ': [:0]const u8'   | .{ .name = "draft", .accept = &.{ "author_id", "title", "body" } },
+    L24:36 kind=1 ': []const [:0]const u8'   | .{ .name = "draft", .accept = &.{ "author_id", "title", "body" } },
+    L25:17 kind=1 ': [:0]const u8'   | .{ .name = "publish", .accept = &.{"published"} },
+    L25:38 kind=1 ': []const [:0]const u8'   | .{ .name = "publish", .accept = &.{"published"} },
+    L31:31 kind=1 ': usize'   | for (R.actions, 0..) |a, i| names[i] = a.name;
+    L32:18 kind=2 'TagInt:'   | return @Enum(u8, .exhaustive, &names, &std.simd.iota(u8, R.actions.len));
+    L32:22 kind=2 'mode:'   | return @Enum(u8, .exhaustive, &names, &std.simd.iota(u8, R.actions.len));
+    L32:35 kind=2 'field_names:'   | return @Enum(u8, .exhaustive, &names, &std.simd.iota(u8, R.actions.len));
+    L32:43 kind=2 'field_values:'   | return @Enum(u8, .exhaustive, &names, &std.simd.iota(u8, R.actions.len));
+    L32:58 kind=2 'T:'   | return @Enum(u8, .exhaustive, &names, &std.simd.iota(u8, R.actions.len));
+    L32:62 kind=2 'len:'   | return @Enum(u8, .exhaustive, &names, &std.simd.iota(u8, R.actions.len));
+    L39:30 kind=1 ': usize'   | for (a.accept, 0..) |n, i| {
+    L41:31 kind=2 'Type:'   | types[i] = @FieldType(R, n);
+    L41:34 kind=2 'field_name:'   | types[i] = @FieldType(R, n);
+    L43:20 kind=2 'layout:'   | return @Struct(.auto, null, &names, &types, &@splat(.{}));
+    L43:27 kind=2 'BackingInt:'   | return @Struct(.auto, null, &names, &types, &@splat(.{}));
+    L43:33 kind=2 'field_names:'   | return @Struct(.auto, null, &names, &types, &@splat(.{}));
+    L43:41 kind=2 'field_types:'   | return @Struct(.auto, null, &names, &types, &@splat(.{}));
+    L43:49 kind=2 'field_attrs:'   | return @Struct(.auto, null, &names, &types, &@splat(.{}));
+    L46:16 kind=1 ': type'   | pub const Error = error{ Invalid, Forbidden, Conflict };
+    L48:75 kind=2 'R:'   | pub fn run(comptime R: type, comptime action: ActionName(R), input: Input(R, action)) Error!R {
+    L48:78 kind=2 'action:'   | pub fn run(comptime R: type, comptime action: ActionName(R), input: Input(R, action)) Error!R {
+    L51:68 kind=1 ': [:0]const u8'   | inline for (@typeInfo(@TypeOf(input)).@"struct".field_names) |n| @field(r, n) = @field(input, n);
+    L51:77 kind=2 'lhs:'   | inline for (@typeInfo(@TypeOf(input)).@"struct".field_names) |n| @field(r, n) = @field(input, n);
+    L51:80 kind=2 'field_name:'   | inline for (@typeInfo(@TypeOf(input)).@"struct".field_names) |n| @field(r, n) = @field(input, n);
+    L51:92 kind=2 'lhs:'   | inline for (@typeInfo(@TypeOf(input)).@"struct".field_names) |n| @field(r, n) = @field(input, n);
+    L51:99 kind=2 'field_name:'   | inline for (@typeInfo(@TypeOf(input)).@"struct".field_names) |n| @field(r, n) = @field(input, n);
+    L58:23 kind=1 ': type'   | pub const Name = ActionName(R);
+    L60:26 kind=2 'R:'   | return Input(R, action);
+    L60:29 kind=2 'action:'   | return Input(R, action);
+    L62:57 kind=2 'R:'   | pub fn call(comptime action: Name, input: Input(R, action)) Error!R {
+    L62:60 kind=2 'action:'   | pub fn call(comptime action: Name, input: Input(R, action)) Error!R {
+    L63:24 kind=2 'R:'   | return run(R, action, input);
+    L63:27 kind=2 'action:'   | return run(R, action, input);
+    L63:35 kind=2 'input:'   | return run(R, action, input);
+    L69:24 kind=1 ': type'   | pub const RegisterInput = Input(Author, .register);
+    L69:33 kind=2 'R:'   | pub const RegisterInput = Input(Author, .register);
+    L69:41 kind=2 'action:'   | pub const RegisterInput = Input(Author, .register);
+    L72:28 kind=2 'R:'   | fn normalize(input: *Input(Author, .register)) void {
+    L72:36 kind=2 'action:'   | fn normalize(input: *Input(Author, .register)) void {
+    L86:19 kind=2 'R:'   | var in: Input(Author, .register) = .{ .email = "a@b.c", .name = "ann" };
+    L86:27 kind=2 'action:'   | var in: Input(Author, .register) = .{ .email = "a@b.c", .name = "ann" };
+    L88:12 kind=1 ': Author'   | const a = try run(Author, .register, in);
+    L88:23 kind=2 'R:'   | const a = try run(Author, .register, in);
+    L88:31 kind=2 'action:'   | const a = try run(Author, .register, in);
+    L88:42 kind=2 'input:'   | const a = try run(Author, .register, in);
+    L91:14 kind=1 ': Author'   | const lit = try run(Author, .register, .{ .email = "x", .name = "y" });
+    L91:25 kind=2 'R:'   | const lit = try run(Author, .register, .{ .email = "x", .name = "y" });
+    L91:33 kind=2 'action:'   | const lit = try run(Author, .register, .{ .email = "x", .name = "y" });
+    L91:44 kind=2 'input:'   | const lit = try run(Author, .register, .{ .email = "x", .name = "y" });
+    L94:26 kind=2 'R:'   | const post_in: Input(Post, .publish) = .{ .published = true };
+    L94:32 kind=2 'action:'   | const post_in: Input(Post, .publish) = .{ .published = true };
+    L95:12 kind=1 ': Post'   | const p = try run(Post, .publish, post_in);
+    L95:23 kind=2 'R:'   | const p = try run(Post, .publish, post_in);
+    L95:29 kind=2 'action:'   | const p = try run(Post, .publish, post_in);
+    L95:39 kind=2 'input:'   | const p = try run(Post, .publish, post_in);
+    L97:12 kind=1 ': Post'   | const d = try run(Post, .draft, .{ .author_id = 1, .title = "t", .body = null });
+    L97:23 kind=2 'R:'   | const d = try run(Post, .draft, .{ .author_id = 1, .title = "t", .body = null });
+    L97:29 kind=2 'action:'   | const d = try run(Post, .draft, .{ .author_id = 1, .title = "t", .body = null });
+    L97:37 kind=2 'input:'   | const d = try run(Post, .draft, .{ .author_id = 1, .title = "t", .body = null });
+    L106:15 kind=1 ': Author'   | const ns_a = try Api(Author).call(.register, ns_in);
+    L106:39 kind=2 'action:'   | const ns_a = try Api(Author).call(.register, ns_in);
+    L106:50 kind=2 'input:'   | const ns_a = try Api(Author).call(.register, ns_in);
+    L108:20 kind=1 ': type'   | const AuthorApi = Api(Author);
+    L109:15 kind=1 ': Author'   | const ns_b = try AuthorApi.call(.rename, .{ .name = "z" });
+    L109:37 kind=2 'action:'   | const ns_b = try AuthorApi.call(.rename, .{ .name = "z" });
+    L109:46 kind=2 'input:'   | const ns_b = try AuthorApi.call(.rename, .{ .name = "z" });
+    L113:21 kind=2 'fmt:'   | std.debug.print("{s} {s}\n", .{ a.email, a.name });
+    L113:34 kind=2 'args:'   | std.debug.print("{s} {s}\n", .{ a.email, a.name });
+
+===== generated.zig =====
+[literal_fields_author_register] completion @ 'Author.register(.{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[literal_fields_post_draft] completion @ 'Post.draft(.{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[literal_fields_typed_decl] completion @ 'var in: Author.RegisterInput = .{ .§ };'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[action_name_author] completion @ 'const lit = try Author.§;'
+    -> 4 items: RegisterInput [type]; register [fn (input: RegisterInput) error{...}!Author]; RenameInput [type]; rename [fn (input: RenameInput) error{...}!Author]
+[action_name_post] completion @ 'const d = try Post.§;'
+    -> 4 items: DraftInput [type]; draft [fn (input: DraftInput) error{...}!Post]; PublishInput [type]; publish [fn (input: PublishInput) error{...}!Post]
+[hover_input_arg_at_call] hover @ 'Author.register(i§n);'
+    -> "```zig\nvar in: Author.RegisterInput = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12)"
+[hover_var_of_derived_type] hover @ 'var i§n: Author.RegisterInput'
+    -> "```zig\nvar in: Author.RegisterInput = .{ .email = \"a@b.c\", .name = \"ann\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12)"
+[hover_hook_param] hover @ 'fn normalize(in§put: *Author.RegisterInput)'
+    -> "```zig\ninput: *Author.RegisterInput\n```\n```zig\n(*RegisterInput)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12)"
+[hover_run_result] hover @ 'const §a = try Author.register(in);'
+    -> "```zig\nconst a = try Author.register(in)\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/generated.zig#L7)"
+[hover_run_callee] hover @ 'const a = try Author.regi§ster(in);'
+    -> "```zig\nfn register(input: RegisterInput) Error!Author\n```\n```zig\n(fn (RegisterInput) error{...}!Author)\n```\n\nGo to [RegisterInput](file:///WORKSPACE/generated.zig#L12) | [Author](file:///WORKSPACE/generated.zig#L7)"
+[hover_derived_type_expr] hover @ 'var in: Author.Register§Input'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```"
+[hover_field_on_derived_var] hover @ '_ = in.em§ail;'
+    -> "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+[hover_post_input_var] hover @ 'const post_§in: Post.PublishInput'
+    -> "```zig\nconst post_in: Post.PublishInput = .{ .published = true }\n```\n```zig\n(PublishInput)\n```\n\nGo to [PublishInput](file:///WORKSPACE/generated.zig#L44)"
+[hover_post_result] hover @ 'const §p = try Post.publish(post_in);'
+    -> "```zig\nconst p = try Post.publish(post_in)\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///WORKSPACE/generated.zig#L28)"
+[fields_on_derived_var] completion @ '_ = in.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[fields_on_run_result] completion @ '_ = a.§;'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[fields_on_post_input_var] completion @ '_ = post_in.§;'
+    -> 1 items: published [bool]
+[fields_on_post_result] completion @ '_ = p.§;'
+    -> 5 items: id [i64]; author_id [i64]; title [[]const u8]; body [?[]const u8]; published [bool]
+[fields_on_hook_param] completion @ 'input.§;\n}\n\n// Control'
+    -> 3 items: * [RegisterInput]; email [[]const u8]; name [[]const u8]
+[def_derived_type] definition @ 'var in: Author.Register§Input'
+    -> generated.zig:12:31
+[typedef_derived_var] typeDefinition @ '_ = i§n.email;'
+    -> generated.zig:12:31
+[def_field_of_derived] definition @ '_ = in.em§ail;'
+    -> generated.zig:13:9
+[def_field_in_literal] definition @ 'Author.register(.{ .em§ail = "x"'
+    -> generated.zig:13:9
+[def_action_enum_literal] definition @ 'const a = try Author.regi§ster(in);'
+    -> generated.zig:16:12
+[def_field_of_run_result] definition @ '_ = a.em§ail;'
+    -> generated.zig:9:5
+[sig_run_third_arg] signatureHelp @ 'const a = try Author.register(§in);'
+    -> activeParameter=0 fn register(input: RegisterInput) error{...}!Author params=["input: RegisterInput"]
+[sig_run_empty] signatureHelp @ 'const a = try Author.register(§);'
+    -> activeParameter=0 fn register(input: RegisterInput) error{...}!Author params=["input: RegisterInput"]
+[control_hover_param] hover @ 'fn control(auth§or: Author)'
+    -> "```zig\nauthor: Author\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///WORKSPACE/generated.zig#L7)"
+[control_fields_on_param] completion @ 'return author.§;'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[control_def_field] definition @ 'return author.na§me;'
+    -> generated.zig:10:5
+[inlay_hints] 38 hints
+    L3:10 kind=1 ': type'   | const std = @import("std");
+    L5:16 kind=1 ': type'   | pub const Error = error{ Invalid, Forbidden, Conflict };
+    L7:17 kind=1 ': type'   | pub const Author = struct {
+    L12:28 kind=1 ': type'   | pub const RegisterInput = struct {
+    L17:22 kind=1 ': i64'   | return .{ .id = 1, .email = input.email, .name = input.name };
+    L17:34 kind=1 ': []const u8'   | return .{ .id = 1, .email = input.email, .name = input.name };
+    L17:55 kind=1 ': []const u8'   | return .{ .id = 1, .email = input.email, .name = input.name };
+    L20:26 kind=1 ': type'   | pub const RenameInput = struct {
+    L24:22 kind=1 ': i64'   | return .{ .id = 1, .email = "", .name = input.name };
+    L24:34 kind=1 ': []const u8'   | return .{ .id = 1, .email = "", .name = input.name };
+    L24:46 kind=1 ': []const u8'   | return .{ .id = 1, .email = "", .name = input.name };
+    L28:15 kind=1 ': type'   | pub const Post = struct {
+    L35:25 kind=1 ': type'   | pub const DraftInput = struct {
+    L41:22 kind=1 ': i64'   | return .{ .id = 1, .author_id = input.author_id, .title = input.title, .body = input.body, .published = false };
+    L41:38 kind=1 ': i64'   | return .{ .id = 1, .author_id = input.author_id, .title = input.title, .body = input.body, .published = false };
+    L41:64 kind=1 ': []const u8'   | return .{ .id = 1, .author_id = input.author_id, .title = input.title, .body = input.body, .published = false };
+    L41:85 kind=1 ': ?[]const u8'   | return .{ .id = 1, .author_id = input.author_id, .title = input.title, .body = input.body, .published = false };
+    L41:110 kind=1 ': bool'   | return .{ .id = 1, .author_id = input.author_id, .title = input.title, .body = input.body, .published = false };
+    L44:27 kind=1 ': type'   | pub const PublishInput = struct {
+    L48:22 kind=1 ': i64'   | return .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = input.published };
+    L48:38 kind=1 ': i64'   | return .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = input.published };
+    L48:50 kind=1 ': []const u8'   | return .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = input.published };
+    L48:62 kind=1 ': ?[]const u8'   | return .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = input.published };
+    L48:81 kind=1 ': bool'   | return .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = input.published };
+    L63:45 kind=1 ': []const u8'   | var in: Author.RegisterInput = .{ .email = "a@b.c", .name = "ann" };
+    L63:62 kind=1 ': []const u8'   | var in: Author.RegisterInput = .{ .email = "a@b.c", .name = "ann" };
+    L65:12 kind=1 ': Author'   | const a = try Author.register(in);
+    L68:14 kind=1 ': Author'   | const lit = try Author.register(.{ .email = "x", .name = "y" });
+    L68:46 kind=1 ': []const u8'   | const lit = try Author.register(.{ .email = "x", .name = "y" });
+    L68:59 kind=1 ': []const u8'   | const lit = try Author.register(.{ .email = "x", .name = "y" });
+    L71:53 kind=1 ': bool'   | const post_in: Post.PublishInput = .{ .published = true };
+    L72:12 kind=1 ': Post'   | const p = try Post.publish(post_in);
+    L74:12 kind=1 ': Post'   | const d = try Post.draft(.{ .author_id = 1, .title = "t", .body = null });
+    L74:43 kind=1 ': i64'   | const d = try Post.draft(.{ .author_id = 1, .title = "t", .body = null });
+    L74:55 kind=1 ': []const u8'   | const d = try Post.draft(.{ .author_id = 1, .title = "t", .body = null });
+    L74:68 kind=1 ': ?[]const u8'   | const d = try Post.draft(.{ .author_id = 1, .title = "t", .body = null });
+    L78:21 kind=2 'fmt:'   | std.debug.print("{s} {s}\n", .{ a.email, a.name });
+    L78:34 kind=2 'args:'   | std.debug.print("{s} {s}\n", .{ a.email, a.name });
+
+===== variations.zig =====
+[v1_struct_literal_hover] hover @ 'const v§1: V1'
+    -> "```zig\nconst v1: V1 = .{ .email = \"e\", .name = \"n\" }\n```\n```zig\n((unknown type))\n```"
+[v1_struct_literal_fields] completion @ '_ = v1.§;'
+    -> null
+[v1_struct_literal_init] completion @ 'const v1: V1 = .{ .§ };'
+    -> null
+[v2_enum_literal_hover] hover @ 'const v§2: V2'
+    -> "```zig\nconst v2: V2 = .register\n```\n```zig\n((unknown type))\n```"
+[v2_enum_literal_members] completion @ 'const v2: V2 = .§;'
+    -> null
+[v3_generic_struct_hover] hover @ 'const v§3: V3(Author)'
+    -> "```zig\nconst v3: V3(Author) = .{ .email = \"e\", .record = undefined }\n```\n```zig\n(V3(Author))\n```\n\nGo to [V3](file:///WORKSPACE/variations.zig#L25) | [Author](file:///WORKSPACE/variations.zig#L6)"
+[v3_generic_struct_fields] completion @ '_ = v3.§;'
+    -> 2 items: email; record [Author]
+[v3_generic_struct_init] completion @ 'const v3: V3(Author) = .{ .§ };'
+    -> null
+[v3_generic_struct_field_hover] hover @ '_ = v3.em§ail;'
+    -> "```zig\nemail: @FieldType(R, \"email\")\n```\n```zig\n(unknown)\n```"
+[v4_selected_enum_arg] completion @ 'v4(Author, .§);'
+    -> null
+[v4_sig] signatureHelp @ 'v4(Author, §.register);'
+    -> activeParameter=1 fn v4(comptime R: type, action: (unknown type)) void params=["comptime R: type", "action: (unknown type)"]
+[v4b_selected_enum_var_hover] hover @ 'const v4§b: V4Name(Author)'
+    -> "```zig\nconst v4b: V4Name(Author) = .register\n```\n```zig\n((unknown type))\n```"
+[v4b_selected_enum_var_members] completion @ 'const v4b: V4Name(Author) = .§;'
+    -> null
+[v5_switch_hover] hover @ 'const v5_§in: V5(Author, .register)'
+    -> "```zig\nconst v5_in: V5(Author, .register) = .{ .email = \"e\", .name = \"n\" }\n```\n```zig\n((unknown type))\n```"
+[v5_switch_fields] completion @ '_ = v5_in.§;'
+    -> null
+[v5_switch_action_arg] completion @ 'v5(Author, .§, .{});'
+    -> null
+[v5_switch_literal_fields] completion @ 'v5(Author, .register, .{ .§ });'
+    -> null
+[v6_ns_fn_members] completion @ 'const v6 = V6(Author).§;'
+    -> 1 items: register [fn (input: (unknown type)) R]
+[v6_ns_fn_literal_fields] completion @ 'const v6 = V6(Author).register(.{ .§ });'
+    -> null
+[v6_ns_fn_sig] signatureHelp @ 'const v6 = V6(Author).register(§.{ .email'
+    -> activeParameter=0 fn register(input: (unknown type)) R params=["input: (unknown type)"]
+[v6_ns_fn_result_fields] completion @ '_ = v6.§;'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[v6_alias_literal_fields] completion @ 'const v6b = AuthorV6.register(.{ .§ });'
+    -> null
+[v8_generic_struct_param_literal] completion @ 'v8(.{ .§ });'
+    -> 2 items: email [@FieldType(R, "email")]; record [Author]
+[v8_sig] signatureHelp @ 'v8(§.{ .email'
+    -> activeParameter=0 fn v8(input: V3(Author)) void params=["input: V3(Author)"]
+[v7_fieldenum_hover] hover @ 'const v§7: V7'
+    -> "```zig\nconst v7: V7 = .email\n```\n```zig\n((unknown type))\n```"
+[v7_fieldenum_members] completion @ 'const v7: V7 = .§;'
+    -> null
+[inlay_hints] 33 hints
+    L4:10 kind=1 ': type'   | const std = @import("std");
+    L6:17 kind=1 ': type'   | pub const Author = struct {
+    L12:25 kind=1 ': type'   | pub const ActionName = enum { register, rename };
+    L13:28 kind=1 ': type'   | pub const RegisterInput = struct { email: []const u8, name: []const u8 };
+    L14:26 kind=1 ': type'   | pub const RenameInput = struct { name: []const u8 };
+    L18:13 kind=1 ': type'   | pub const V1 = @Struct(.auto, null, &.{ "email", "name" }, &.{ []const u8, []const u8 }, &@splat(.{}));
+    L18:24 kind=2 'layout:'   | pub const V1 = @Struct(.auto, null, &.{ "email", "name" }, &.{ []const u8, []const u8 }, &@splat(.{}));
+    L18:31 kind=2 'BackingInt:'   | pub const V1 = @Struct(.auto, null, &.{ "email", "name" }, &.{ []const u8, []const u8 }, &@splat(.{}));
+    L18:37 kind=2 'field_names:'   | pub const V1 = @Struct(.auto, null, &.{ "email", "name" }, &.{ []const u8, []const u8 }, &@splat(.{}));
+    L18:60 kind=2 'field_types:'   | pub const V1 = @Struct(.auto, null, &.{ "email", "name" }, &.{ []const u8, []const u8 }, &@splat(.{}));
+    L18:90 kind=2 'field_attrs:'   | pub const V1 = @Struct(.auto, null, &.{ "email", "name" }, &.{ []const u8, []const u8 }, &@splat(.{}));
+    L21:13 kind=1 ': type'   | pub const V2 = @Enum(u8, .exhaustive, &.{ "register", "rename" }, &.{ 0, 1 });
+    L21:22 kind=2 'TagInt:'   | pub const V2 = @Enum(u8, .exhaustive, &.{ "register", "rename" }, &.{ 0, 1 });
+    L21:26 kind=2 'mode:'   | pub const V2 = @Enum(u8, .exhaustive, &.{ "register", "rename" }, &.{ 0, 1 });
+    L21:39 kind=2 'field_names:'   | pub const V2 = @Enum(u8, .exhaustive, &.{ "register", "rename" }, &.{ 0, 1 });
+    L21:67 kind=2 'field_values:'   | pub const V2 = @Enum(u8, .exhaustive, &.{ "register", "rename" }, &.{ 0, 1 });
+    L27:27 kind=2 'Type:'   | email: @FieldType(R, "email"),
+    L27:30 kind=2 'field_name:'   | email: @FieldType(R, "email"),
+    L47:70 kind=2 'R:'   | pub fn v5(comptime R: type, comptime action: R.ActionName, input: V5(R, action)) void {
+    L47:73 kind=2 'action:'   | pub fn v5(comptime R: type, comptime action: R.ActionName, input: V5(R, action)) void {
+    L66:13 kind=1 ': type'   | pub const V7 = std.meta.FieldEnum(Author);
+    L73:52 kind=1 ': Author'   | const v3: V3(Author) = .{ .email = "e", .record = undefined };
+    L75:8 kind=2 'R:'   | v4(Author, .register);
+    L75:16 kind=2 'action:'   | v4(Author, .register);
+    L78:21 kind=2 'R:'   | const v5_in: V5(Author, .register) = .{ .email = "e", .name = "n" };
+    L78:29 kind=2 'action:'   | const v5_in: V5(Author, .register) = .{ .email = "e", .name = "n" };
+    L80:8 kind=2 'R:'   | v5(Author, .register, .{ .email = "e", .name = "n" });
+    L80:16 kind=2 'action:'   | v5(Author, .register, .{ .email = "e", .name = "n" });
+    L80:27 kind=2 'input:'   | v5(Author, .register, .{ .email = "e", .name = "n" });
+    L81:13 kind=1 ': Author'   | const v6 = V6(Author).register(.{ .email = "e", .name = "n" });
+    L83:19 kind=1 ': type'   | const AuthorV6 = V6(Author);
+    L84:14 kind=1 ': Author'   | const v6b = AuthorV6.register(.{ .email = "e", .name = "n" });
+    L86:32 kind=1 ': Author'   | v8(.{ .email = "e", .record = undefined });
+
+ZLS warnings/errors during feature probes: none
+
+===== diagnostics, enable_build_on_save=false =====
+derived.zig: []
+generated.zig: []
+derived_bad.zig: []
+generated_bad.zig: []
+
+===== diagnostics, enable_build_on_save=null (default) =====
+derived.zig: never published
+generated.zig: never published
+derived_bad.zig: 2 diagnostics
+    7:46 source=zls code=None "no field named 'emial' in struct 'derived.Input(derived.Author,.register)'"
+    12:31 source=zls code=None "enum 'derived.ActionName(derived.Author)' has no member named 'regster'"
+generated_bad.zig: 2 diagnostics
+    7:37 source=zls code=None "no field named 'emial' in struct 'generated.Author.RegisterInput'"
+    12:15 source=zls code=None "struct 'generated.Author' has no member named 'regster'"
+ZLS warnings/errors: none
+
+===== diagnostics, enable_build_on_save=true =====
+derived.zig: never published
+generated.zig: never published
+derived_bad.zig: 2 diagnostics
+    7:46 source=zls code=None "no field named 'emial' in struct 'derived.Input(derived.Author,.register)'"
+    12:31 source=zls code=None "enum 'derived.ActionName(derived.Author)' has no member named 'regster'"
+generated_bad.zig: 2 diagnostics
+    7:37 source=zls code=None "no field named 'emial' in struct 'generated.Author.RegisterInput'"
+    12:15 source=zls code=None "struct 'generated.Author' has no member named 'regster'"
+ZLS warnings/errors: none
+
