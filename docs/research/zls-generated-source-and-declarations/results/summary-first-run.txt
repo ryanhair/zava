@@ -1,0 +1,129 @@
+ZLS 0.17.0  Zig 0.17.0
+
+===== features[broken_domain] mode=capture check_step=True enable_build_on_save=None, clean cache, declaration has a misspelled attribute =====
+`api.Author.` completes: NEVER within 40.23s
+diagnostics published: {
+ "domain.zig": [
+  "16:43 enum 'meta.FieldEnum(domain.Author)' has no member named 'nmae'",
+  "16:43 enum 'meta.FieldEnum(domain.Author)' has no member named 'nmae'"
+ ]
+}
+after fixing and saving domain.zig: `api.Author.` completes: NEVER within 30.18s
+  then didChangeWatchedFiles (2 events): still no
+  then didSave(build.zig): yes after 0.31s
+ZLS warnings/errors: none
+
+===== freshness[capture_nocheck_bosoff] mode=capture check_step=False enable_build_on_save=False graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 5.06s)
+ZLS logged 'Build-On-Save is running': False
+generated files before: {"/.zig-cache/o/badd5d2a8473a83fbd35febc786a2732/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.04s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.24s) [no regenerated file on disk after 25.1s]; fresh generated file on disk: no
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.07s) [1 events: domain.zig:2]; fresh generated file on disk: no
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 2.16s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/f549bc5bb8fb621e581c6bd201f6b132/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_nocheck_bosoff/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_nocheck_bosoff/.zig-cache/o/f549bc5bb8fb621e581c6bd201f6b132/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/f549bc5bb8fb621e581c6bd201f6b132/api.zig": "FRESH", "/.zig-cache/o/badd5d2a8473a83fbd35febc786a2732/api.zig": "old"}
+ZLS warnings/errors: none
+
+===== freshness[capture_nocheck_bosdefault] mode=capture check_step=False enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.82s)
+ZLS logged 'Build-On-Save is running': False
+generated files before: {"/.zig-cache/o/0a03ded7d1395781b81bcecbde30376d/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.03s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.22s) [no regenerated file on disk after 25.17s]; fresh generated file on disk: no
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.06s) [1 events: domain.zig:2]; fresh generated file on disk: no
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 2.44s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/798d55595be67778be9c8cbb93d6ddf9/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_nocheck_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_nocheck_bosdefault/.zig-cache/o/798d55595be67778be9c8cbb93d6ddf9/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/798d55595be67778be9c8cbb93d6ddf9/api.zig": "FRESH", "/.zig-cache/o/0a03ded7d1395781b81bcecbde30376d/api.zig": "old"}
+ZLS warnings/errors: none
+
+===== freshness[capture_nocheck_boson] mode=capture check_step=False enable_build_on_save=True graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.79s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/4edf00b610ff63053ecba26ef42b846e/api.zig": "old", "/zig-out/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.03s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.2s) [regenerated file appeared on disk after 2.07s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.06s) [3 events: domain.zig:2, .zig-cache/o/582dcc31b232debc85c916fa41165b23/api.zig:1, zig-out/api.zig:2]; fresh generated file on disk: yes
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.35s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/582dcc31b232debc85c916fa41165b23/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_nocheck_boson/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_nocheck_boson/.zig-cache/o/582dcc31b232debc85c916fa41165b23/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/4edf00b610ff63053ecba26ef42b846e/api.zig": "old", "/.zig-cache/o/582dcc31b232debc85c916fa41165b23/api.zig": "FRESH", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[capture_check_bosoff] mode=capture check_step=True enable_build_on_save=False graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.82s)
+ZLS logged 'Build-On-Save is running': False
+generated files before: {"/.zig-cache/o/b588b305ab7fc951e1eedaf9ed8e7e70/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.03s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.18s) [no regenerated file on disk after 25.1s]; fresh generated file on disk: no
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.07s) [1 events: domain.zig:2]; fresh generated file on disk: no
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 2.15s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/1910bac5b7253ae0f708e7c08e7c7cb7/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_check_bosoff/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_check_bosoff/.zig-cache/o/1910bac5b7253ae0f708e7c08e7c7cb7/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/1910bac5b7253ae0f708e7c08e7c7cb7/api.zig": "FRESH", "/.zig-cache/o/b588b305ab7fc951e1eedaf9ed8e7e70/api.zig": "old"}
+ZLS warnings/errors: none
+
+===== freshness[capture_check_bosdefault] mode=capture check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.79s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/e5c36206ebec9774b6100f000ed1a60f/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.02s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.2s) [regenerated file appeared on disk after 2.07s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.07s) [2 events: domain.zig:2, .zig-cache/o/1f2c3ed0f6f135a94437ed06a4f4652d/api.zig:1]; fresh generated file on disk: yes
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.31s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/1f2c3ed0f6f135a94437ed06a4f4652d/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_check_bosdefault/.zig-cache/o/1f2c3ed0f6f135a94437ed06a4f4652d/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/e5c36206ebec9774b6100f000ed1a60f/api.zig": "old", "/.zig-cache/o/1f2c3ed0f6f135a94437ed06a4f4652d/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[outarg_check_bosdefault] mode=outarg check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.82s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/ea8fb1a869ff4562fb07b2acaf48c5f7/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.06s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.21s) [regenerated file appeared on disk after 2.07s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.07s) [2 events: domain.zig:2, .zig-cache/o/21a3eab91727d94b8d39ca318e927716/api.zig:1]; fresh generated file on disk: yes
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.35s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/21a3eab91727d94b8d39ca318e927716/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-outarg_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-outarg_check_bosdefault/.zig-cache/o/21a3eab91727d94b8d39ca318e927716/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/21a3eab91727d94b8d39ca318e927716/api.zig": "FRESH", "/.zig-cache/o/ea8fb1a869ff4562fb07b2acaf48c5f7/api.zig": "old"}
+ZLS warnings/errors: none
+
+===== freshness[writefiles_check_bosdefault] mode=writefiles check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.79s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/ef8ebea930e8040ba63120b849edafda/api.zig": "old", "/.zig-cache/o/f376bd43a0833af5e96eda3214bfa387/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.04s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.23s) [regenerated file appeared on disk after 2.08s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.04s) [3 events: domain.zig:2, .zig-cache/o/0db685e75b51f21ccef13b7ca4ad1978/api.zig:1, .zig-cache/o/5d68ce2e045f9cd1154ef70b9fa4b709/api.zig:1]; fresh generated file on disk: yes
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.34s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/5d68ce2e045f9cd1154ef70b9fa4b709/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-writefiles_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-writefiles_check_bosdefault/.zig-cache/o/5d68ce2e045f9cd1154ef70b9fa4b709/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/ef8ebea930e8040ba63120b849edafda/api.zig": "old", "/.zig-cache/o/f376bd43a0833af5e96eda3214bfa387/api.zig": "old", "/.zig-cache/o/0db685e75b51f21ccef13b7ca4ad1978/api.zig": "FRESH", "/.zig-cache/o/5d68ce2e045f9cd1154ef70b9fa4b709/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[sourcetree_check_bosdefault] mode=source_tree check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.79s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/generated/api.zig": "old", "/.zig-cache/o/d1116d6f7d39285d5bc48f32768a274b/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.04s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.19s) [regenerated file appeared on disk after 2.09s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.06s) [3 events: domain.zig:2, generated/api.zig:2, .zig-cache/o/2509c1ef7c6a8120e985ff373f6ab09e/api.zig:1]; fresh generated file on disk: yes
+  4. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: no (waited 40.19s); fresh generated file on disk: yes
+  5. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.04s) [zig build exit 0 in 0.23s, 3 watcher events]; fresh generated file on disk: yes
+  6. restart ZLS: completion shows `email`: YES after 0.41s; fresh generated file on disk: yes
+  go-to-definition of rename now: generated/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-sourcetree_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-sourcetree_check_bosdefault/generated/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/generated/api.zig": "FRESH", "/.zig-cache/o/2509c1ef7c6a8120e985ff373f6ab09e/api.zig": "FRESH", "/.zig-cache/o/d1116d6f7d39285d5bc48f32768a274b/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[sourcetree_check_bosoff] mode=source_tree check_step=True enable_build_on_save=False graph=stub =====
+before the edit: rename input completes None (api resolved after 90.19s)
+api never resolved; skipping
+
+===== freshness[sourcetree_nocheck_boson] mode=source_tree check_step=False enable_build_on_save=True graph=stub =====
+before the edit: rename input completes None (api resolved after 90.21s)
+api never resolved; skipping
+

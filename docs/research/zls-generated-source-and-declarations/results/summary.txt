@@ -1,0 +1,1744 @@
+ZLS 0.17.0  Zig 0.17.0
+
+===== features[capture_check_clean] mode=capture check_step=True enable_build_on_save=None prebuilt_cache=False graph=stub =====
+time from didOpen(app.zig) until `api.Author.` completes: 5.16s
+generated files on disk after ZLS started: {"/.zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[input_literal_typed_decl] completion @ 'var in: api.Author.RegisterInput = .{ .§ };'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[record_literal_fields] completion @ 'const blank: api.Author.Record = .{ .§ };'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[fields_on_input_var] completion @ 'in.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[fields_on_result] completion @ 'const b = a.§;'
+    -> 4 items: id [i64]; email [[]const u8]; name [[]const u8]; welcome [fn (self: *Author, input: (unknown type)) void]
+[fields_on_post_result] completion @ 'const q = p.§;'
+    -> 6 items: id [i64]; author_id [i64]; title [[]const u8]; body [?[]const u8]; published [bool]; stamp [fn (self: *Post, input: (unknown type)) void]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean/domain.zig#L7) | [RegisterInput](file:///SCRATCH/capture_check_clean/.zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[hover_fn_rename] hover @ 'api.Author.ren§ame(a'
+    -> "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean/domain.zig#L7) | [RenameInput](file:///SCRATCH/capture_check_clean/.zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1`"
+[hover_fn_draft] hover @ 'api.Post.dr§aft(empty'
+    -> "```zig\nfn draft(base: domain.Post, input: DraftInput) domain.Post\n```\n```zig\n(fn (Post, DraftInput) Post)\n```\n\nGo to [Post](file:///SCRATCH/capture_check_clean/domain.zig#L26) | [DraftInput](file:///SCRATCH/capture_check_clean/.zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig#L37)\n\nRuns the `draft` action on `Post`.\nSQL: `update posts set author_id = $1, title = $2, body = $3`"
+[hover_input_type] hover @ 'var in: api.Author.Register§Input'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nInput of the `register` action on `Author`."
+[hover_input_var] hover @ 'var i§n: api.Author.RegisterInput'
+    -> "```zig\nvar in: api.Author.RegisterInput = .{ .email = \"x\", .name = \"y\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean/.zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig#L9)"
+[hover_result] hover @ 'const §a = api.Author.register'
+    -> "```zig\nconst a = api.Author.register(blank, .{ .email = \"a@b.c\", .name = \"ann\" })\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean/domain.zig#L7)"
+[hover_post_result] hover @ 'const §p = api.Post.draft'
+    -> "```zig\nconst p = api.Post.draft(empty, .{ .author_id = 2, .title = \"t\", .body = null })\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///SCRATCH/capture_check_clean/domain.zig#L26)"
+[hover_api_import] hover @ 'const a§pi = @import'
+    -> "```zig\nconst api = @import(\"api\")\n```\n```zig\n(type)\n```\n\nGENERATED. Do not edit."
+[hover_literal_field] hover @ '.{ .em§ail = "a@b.c"'
+    -> "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_draft] signatureHelp @ 'api.Post.draft(§empty'
+    -> activeParameter=0 fn draft(base: Post, input: DraftInput) Post params=["base: Post", "input: DraftInput"] doc="Runs the `draft` action on `Post`.\nSQL: `update posts set author_id = $1, title = $2, body = $3`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:16:12
+[def_fn_draft] definition @ 'api.Post.dr§aft(empty'
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:45:12
+[def_input_type] definition @ 'var in: api.Author.Register§Input'
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:9:31
+[def_literal_field] definition @ '.{ .em§ail = "a@b.c"'
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:10:9
+[def_api_identifier] definition @ 'const a = a§pi.Author'
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:1:1
+[def_import_string] definition @ '@import("a§pi")'
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:1:1
+[def_field_on_result] definition @ 'a.em§ail, b.name'
+    -> domain.zig:9:5
+[typedef_input_var] typeDefinition @ 'i§n.name = '
+    -> .zig-cache/o/ee4627f54a3338381c060e103466c62a/api.zig:9:31
+--- domain.zig
+[api_members] completion @ '_ = api.§;'
+    -> null
+[api_Author_members] completion @ '_ = api.Author.§;'
+    -> null
+[hover_hook_param] hover @ 'pub fn welcome(self: *Author, in§put:'
+    -> "```zig\ninput: api.Author.RegisterInput\n```\n```zig\n(unknown)\n```"
+[hover_hook_param_type] hover @ 'input: api.Author.Register§Input) void'
+    -> null
+[fields_on_hook_param] completion @ '_ = input.§;\n    }\n};\n\npub const Post'
+    -> null
+[post_fields_on_hook_param] completion @ '_ = input.§;\n    }\n};\n\npub const resources'
+    -> null
+[def_hook_param_type] definition @ 'input: api.Author.Register§Input) void'
+    -> null
+[def_import_string] definition @ '@import("a§pi")'
+    -> stub_api.zig:1:1
+[literal_in_hook_body] completion @ 'api.Author.rename(self.*, .{ .§ });'
+    -> null
+[sig_in_hook_body] signatureHelp @ 'api.Author.rename(§self.*'
+    -> null
+[decl_accept_member] completion @ '.{ .name = "rename", .accept = &.{.§} },'
+    -> null
+[decl_after_member] completion @ '.after = .§ },\n        .{ .name = "rename"'
+    -> null
+[decl_action_option] completion @ '.{ .name = "rename", .§ },'
+    -> null
+--- zava.zig
+[generic_hover_input_param] hover @ 'base: R, in§put: Generated(R, inputShape(R, action).name)) R {'
+    -> "```zig\ninput: Generated(R, inputShape(R, action).name)\n```\n```zig\n((unknown type))\n```"
+[generic_fields_on_input] completion @ '    _ = input.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_hover_base_param] hover @ 'action: []const u8, ba§se: R, input'
+    -> "```zig\nbase: R\n```\n```zig\n(R)\n```\n\nGo to [R](file:///SCRATCH/capture_check_clean/zava.zig#L49)"
+[generic_fields_on_r] completion @ '    _ = r.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_members_of_R] completion @ '    _ = R.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_hover_action_value] hover @ 'const §a = comptime find(R, action);\n    var r'
+    -> "```zig\nconst a = comptime find(R, action)\n```\n```zig\n(Action(R))\n```\n\nGo to [Action](file:///SCRATCH/capture_check_clean/zava.zig#L6) | [R](file:///SCRATCH/capture_check_clean/zava.zig#L49)"
+[generic_fields_on_action] completion @ '    _ = a.§;\n    return r;\n}\n\n/// Comparison'
+    -> 3 items: name [[]const u8]; accept [[]const (unknown type)]; after [?(unknown type)]
+[generic_hover_loop_capture] hover @ 'inline for (a.accept) |§f| @field(r'
+    -> "```zig\nf\n```\n```zig\n((unknown type))\n```"
+[generic_hover_accept_field] hover @ 'inline for (a.acc§ept) |f| @field(r'
+    -> "```zig\naccept: []const std.meta.FieldEnum(R)\n```\n```zig\n([]const (unknown type))\n```"
+[generic_hover_hook_capture] hover @ 'if (a.after) |§h| @field'
+    -> "```zig\nh\n```\n```zig\n((unknown type))\n```"
+[generic_hover_Generated_call] hover @ 'input: Gener§ated(R, inputShape'
+    -> "```zig\nfn Generated(comptime R: type, comptime shape: []const u8) type\n```\n```zig\n(fn (comptime type, comptime []const u8) type)\n```\n\nLook a generated type up by resource and shape name. Only evaluated in the app build."
+[generic_def_Generated] definition @ 'input: Gener§ated(R, inputShape'
+    -> zava.zig:36:8
+[generic_def_inputShape] definition @ 'Generated(R, input§Shape(R, action).name)'
+    -> zava.zig:18:8
+[generic_hover_inputShape_name] hover @ 'inputShape(R, action).na§me)) R {'
+    -> "```zig\nname: []const u8\n```\n```zig\n([]const u8)\n```"
+[generic_sig_run] signatureHelp @ 'return run(§);'
+    -> activeParameter=0 fn run(comptime R: type, comptime action: []const u8, base: R, input: (unknown type)) R params=["comptime R: type", "comptime action: []const u8", "base: R", "input: (unknown type)"] doc="Comptime behaviour, typed on the generated input type."
+[loop_hover_action_capture] hover @ 'for (R.actions) |§a| if'
+    -> "```zig\na\n```\n```zig\n(unknown)\n```"
+[loop_fields_on_action] completion @ 'std.mem.eql(u8, a.§, action)'
+    -> null
+[loop_hover_field_capture] hover @ 'for (a.accept, 0..) |§f, i| {'
+    -> "```zig\nf\n```\n```zig\n((unknown type))\n```"
+[shape_fields] completion @ 'return .{ .§ };\n}\n\npub fn pascal'
+    -> 3 items: name [[]const u8]; field_names [[]const []const u8]; field_types [[]const []const u8]
+[api_members_in_zava] completion @ '    _ = api.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[domain_members_in_zava] completion @ '    _ = domain.§;\n    return r;\n}\n\n/// Comparison'
+    -> 3 items: Author [type]; Post [type]; resources [struct { type, type }]
+[concrete_hover_input_param] hover @ 'base: domain.Author, in§put: api.Author.RegisterInput) domain.Author {'
+    -> "```zig\ninput: api.Author.RegisterInput\n```\n```zig\n(unknown)\n```"
+[concrete_fields_on_input] completion @ 'r.email = input.§;'
+    -> null
+[concrete_fields_on_r] completion @ '    r.§;\n    r.name = input.name;'
+    -> 4 items: id [i64]; email [[]const u8]; name [[]const u8]; welcome [fn (self: *Author, input: (unknown type)) void]
+[concrete_hover_field] hover @ 'r.email = input.em§ail;'
+    -> null
+[concrete_def_field] definition @ 'r.email = input.em§ail;'
+    -> null
+[concrete_def_input_type] definition @ 'input: api.Author.Register§Input) domain.Author {'
+    -> null
+[concrete_def_record_field] definition @ 'r.em§ail = input.email;'
+    -> domain.zig:9:5
+[mixed_hover_input_param] hover @ 'in§put: Generated(domain.Author, "RegisterInput")'
+    -> "```zig\ninput: Generated(domain.Author, \"RegisterInput\")\n```\n```zig\n((unknown type))\n```"
+[mixed_fields_on_input] completion @ 'return input.§;'
+    -> null
+[alias_hover] hover @ 'const Register§Input = api.Author.RegisterInput;'
+    -> "```zig\nconst RegisterInput = api.Author.RegisterInput\n```\n```zig\n(unknown)\n```\n\nA concrete alias written next to the generic code."
+[alias_fields_on_input] completion @ 'return in.§;'
+    -> null
+--- gen.zig
+[gen_hover_resource_capture] hover @ 'inline for (domain.resources) |§R| {'
+    -> "```zig\nR\n```\n```zig\n(unknown)\n```"
+[gen_members_of_R] completion @ '    _ = R.§;\n        inline for (R.actions)'
+    -> null
+[gen_hover_action_capture] hover @ 'inline for (R.actions) |§a| {'
+    -> "```zig\na\n```\n```zig\n(unknown)\n```"
+[gen_hover_shape] hover @ 'const sh§ape = comptime zava.inputShape'
+    -> "```zig\nconst shape = comptime zava.inputShape(R, a.name)\n```\n```zig\n(Shape)\n```\n\nGo to [Shape](file:///SCRATCH/capture_check_clean/zava.zig#L16)"
+[gen_fields_on_shape] completion @ 'for (shape.§, shape.field_types)'
+    -> 3 items: name [[]const u8]; field_names [[]const []const u8]; field_types [[]const []const u8]
+[gen_domain_members] completion @ 'inline for (domain.§) |R| {'
+    -> 3 items: Author [type]; Post [type]; resources [struct { type, type }]
+--- app.zig inlay hints: 33
+    L1:10 kind=1 ': type'   | const std = @import("std");
+    L2:10 kind=1 ': type'   | const api = @import("api");
+    L5:44 kind=1 ': i64'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L5:56 kind=1 ': []const u8'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L5:68 kind=1 ': []const u8'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L6:12 kind=1 ': Author'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:35 kind=2 'base:'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:42 kind=2 'input:'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:51 kind=1 ': []const u8'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:68 kind=1 ': []const u8'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L7:12 kind=1 ': Author'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:33 kind=2 'base:'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:36 kind=2 'input:'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:44 kind=1 ': []const u8'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L8:49 kind=1 ': []const u8'   | var in: api.Author.RegisterInput = .{ .email = "x", .name = "y" };
+    L8:62 kind=1 ': []const u8'   | var in: api.Author.RegisterInput = .{ .email = "x", .name = "y" };
+    L10:42 kind=1 ': i64'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:58 kind=1 ': i64'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:70 kind=1 ': []const u8'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:82 kind=1 ': ?[]const u8'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:101 kind=1 ': bool'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L11:12 kind=1 ': Post'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:30 kind=2 'base:'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:37 kind=2 'input:'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:50 kind=1 ': i64'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:62 kind=1 ': []const u8'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:75 kind=1 ': ?[]const u8'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L12:12 kind=1 ': Post'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:32 kind=2 'base:'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:35 kind=2 'input:'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:48 kind=1 ': bool'   | const q = api.Post.publish(p, .{ .published = true });
+    L13:21 kind=2 'fmt:'   | std.debug.print("{s} | {s} | {s} | {s} | {}\n", .{ a.email, b.name, in.name, p.title, q.published });
+    L13:53 kind=2 'args:'   | std.debug.print("{s} | {s} | {s} | {s} | {}\n", .{ a.email, b.name, in.name, p.title, q.published });
+diagnostics app.zig: []
+diagnostics domain.zig: []
+diagnostics zava.zig: []
+diagnostics gen.zig: []
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/capture_check_clean/build.zig'", "Build-On-Save is running for \"/SCRATCH/capture_check_clean/\""]
+
+===== features[capture_check_prebuilt] mode=capture check_step=True enable_build_on_save=None prebuilt_cache=True graph=stub =====
+manual `zig build` before starting ZLS took 4.4s
+time from didOpen(app.zig) until `api.Author.` completes: 0.42s
+generated files on disk after ZLS started: {"/.zig-cache/o/9c76c2c69a0d4e619f3d65d2536b54a2/api.zig": "old", "/zig-out/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_prebuilt/domain.zig#L7) | [RegisterInput](file:///SCRATCH/capture_check_prebuilt/.zig-cache/o/9c76c2c69a0d4e619f3d65d2536b54a2/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/9c76c2c69a0d4e619f3d65d2536b54a2/api.zig:16:12
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/capture_check_prebuilt/build.zig'", "Build-On-Save is running for \"/SCRATCH/capture_check_prebuilt/\""]
+
+===== features[capture_nocheck_bosoff_clean] mode=capture check_step=False enable_build_on_save=False prebuilt_cache=False graph=stub =====
+time from didOpen(app.zig) until `api.Author.` completes: 4.77s
+generated files on disk after ZLS started: {"/.zig-cache/o/5050eca829bba10e77633cfba08782eb/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_nocheck_bosoff_clean/domain.zig#L7) | [RegisterInput](file:///SCRATCH/capture_nocheck_bosoff_clean/.zig-cache/o/5050eca829bba10e77633cfba08782eb/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/5050eca829bba10e77633cfba08782eb/api.zig:16:12
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Set config option 'enable_build_on_save' to false", "Loaded build file 'file:///SCRATCH/capture_nocheck_bosoff_clean/build.zig'"]
+
+===== features[outarg_check_clean] mode=outarg check_step=True enable_build_on_save=None prebuilt_cache=False graph=stub =====
+time from didOpen(app.zig) until `api.Author.` completes: 4.81s
+generated files on disk after ZLS started: {"/.zig-cache/o/8dc0c235e3b76217260f6f0161c1cb6a/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/outarg_check_clean/domain.zig#L7) | [RegisterInput](file:///SCRATCH/outarg_check_clean/.zig-cache/o/8dc0c235e3b76217260f6f0161c1cb6a/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/8dc0c235e3b76217260f6f0161c1cb6a/api.zig:16:12
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/outarg_check_clean/build.zig'", "Build-On-Save is running for \"/SCRATCH/outarg_check_clean/\""]
+
+===== features[writefiles_check_clean] mode=writefiles check_step=True enable_build_on_save=None prebuilt_cache=False graph=stub =====
+time from didOpen(app.zig) until `api.Author.` completes: 4.79s
+generated files on disk after ZLS started: {"/.zig-cache/o/78bcd896bab86c40fa717cd9172746c8/api.zig": "old", "/.zig-cache/o/c821efcb079d551dddc717a2c518b835/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/writefiles_check_clean/domain.zig#L7) | [RegisterInput](file:///SCRATCH/writefiles_check_clean/.zig-cache/o/78bcd896bab86c40fa717cd9172746c8/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/78bcd896bab86c40fa717cd9172746c8/api.zig:16:12
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/writefiles_check_clean/build.zig'", "Build-On-Save is running for \"/SCRATCH/writefiles_check_clean/\""]
+
+===== features[sourcetree_check_clean] mode=source_tree check_step=True enable_build_on_save=None prebuilt_cache=False graph=stub =====
+time from didOpen(app.zig) until `api.Author.` completes: 4.54s
+generated files on disk after ZLS started: {"/generated/api.zig": "old", "/.zig-cache/o/e83aea4700b9d91d5e8fb6fcc916d5b3/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/sourcetree_check_clean/domain.zig#L7) | [RegisterInput](file:///SCRATCH/sourcetree_check_clean/generated/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> generated/api.zig:16:12
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/sourcetree_check_clean/build.zig'", "Build-On-Save is running for \"/SCRATCH/sourcetree_check_clean/\""]
+
+===== features[sourcetree_nocheck_bosoff_clean] mode=source_tree check_step=False enable_build_on_save=False prebuilt_cache=False graph=stub =====
+time from didOpen(app.zig) until `api.Author.` completes: NEVER within 90.24s
+generated files on disk after ZLS started: {}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> null
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> null
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> null
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> null
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> null
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> null
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> null
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> null
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> null
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Set config option 'enable_build_on_save' to false", "Loaded build file 'file:///SCRATCH/sourcetree_nocheck_bosoff_clean/build.zig'"]
+
+===== features[capture_check_clean_nostub] mode=capture check_step=True enable_build_on_save=None prebuilt_cache=False graph=no_stub =====
+time from didOpen(app.zig) until `api.Author.` completes: 4.79s
+generated files on disk after ZLS started: {"/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[input_literal_typed_decl] completion @ 'var in: api.Author.RegisterInput = .{ .§ };'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[record_literal_fields] completion @ 'const blank: api.Author.Record = .{ .§ };'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[fields_on_input_var] completion @ 'in.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[fields_on_result] completion @ 'const b = a.§;'
+    -> 4 items: id [i64]; email [[]const u8]; name [[]const u8]; welcome [fn (self: *Author, input: RegisterInput) void]
+[fields_on_post_result] completion @ 'const q = p.§;'
+    -> 6 items: id [i64]; author_id [i64]; title [[]const u8]; body [?[]const u8]; published [bool]; stamp [fn (self: *Post, input: DraftInput) void]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean_nostub/domain.zig#L7) | [RegisterInput](file:///SCRATCH/capture_check_clean_nostub/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[hover_fn_rename] hover @ 'api.Author.ren§ame(a'
+    -> "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean_nostub/domain.zig#L7) | [RenameInput](file:///SCRATCH/capture_check_clean_nostub/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1`"
+[hover_fn_draft] hover @ 'api.Post.dr§aft(empty'
+    -> "```zig\nfn draft(base: domain.Post, input: DraftInput) domain.Post\n```\n```zig\n(fn (Post, DraftInput) Post)\n```\n\nGo to [Post](file:///SCRATCH/capture_check_clean_nostub/domain.zig#L26) | [DraftInput](file:///SCRATCH/capture_check_clean_nostub/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig#L37)\n\nRuns the `draft` action on `Post`.\nSQL: `update posts set author_id = $1, title = $2, body = $3`"
+[hover_input_type] hover @ 'var in: api.Author.Register§Input'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nInput of the `register` action on `Author`."
+[hover_input_var] hover @ 'var i§n: api.Author.RegisterInput'
+    -> "```zig\nvar in: api.Author.RegisterInput = .{ .email = \"x\", .name = \"y\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean_nostub/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig#L9)"
+[hover_result] hover @ 'const §a = api.Author.register'
+    -> "```zig\nconst a = api.Author.register(blank, .{ .email = \"a@b.c\", .name = \"ann\" })\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean_nostub/domain.zig#L7)"
+[hover_post_result] hover @ 'const §p = api.Post.draft'
+    -> "```zig\nconst p = api.Post.draft(empty, .{ .author_id = 2, .title = \"t\", .body = null })\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///SCRATCH/capture_check_clean_nostub/domain.zig#L26)"
+[hover_api_import] hover @ 'const a§pi = @import'
+    -> "```zig\nconst api = @import(\"api\")\n```\n```zig\n(type)\n```\n\nGENERATED. Do not edit."
+[hover_literal_field] hover @ '.{ .em§ail = "a@b.c"'
+    -> "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_draft] signatureHelp @ 'api.Post.draft(§empty'
+    -> activeParameter=0 fn draft(base: Post, input: DraftInput) Post params=["base: Post", "input: DraftInput"] doc="Runs the `draft` action on `Post`.\nSQL: `update posts set author_id = $1, title = $2, body = $3`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:16:12
+[def_fn_draft] definition @ 'api.Post.dr§aft(empty'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:45:12
+[def_input_type] definition @ 'var in: api.Author.Register§Input'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:9:31
+[def_literal_field] definition @ '.{ .em§ail = "a@b.c"'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:10:9
+[def_api_identifier] definition @ 'const a = a§pi.Author'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:1:1
+[def_import_string] definition @ '@import("a§pi")'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:1:1
+[def_field_on_result] definition @ 'a.em§ail, b.name'
+    -> domain.zig:9:5
+[typedef_input_var] typeDefinition @ 'i§n.name = '
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:9:31
+--- domain.zig
+[api_members] completion @ '_ = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ '_ = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[hover_hook_param] hover @ 'pub fn welcome(self: *Author, in§put:'
+    -> "```zig\ninput: api.Author.RegisterInput\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean_nostub/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig#L9)"
+[hover_hook_param_type] hover @ 'input: api.Author.Register§Input) void'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nInput of the `register` action on `Author`."
+[fields_on_hook_param] completion @ '_ = input.§;\n    }\n};\n\npub const Post'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[post_fields_on_hook_param] completion @ '_ = input.§;\n    }\n};\n\npub const resources'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[def_hook_param_type] definition @ 'input: api.Author.Register§Input) void'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:9:31
+[def_import_string] definition @ '@import("a§pi")'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:1:1
+[literal_in_hook_body] completion @ 'api.Author.rename(self.*, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[sig_in_hook_body] signatureHelp @ 'api.Author.rename(§self.*'
+    -> activeParameter=0 fn rename(base: Author, input: RenameInput) Author params=["base: Author", "input: RenameInput"] doc="Runs the `rename` action on `Author`.\nSQL: `update authors set name = $1`"
+[decl_accept_member] completion @ '.{ .name = "rename", .accept = &.{.§} },'
+    -> null
+[decl_after_member] completion @ '.after = .§ },\n        .{ .name = "rename"'
+    -> null
+[decl_action_option] completion @ '.{ .name = "rename", .§ },'
+    -> null
+--- zava.zig
+[generic_hover_input_param] hover @ 'base: R, in§put: Generated(R, inputShape(R, action).name)) R {'
+    -> "```zig\ninput: Generated(R, inputShape(R, action).name)\n```\n```zig\n((unknown type))\n```"
+[generic_fields_on_input] completion @ '    _ = input.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_hover_base_param] hover @ 'action: []const u8, ba§se: R, input'
+    -> "```zig\nbase: R\n```\n```zig\n(R)\n```\n\nGo to [R](file:///SCRATCH/capture_check_clean_nostub/zava.zig#L49)"
+[generic_fields_on_r] completion @ '    _ = r.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_members_of_R] completion @ '    _ = R.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_hover_action_value] hover @ 'const §a = comptime find(R, action);\n    var r'
+    -> "```zig\nconst a = comptime find(R, action)\n```\n```zig\n(Action(R))\n```\n\nGo to [Action](file:///SCRATCH/capture_check_clean_nostub/zava.zig#L6) | [R](file:///SCRATCH/capture_check_clean_nostub/zava.zig#L49)"
+[generic_fields_on_action] completion @ '    _ = a.§;\n    return r;\n}\n\n/// Comparison'
+    -> 3 items: name [[]const u8]; accept [[]const (unknown type)]; after [?(unknown type)]
+[generic_hover_loop_capture] hover @ 'inline for (a.accept) |§f| @field(r'
+    -> "```zig\nf\n```\n```zig\n((unknown type))\n```"
+[generic_hover_accept_field] hover @ 'inline for (a.acc§ept) |f| @field(r'
+    -> "```zig\naccept: []const std.meta.FieldEnum(R)\n```\n```zig\n([]const (unknown type))\n```"
+[generic_hover_hook_capture] hover @ 'if (a.after) |§h| @field'
+    -> "```zig\nh\n```\n```zig\n((unknown type))\n```"
+[generic_hover_Generated_call] hover @ 'input: Gener§ated(R, inputShape'
+    -> "```zig\nfn Generated(comptime R: type, comptime shape: []const u8) type\n```\n```zig\n(fn (comptime type, comptime []const u8) type)\n```\n\nLook a generated type up by resource and shape name. Only evaluated in the app build."
+[generic_def_Generated] definition @ 'input: Gener§ated(R, inputShape'
+    -> zava.zig:36:8
+[generic_def_inputShape] definition @ 'Generated(R, input§Shape(R, action).name)'
+    -> zava.zig:18:8
+[generic_hover_inputShape_name] hover @ 'inputShape(R, action).na§me)) R {'
+    -> "```zig\nname: []const u8\n```\n```zig\n([]const u8)\n```"
+[generic_sig_run] signatureHelp @ 'return run(§);'
+    -> activeParameter=0 fn run(comptime R: type, comptime action: []const u8, base: R, input: (unknown type)) R params=["comptime R: type", "comptime action: []const u8", "base: R", "input: (unknown type)"] doc="Comptime behaviour, typed on the generated input type."
+[loop_hover_action_capture] hover @ 'for (R.actions) |§a| if'
+    -> "```zig\na\n```\n```zig\n(unknown)\n```"
+[loop_fields_on_action] completion @ 'std.mem.eql(u8, a.§, action)'
+    -> null
+[loop_hover_field_capture] hover @ 'for (a.accept, 0..) |§f, i| {'
+    -> "```zig\nf\n```\n```zig\n((unknown type))\n```"
+[shape_fields] completion @ 'return .{ .§ };\n}\n\npub fn pascal'
+    -> 3 items: name [[]const u8]; field_names [[]const []const u8]; field_types [[]const []const u8]
+[api_members_in_zava] completion @ '    _ = api.§;\n    return r;\n}\n\n/// Comparison'
+    -> 2 items: Author [type]; Post [type]
+[domain_members_in_zava] completion @ '    _ = domain.§;\n    return r;\n}\n\n/// Comparison'
+    -> 3 items: Author [type]; Post [type]; resources [struct { type, type }]
+[concrete_hover_input_param] hover @ 'base: domain.Author, in§put: api.Author.RegisterInput) domain.Author {'
+    -> "```zig\ninput: api.Author.RegisterInput\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean_nostub/.zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig#L9)"
+[concrete_fields_on_input] completion @ 'r.email = input.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[concrete_fields_on_r] completion @ '    r.§;\n    r.name = input.name;'
+    -> 4 items: id [i64]; email [[]const u8]; name [[]const u8]; welcome [fn (self: *Author, input: RegisterInput) void]
+[concrete_hover_field] hover @ 'r.email = input.em§ail;'
+    -> "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+[concrete_def_field] definition @ 'r.email = input.em§ail;'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:10:9
+[concrete_def_input_type] definition @ 'input: api.Author.Register§Input) domain.Author {'
+    -> .zig-cache/o/50e50b217deafc4ce463fcb701e30bd6/api.zig:9:31
+[concrete_def_record_field] definition @ 'r.em§ail = input.email;'
+    -> domain.zig:9:5
+[mixed_hover_input_param] hover @ 'in§put: Generated(domain.Author, "RegisterInput")'
+    -> "```zig\ninput: Generated(domain.Author, \"RegisterInput\")\n```\n```zig\n((unknown type))\n```"
+[mixed_fields_on_input] completion @ 'return input.§;'
+    -> null
+[alias_hover] hover @ 'const Register§Input = api.Author.RegisterInput;'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nA concrete alias written next to the generic code.\n\nInput of the `register` action on `Author`."
+[alias_fields_on_input] completion @ 'return in.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+--- gen.zig
+[gen_hover_resource_capture] hover @ 'inline for (domain.resources) |§R| {'
+    -> "```zig\nR\n```\n```zig\n(unknown)\n```"
+[gen_members_of_R] completion @ '    _ = R.§;\n        inline for (R.actions)'
+    -> null
+[gen_hover_action_capture] hover @ 'inline for (R.actions) |§a| {'
+    -> "```zig\na\n```\n```zig\n(unknown)\n```"
+[gen_hover_shape] hover @ 'const sh§ape = comptime zava.inputShape'
+    -> "```zig\nconst shape = comptime zava.inputShape(R, a.name)\n```\n```zig\n(Shape)\n```\n\nGo to [Shape](file:///SCRATCH/capture_check_clean_nostub/zava.zig#L16)"
+[gen_fields_on_shape] completion @ 'for (shape.§, shape.field_types)'
+    -> 3 items: name [[]const u8]; field_names [[]const []const u8]; field_types [[]const []const u8]
+[gen_domain_members] completion @ 'inline for (domain.§) |R| {'
+    -> 3 items: Author [type]; Post [type]; resources [struct { type, type }]
+--- app.zig inlay hints: 33
+    L1:10 kind=1 ': type'   | const std = @import("std");
+    L2:10 kind=1 ': type'   | const api = @import("api");
+    L5:44 kind=1 ': i64'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L5:56 kind=1 ': []const u8'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L5:68 kind=1 ': []const u8'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L6:12 kind=1 ': Author'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:35 kind=2 'base:'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:42 kind=2 'input:'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:51 kind=1 ': []const u8'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:68 kind=1 ': []const u8'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L7:12 kind=1 ': Author'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:33 kind=2 'base:'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:36 kind=2 'input:'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:44 kind=1 ': []const u8'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L8:49 kind=1 ': []const u8'   | var in: api.Author.RegisterInput = .{ .email = "x", .name = "y" };
+    L8:62 kind=1 ': []const u8'   | var in: api.Author.RegisterInput = .{ .email = "x", .name = "y" };
+    L10:42 kind=1 ': i64'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:58 kind=1 ': i64'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:70 kind=1 ': []const u8'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:82 kind=1 ': ?[]const u8'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:101 kind=1 ': bool'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L11:12 kind=1 ': Post'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:30 kind=2 'base:'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:37 kind=2 'input:'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:50 kind=1 ': i64'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:62 kind=1 ': []const u8'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:75 kind=1 ': ?[]const u8'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L12:12 kind=1 ': Post'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:32 kind=2 'base:'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:35 kind=2 'input:'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:48 kind=1 ': bool'   | const q = api.Post.publish(p, .{ .published = true });
+    L13:21 kind=2 'fmt:'   | std.debug.print("{s} | {s} | {s} | {s} | {}\n", .{ a.email, b.name, in.name, p.title, q.published });
+    L13:53 kind=2 'args:'   | std.debug.print("{s} | {s} | {s} | {s} | {}\n", .{ a.email, b.name, in.name, p.title, q.published });
+diagnostics app.zig: []
+diagnostics domain.zig: []
+diagnostics zava.zig: []
+diagnostics gen.zig: []
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/capture_check_clean_nostub/build.zig'", "Build-On-Save is running for \"/SCRATCH/capture_check_clean_nostub/\""]
+
+===== features[capture_check_clean_realfirst] mode=capture check_step=True enable_build_on_save=None prebuilt_cache=False graph=real_first =====
+time from didOpen(app.zig) until `api.Author.` completes: 4.58s
+generated files on disk after ZLS started: {"/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig": "old"}
+--- app.zig
+[api_members] completion @ 'const blank2 = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ 'const blank2 = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[api_Post_members] completion @ 'const blank2 = api.Post.§;'
+    -> 5 items: Record [type]; DraftInput [type]; draft [fn (base: Post, input: DraftInput) Post]; PublishInput [type]; publish [fn (base: Post, input: PublishInput) Post]
+[input_literal_register] completion @ 'api.Author.register(blank, .{ .§ });'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[input_literal_rename] completion @ 'api.Author.rename(a, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[input_literal_draft] completion @ 'api.Post.draft(empty, .{ .§ });'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[input_literal_typed_decl] completion @ 'var in: api.Author.RegisterInput = .{ .§ };'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[record_literal_fields] completion @ 'const blank: api.Author.Record = .{ .§ };'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+[fields_on_input_var] completion @ 'in.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[fields_on_result] completion @ 'const b = a.§;'
+    -> 4 items: id [i64]; email [[]const u8]; name [[]const u8]; welcome [fn (self: *Author, input: RegisterInput) void]
+[fields_on_post_result] completion @ 'const q = p.§;'
+    -> 6 items: id [i64]; author_id [i64]; title [[]const u8]; body [?[]const u8]; published [bool]; stamp [fn (self: *Post, input: DraftInput) void]
+[hover_fn_register] hover @ 'api.Author.regi§ster(blank'
+    -> "```zig\nfn register(base: domain.Author, input: RegisterInput) domain.Author\n```\n```zig\n(fn (Author, RegisterInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean_realfirst/domain.zig#L7) | [RegisterInput](file:///SCRATCH/capture_check_clean_realfirst/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig#L9)\n\nRuns the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[hover_fn_rename] hover @ 'api.Author.ren§ame(a'
+    -> "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean_realfirst/domain.zig#L7) | [RenameInput](file:///SCRATCH/capture_check_clean_realfirst/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1`"
+[hover_fn_draft] hover @ 'api.Post.dr§aft(empty'
+    -> "```zig\nfn draft(base: domain.Post, input: DraftInput) domain.Post\n```\n```zig\n(fn (Post, DraftInput) Post)\n```\n\nGo to [Post](file:///SCRATCH/capture_check_clean_realfirst/domain.zig#L26) | [DraftInput](file:///SCRATCH/capture_check_clean_realfirst/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig#L37)\n\nRuns the `draft` action on `Post`.\nSQL: `update posts set author_id = $1, title = $2, body = $3`"
+[hover_input_type] hover @ 'var in: api.Author.Register§Input'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nInput of the `register` action on `Author`."
+[hover_input_var] hover @ 'var i§n: api.Author.RegisterInput'
+    -> "```zig\nvar in: api.Author.RegisterInput = .{ .email = \"x\", .name = \"y\" }\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean_realfirst/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig#L9)"
+[hover_result] hover @ 'const §a = api.Author.register'
+    -> "```zig\nconst a = api.Author.register(blank, .{ .email = \"a@b.c\", .name = \"ann\" })\n```\n```zig\n(Author)\n```\n\nGo to [Author](file:///SCRATCH/capture_check_clean_realfirst/domain.zig#L7)"
+[hover_post_result] hover @ 'const §p = api.Post.draft'
+    -> "```zig\nconst p = api.Post.draft(empty, .{ .author_id = 2, .title = \"t\", .body = null })\n```\n```zig\n(Post)\n```\n\nGo to [Post](file:///SCRATCH/capture_check_clean_realfirst/domain.zig#L26)"
+[hover_api_import] hover @ 'const a§pi = @import'
+    -> "```zig\nconst api = @import(\"api\")\n```\n```zig\n(type)\n```\n\nGENERATED. Do not edit."
+[hover_literal_field] hover @ '.{ .em§ail = "a@b.c"'
+    -> "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+[sig_register] signatureHelp @ 'api.Author.register(blank, §.{ .email'
+    -> activeParameter=1 fn register(base: Author, input: RegisterInput) Author params=["base: Author", "input: RegisterInput"] doc="Runs the `register` action on `Author`.\nSQL: `update authors set email = $1, name = $2`"
+[sig_draft] signatureHelp @ 'api.Post.draft(§empty'
+    -> activeParameter=0 fn draft(base: Post, input: DraftInput) Post params=["base: Post", "input: DraftInput"] doc="Runs the `draft` action on `Post`.\nSQL: `update posts set author_id = $1, title = $2, body = $3`"
+[def_fn_register] definition @ 'api.Author.regi§ster(blank'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:16:12
+[def_fn_draft] definition @ 'api.Post.dr§aft(empty'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:45:12
+[def_input_type] definition @ 'var in: api.Author.Register§Input'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:9:31
+[def_literal_field] definition @ '.{ .em§ail = "a@b.c"'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:10:9
+[def_api_identifier] definition @ 'const a = a§pi.Author'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:1:1
+[def_import_string] definition @ '@import("a§pi")'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:1:1
+[def_field_on_result] definition @ 'a.em§ail, b.name'
+    -> domain.zig:9:5
+[typedef_input_var] typeDefinition @ 'i§n.name = '
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:9:31
+--- domain.zig
+[api_members] completion @ '_ = api.§;'
+    -> 2 items: Author [type]; Post [type]
+[api_Author_members] completion @ '_ = api.Author.§;'
+    -> 5 items: Record [type]; RegisterInput [type]; register [fn (base: Author, input: RegisterInput) Author]; RenameInput [type]; rename [fn (base: Author, input: RenameInput) Author]
+[hover_hook_param] hover @ 'pub fn welcome(self: *Author, in§put:'
+    -> "```zig\ninput: api.Author.RegisterInput\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean_realfirst/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig#L9)"
+[hover_hook_param_type] hover @ 'input: api.Author.Register§Input) void'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nInput of the `register` action on `Author`."
+[fields_on_hook_param] completion @ '_ = input.§;\n    }\n};\n\npub const Post'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[post_fields_on_hook_param] completion @ '_ = input.§;\n    }\n};\n\npub const resources'
+    -> 3 items: author_id [i64]; title [[]const u8]; body [?[]const u8]
+[def_hook_param_type] definition @ 'input: api.Author.Register§Input) void'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:9:31
+[def_import_string] definition @ '@import("a§pi")'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:1:1
+[literal_in_hook_body] completion @ 'api.Author.rename(self.*, .{ .§ });'
+    -> 1 items: name [[]const u8]
+[sig_in_hook_body] signatureHelp @ 'api.Author.rename(§self.*'
+    -> activeParameter=0 fn rename(base: Author, input: RenameInput) Author params=["base: Author", "input: RenameInput"] doc="Runs the `rename` action on `Author`.\nSQL: `update authors set name = $1`"
+[decl_accept_member] completion @ '.{ .name = "rename", .accept = &.{.§} },'
+    -> null
+[decl_after_member] completion @ '.after = .§ },\n        .{ .name = "rename"'
+    -> null
+[decl_action_option] completion @ '.{ .name = "rename", .§ },'
+    -> null
+--- zava.zig
+[generic_hover_input_param] hover @ 'base: R, in§put: Generated(R, inputShape(R, action).name)) R {'
+    -> "```zig\ninput: Generated(R, inputShape(R, action).name)\n```\n```zig\n((unknown type))\n```"
+[generic_fields_on_input] completion @ '    _ = input.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_hover_base_param] hover @ 'action: []const u8, ba§se: R, input'
+    -> "```zig\nbase: R\n```\n```zig\n(R)\n```\n\nGo to [R](file:///SCRATCH/capture_check_clean_realfirst/zava.zig#L49)"
+[generic_fields_on_r] completion @ '    _ = r.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_members_of_R] completion @ '    _ = R.§;\n    return r;\n}\n\n/// Comparison'
+    -> null
+[generic_hover_action_value] hover @ 'const §a = comptime find(R, action);\n    var r'
+    -> "```zig\nconst a = comptime find(R, action)\n```\n```zig\n(Action(R))\n```\n\nGo to [Action](file:///SCRATCH/capture_check_clean_realfirst/zava.zig#L6) | [R](file:///SCRATCH/capture_check_clean_realfirst/zava.zig#L49)"
+[generic_fields_on_action] completion @ '    _ = a.§;\n    return r;\n}\n\n/// Comparison'
+    -> 3 items: name [[]const u8]; accept [[]const (unknown type)]; after [?(unknown type)]
+[generic_hover_loop_capture] hover @ 'inline for (a.accept) |§f| @field(r'
+    -> "```zig\nf\n```\n```zig\n((unknown type))\n```"
+[generic_hover_accept_field] hover @ 'inline for (a.acc§ept) |f| @field(r'
+    -> "```zig\naccept: []const std.meta.FieldEnum(R)\n```\n```zig\n([]const (unknown type))\n```"
+[generic_hover_hook_capture] hover @ 'if (a.after) |§h| @field'
+    -> "```zig\nh\n```\n```zig\n((unknown type))\n```"
+[generic_hover_Generated_call] hover @ 'input: Gener§ated(R, inputShape'
+    -> "```zig\nfn Generated(comptime R: type, comptime shape: []const u8) type\n```\n```zig\n(fn (comptime type, comptime []const u8) type)\n```\n\nLook a generated type up by resource and shape name. Only evaluated in the app build."
+[generic_def_Generated] definition @ 'input: Gener§ated(R, inputShape'
+    -> zava.zig:36:8
+[generic_def_inputShape] definition @ 'Generated(R, input§Shape(R, action).name)'
+    -> zava.zig:18:8
+[generic_hover_inputShape_name] hover @ 'inputShape(R, action).na§me)) R {'
+    -> "```zig\nname: []const u8\n```\n```zig\n([]const u8)\n```"
+[generic_sig_run] signatureHelp @ 'return run(§);'
+    -> activeParameter=0 fn run(comptime R: type, comptime action: []const u8, base: R, input: (unknown type)) R params=["comptime R: type", "comptime action: []const u8", "base: R", "input: (unknown type)"] doc="Comptime behaviour, typed on the generated input type."
+[loop_hover_action_capture] hover @ 'for (R.actions) |§a| if'
+    -> "```zig\na\n```\n```zig\n(unknown)\n```"
+[loop_fields_on_action] completion @ 'std.mem.eql(u8, a.§, action)'
+    -> null
+[loop_hover_field_capture] hover @ 'for (a.accept, 0..) |§f, i| {'
+    -> "```zig\nf\n```\n```zig\n((unknown type))\n```"
+[shape_fields] completion @ 'return .{ .§ };\n}\n\npub fn pascal'
+    -> 3 items: name [[]const u8]; field_names [[]const []const u8]; field_types [[]const []const u8]
+[api_members_in_zava] completion @ '    _ = api.§;\n    return r;\n}\n\n/// Comparison'
+    -> 2 items: Author [type]; Post [type]
+[domain_members_in_zava] completion @ '    _ = domain.§;\n    return r;\n}\n\n/// Comparison'
+    -> 3 items: Author [type]; Post [type]; resources [struct { type, type }]
+[concrete_hover_input_param] hover @ 'base: domain.Author, in§put: api.Author.RegisterInput) domain.Author {'
+    -> "```zig\ninput: api.Author.RegisterInput\n```\n```zig\n(RegisterInput)\n```\n\nGo to [RegisterInput](file:///SCRATCH/capture_check_clean_realfirst/.zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig#L9)"
+[concrete_fields_on_input] completion @ 'r.email = input.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+[concrete_fields_on_r] completion @ '    r.§;\n    r.name = input.name;'
+    -> 4 items: id [i64]; email [[]const u8]; name [[]const u8]; welcome [fn (self: *Author, input: RegisterInput) void]
+[concrete_hover_field] hover @ 'r.email = input.em§ail;'
+    -> "```zig\nemail: []const u8\n```\n```zig\n([]const u8)\n```"
+[concrete_def_field] definition @ 'r.email = input.em§ail;'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:10:9
+[concrete_def_input_type] definition @ 'input: api.Author.Register§Input) domain.Author {'
+    -> .zig-cache/o/822c14fcbfbec8580160e017b6eecb21/api.zig:9:31
+[concrete_def_record_field] definition @ 'r.em§ail = input.email;'
+    -> domain.zig:9:5
+[mixed_hover_input_param] hover @ 'in§put: Generated(domain.Author, "RegisterInput")'
+    -> "```zig\ninput: Generated(domain.Author, \"RegisterInput\")\n```\n```zig\n((unknown type))\n```"
+[mixed_fields_on_input] completion @ 'return input.§;'
+    -> null
+[alias_hover] hover @ 'const Register§Input = api.Author.RegisterInput;'
+    -> "```zig\nconst RegisterInput = struct {\n    email: []const u8,\n    name: []const u8,\n}\n```\n```zig\n(type)\n```\n\nA concrete alias written next to the generic code.\n\nInput of the `register` action on `Author`."
+[alias_fields_on_input] completion @ 'return in.§;'
+    -> 2 items: email [[]const u8]; name [[]const u8]
+--- gen.zig
+[gen_hover_resource_capture] hover @ 'inline for (domain.resources) |§R| {'
+    -> "```zig\nR\n```\n```zig\n(unknown)\n```"
+[gen_members_of_R] completion @ '    _ = R.§;\n        inline for (R.actions)'
+    -> null
+[gen_hover_action_capture] hover @ 'inline for (R.actions) |§a| {'
+    -> "```zig\na\n```\n```zig\n(unknown)\n```"
+[gen_hover_shape] hover @ 'const sh§ape = comptime zava.inputShape'
+    -> "```zig\nconst shape = comptime zava.inputShape(R, a.name)\n```\n```zig\n(Shape)\n```\n\nGo to [Shape](file:///SCRATCH/capture_check_clean_realfirst/zava.zig#L16)"
+[gen_fields_on_shape] completion @ 'for (shape.§, shape.field_types)'
+    -> 3 items: name [[]const u8]; field_names [[]const []const u8]; field_types [[]const []const u8]
+[gen_domain_members] completion @ 'inline for (domain.§) |R| {'
+    -> 3 items: Author [type]; Post [type]; resources [struct { type, type }]
+--- app.zig inlay hints: 33
+    L1:10 kind=1 ': type'   | const std = @import("std");
+    L2:10 kind=1 ': type'   | const api = @import("api");
+    L5:44 kind=1 ': i64'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L5:56 kind=1 ': []const u8'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L5:68 kind=1 ': []const u8'   | const blank: api.Author.Record = .{ .id = 1, .email = "", .name = "" };
+    L6:12 kind=1 ': Author'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:35 kind=2 'base:'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:42 kind=2 'input:'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:51 kind=1 ': []const u8'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L6:68 kind=1 ': []const u8'   | const a = api.Author.register(blank, .{ .email = "a@b.c", .name = "ann" });
+    L7:12 kind=1 ': Author'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:33 kind=2 'base:'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:36 kind=2 'input:'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L7:44 kind=1 ': []const u8'   | const b = api.Author.rename(a, .{ .name = "bob" });
+    L8:49 kind=1 ': []const u8'   | var in: api.Author.RegisterInput = .{ .email = "x", .name = "y" };
+    L8:62 kind=1 ': []const u8'   | var in: api.Author.RegisterInput = .{ .email = "x", .name = "y" };
+    L10:42 kind=1 ': i64'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:58 kind=1 ': i64'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:70 kind=1 ': []const u8'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:82 kind=1 ': ?[]const u8'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L10:101 kind=1 ': bool'   | const empty: api.Post.Record = .{ .id = 1, .author_id = 1, .title = "", .body = null, .published = true };
+    L11:12 kind=1 ': Post'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:30 kind=2 'base:'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:37 kind=2 'input:'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:50 kind=1 ': i64'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:62 kind=1 ': []const u8'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L11:75 kind=1 ': ?[]const u8'   | const p = api.Post.draft(empty, .{ .author_id = 2, .title = "t", .body = null });
+    L12:12 kind=1 ': Post'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:32 kind=2 'base:'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:35 kind=2 'input:'   | const q = api.Post.publish(p, .{ .published = true });
+    L12:48 kind=1 ': bool'   | const q = api.Post.publish(p, .{ .published = true });
+    L13:21 kind=2 'fmt:'   | std.debug.print("{s} | {s} | {s} | {s} | {}\n", .{ a.email, b.name, in.name, p.title, q.published });
+    L13:53 kind=2 'args:'   | std.debug.print("{s} | {s} | {s} | {s} | {}\n", .{ a.email, b.name, in.name, p.title, q.published });
+diagnostics app.zig: []
+diagnostics domain.zig: []
+diagnostics zava.zig: []
+diagnostics gen.zig: []
+ZLS warnings/errors: none
+ZLS log lines mentioning build: ["Loaded build file 'file:///SCRATCH/capture_check_clean_realfirst/build.zig'", "Build-On-Save is running for \"/SCRATCH/capture_check_clean_realfirst/\""]
+
+===== features[broken_domain] mode=capture check_step=True enable_build_on_save=None, clean cache, declaration has a misspelled attribute =====
+`api.Author.` completes: NEVER within 40.25s
+diagnostics published: {
+ "domain.zig": [
+  "16:43 enum 'meta.FieldEnum(domain.Author)' has no member named 'nmae'",
+  "16:43 enum 'meta.FieldEnum(domain.Author)' has no member named 'nmae'"
+ ]
+}
+after fixing and saving domain.zig: `api.Author.` completes: NEVER within 30.2s
+  then didChangeWatchedFiles (2 events): still no
+  then didSave(build.zig): yes after 0.35s
+ZLS warnings/errors: none
+
+===== freshness[capture_nocheck_bosoff] mode=capture check_step=False enable_build_on_save=False graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.82s)
+ZLS logged 'Build-On-Save is running': False
+generated files before: {"/.zig-cache/o/36d2036fc6dd6e61efff4ef1af7cd18c/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.06s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.26s) [no regenerated file on disk after 25.06s]; fresh generated file on disk: no
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.11s) [1 events: domain.zig:2]; fresh generated file on disk: no
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.09s) [zig build exit 0 in 2.02s, 3 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.33s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/b21f66d9457ad571d2b8b8f82fc2c624/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_nocheck_bosoff/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_nocheck_bosoff/.zig-cache/o/b21f66d9457ad571d2b8b8f82fc2c624/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/b21f66d9457ad571d2b8b8f82fc2c624/api.zig": "FRESH", "/.zig-cache/o/36d2036fc6dd6e61efff4ef1af7cd18c/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[capture_nocheck_bosdefault] mode=capture check_step=False enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.82s)
+ZLS logged 'Build-On-Save is running': False
+generated files before: {"/.zig-cache/o/a166ea54a07f1befa3ea33046f052952/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.06s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.24s) [no regenerated file on disk after 25.12s]; fresh generated file on disk: no
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.05s) [1 events: domain.zig:2]; fresh generated file on disk: no
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.09s) [zig build exit 0 in 1.99s, 3 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.34s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/f34cd1fcbf010deccbebd006de5bc474/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_nocheck_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_nocheck_bosdefault/.zig-cache/o/f34cd1fcbf010deccbebd006de5bc474/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/f34cd1fcbf010deccbebd006de5bc474/api.zig": "FRESH", "/.zig-cache/o/a166ea54a07f1befa3ea33046f052952/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[capture_nocheck_boson] mode=capture check_step=False enable_build_on_save=True graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.8s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/8e60e7dde71b63c88c3d68c4230bbd7b/api.zig": "old", "/zig-out/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.02s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.22s) [regenerated file appeared on disk after 2.08s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.05s) [3 events: domain.zig:2, .zig-cache/o/117c3e024f93d798b2d9515cf53fe912/api.zig:1, zig-out/api.zig:2]; fresh generated file on disk: yes
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.06s) [zig build exit 0 in 0.18s, 1 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.35s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/117c3e024f93d798b2d9515cf53fe912/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_nocheck_boson/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_nocheck_boson/.zig-cache/o/117c3e024f93d798b2d9515cf53fe912/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/117c3e024f93d798b2d9515cf53fe912/api.zig": "FRESH", "/.zig-cache/o/8e60e7dde71b63c88c3d68c4230bbd7b/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[capture_check_bosoff] mode=capture check_step=True enable_build_on_save=False graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.78s)
+ZLS logged 'Build-On-Save is running': False
+generated files before: {"/.zig-cache/o/98ccf8d3a340658a66687e282e495ed8/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.04s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.25s) [no regenerated file on disk after 25.13s]; fresh generated file on disk: no
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.07s) [1 events: domain.zig:2]; fresh generated file on disk: no
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.05s) [zig build exit 0 in 1.96s, 3 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.33s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/bb4caccb4f1808399da8af2204f622fe/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_check_bosoff/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_check_bosoff/.zig-cache/o/bb4caccb4f1808399da8af2204f622fe/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/bb4caccb4f1808399da8af2204f622fe/api.zig": "FRESH", "/.zig-cache/o/98ccf8d3a340658a66687e282e495ed8/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[capture_check_bosdefault] mode=capture check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.81s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/d97e1818885ef49b274ef8340c5feedc/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.05s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.18s) [regenerated file appeared on disk after 2.08s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.04s) [2 events: domain.zig:2, .zig-cache/o/9b245c1059d024975ef57bb92849ed03/api.zig:1]; fresh generated file on disk: yes
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.05s) [zig build exit 0 in 0.2s, 2 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.31s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/9b245c1059d024975ef57bb92849ed03/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-capture_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-capture_check_bosdefault/.zig-cache/o/9b245c1059d024975ef57bb92849ed03/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/d97e1818885ef49b274ef8340c5feedc/api.zig": "old", "/.zig-cache/o/9b245c1059d024975ef57bb92849ed03/api.zig": "FRESH", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[outarg_check_bosdefault] mode=outarg check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.8s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/5911b046ba54548c6445b26ecbe9aa88/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.07s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.21s) [regenerated file appeared on disk after 2.08s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.04s) [2 events: domain.zig:2, .zig-cache/o/1dd8b49c81c55531f26c9bc32af8d59b/api.zig:1]; fresh generated file on disk: yes
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.07s) [zig build exit 0 in 0.2s, 2 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.35s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/1dd8b49c81c55531f26c9bc32af8d59b/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-outarg_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-outarg_check_bosdefault/.zig-cache/o/1dd8b49c81c55531f26c9bc32af8d59b/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/1dd8b49c81c55531f26c9bc32af8d59b/api.zig": "FRESH", "/.zig-cache/o/5911b046ba54548c6445b26ecbe9aa88/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[writefiles_check_bosdefault] mode=writefiles check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.82s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/.zig-cache/o/58c19f4647468b95423b7c0ee87abefc/api.zig": "old", "/.zig-cache/o/cce6ac61f54220f7de267cd7e48d3eaf/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.06s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.2s) [regenerated file appeared on disk after 2.08s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.08s) [3 events: domain.zig:2, .zig-cache/o/958a72f8f7d40438e948260cf689b090/api.zig:1, .zig-cache/o/747275946741719c39c461a852091d8a/api.zig:1]; fresh generated file on disk: yes
+  4. run `zig build` by hand, then file-watcher events: completion shows `email`: no (waited 8.07s) [zig build exit 0 in 0.21s, 2 watcher events]; fresh generated file on disk: yes
+  5. save build.zig unchanged (didSave -> ZLS reloads the build configuration): completion shows `email`: YES after 0.33s; fresh generated file on disk: yes
+  go-to-definition of rename now: .zig-cache/o/747275946741719c39c461a852091d8a/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-writefiles_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-writefiles_check_bosdefault/.zig-cache/o/747275946741719c39c461a852091d8a/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/.zig-cache/o/958a72f8f7d40438e948260cf689b090/api.zig": "FRESH", "/.zig-cache/o/747275946741719c39c461a852091d8a/api.zig": "FRESH", "/.zig-cache/o/58c19f4647468b95423b7c0ee87abefc/api.zig": "old", "/.zig-cache/o/cce6ac61f54220f7de267cd7e48d3eaf/api.zig": "old", "/zig-out/api.zig": "FRESH"}
+ZLS warnings/errors: none
+
+===== freshness[sourcetree_check_bosdefault] mode=source_tree check_step=True enable_build_on_save=None graph=stub =====
+before the edit: rename input completes ['name'] (api resolved after 4.8s)
+ZLS logged 'Build-On-Save is running': True
+generated files before: {"/generated/api.zig": "old", "/.zig-cache/o/616e9487207af07c9361479823d8c11a/api.zig": "old"}
+  1. edit domain.zig in the buffer only (didChange, unsaved): completion shows `email`: no (waited 4.03s); fresh generated file on disk: no
+  2. save domain.zig (write + didSave), no file-watcher events: completion shows `email`: no (waited 5.19s) [regenerated file appeared on disk after 2.07s]; fresh generated file on disk: yes
+  3. editor file watcher reports changed/created *.zig (didChangeWatchedFiles): completion shows `email`: no (waited 6.05s) [3 events: domain.zig:2, generated/api.zig:2, .zig-cache/o/4c7da2821fe7135c78473ae13c44f8d6/api.zig:1]; fresh generated file on disk: yes
+  3b. file watcher reports generated/api.zig as Deleted then Created (as if the generator replaced the file): completion shows `email`: YES after 0.08s; fresh generated file on disk: yes
+  go-to-definition of rename now: generated/api.zig:28:12
+  hover on rename now: "```zig\nfn rename(base: domain.Author, input: RenameInput) domain.Author\n```\n```zig\n(fn (Author, RenameInput) Author)\n```\n\nGo to [Author](file:///SCRATCH/fresh-sourcetree_check_bosdefault/domain.zig#L7) | [RenameInput](file:///SCRATCH/fresh-sourcetree_check_bosdefault/generated/api.zig#L21)\n\nRuns the `rename` action on `Author`.\nSQL: `update authors set name = $1, email = $2`"
+generated files after: {"/generated/api.zig": "FRESH", "/.zig-cache/o/4c7da2821fe7135c78473ae13c44f8d6/api.zig": "FRESH", "/.zig-cache/o/616e9487207af07c9361479823d8c11a/api.zig": "old"}
+ZLS warnings/errors: none
+
+===== q2 domain_a2_adr0001_fn_arg.zig =====
+variant: Variant A2: the typing of A (derived enums), but the literal is a function argument: `pub const resource = zava.resource(@This(), .{ ... });`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 90 items: zava [type]; Author [type]; Post [type]; resource [Options(Author)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const; break; catch ... (+60 more)
+[attributes_block_keys] completion @ '.attributes = .{\n            .§\n'
+    -> null
+[attribute_option_names] completion @ '.email = .{ .unique = true, .§ },'
+    -> null
+[hover_attributes_key] hover @ '            .em§ail = .{ .unique'
+    -> null
+[hover_attribute_option] hover @ '.email = .{ .uni§que = true'
+    -> null
+[def_attributes_key] definition @ '            .em§ail = .{ .unique'
+    -> null
+[def_attribute_option] definition @ '.email = .{ .uni§que = true'
+    -> null
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> null
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> null
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> null
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> null
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> null
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> null
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> null
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> null
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attributes_block_keys] completion @ '.attributes = .{\n            .§\n        },\n    }'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> null
+
+===== q2 domain_a3_adr0001_typed_init.zig =====
+variant: Variant A3: the typing of A (derived enums), but the literal names its type: `pub const resource = zava.Options(@This()){ ... };`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 90 items: zava [type]; Author [type]; Post [type]; resource [Options(Author)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const; break; catch ... (+60 more)
+[attributes_block_keys] completion @ '.attributes = .{\n            .§\n'
+    -> null
+[attribute_option_names] completion @ '.email = .{ .unique = true, .§ },'
+    -> null
+[hover_attributes_key] hover @ '            .em§ail = .{ .unique'
+    -> null
+[hover_attribute_option] hover @ '.email = .{ .uni§que = true'
+    -> null
+[def_attributes_key] definition @ '            .em§ail = .{ .unique'
+    -> null
+[def_attribute_option] definition @ '.email = .{ .uni§que = true'
+    -> null
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: std.meta.FieldEnum(T)\n```\n```zig\n((unknown type))\n```\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> null
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const std.meta.FieldEnum(T) = &.{}\n```\n```zig\n([]const (unknown type))\n```\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?std.meta.DeclEnum(T) = null\n```\n```zig\n(?(unknown type))\n```\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:47:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> null
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> null
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attributes_block_keys] completion @ '.attributes = .{\n            .§\n        },\n    }'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> null
+
+===== q2 domain_a4_adr0001_alias.zig =====
+variant: Variant A4: the typing of A (derived enums), annotated through an alias: `const Options = zava.Options(@This()); pub const resource: Options = .{ ... };`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 91 items: zava [type]; Author [type]; Post [type]; Options [type]; resource [Options(Author)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const; break ... (+61 more)
+[attributes_block_keys] completion @ '.attributes = .{\n            .§\n'
+    -> null
+[attribute_option_names] completion @ '.email = .{ .unique = true, .§ },'
+    -> null
+[hover_attributes_key] hover @ '            .em§ail = .{ .unique'
+    -> null
+[hover_attribute_option] hover @ '.email = .{ .uni§que = true'
+    -> null
+[def_attributes_key] definition @ '            .em§ail = .{ .unique'
+    -> null
+[def_attribute_option] definition @ '.email = .{ .uni§que = true'
+    -> null
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: std.meta.FieldEnum(T)\n```\n```zig\n((unknown type))\n```\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> null
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const std.meta.FieldEnum(T) = &.{}\n```\n```zig\n([]const (unknown type))\n```\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?std.meta.DeclEnum(T) = null\n```\n```zig\n(?(unknown type))\n```\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:47:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> null
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> null
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attributes_block_keys] completion @ '.attributes = .{\n            .§\n        },\n    }'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> null
+
+===== q2 domain_a_adr0001.zig =====
+variant: Variant A: ADR 0001 as prototyped. `zava.Options(@This())` is a generic function returning a source-written struct; attribute names are `std.meta.FieldEnum(T)`, the attributes block is a comptime-built struct keyed by field name, and the hook is `std.meta.DeclEnum(T)`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> null
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 90 items: zava [type]; Author [type]; Post [type]; resource [Options(Author)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const; break; catch ... (+60 more)
+[attributes_block_keys] completion @ '.attributes = .{\n            .§\n'
+    -> null
+[attribute_option_names] completion @ '.email = .{ .unique = true, .§ },'
+    -> null
+[hover_attributes_key] hover @ '            .em§ail = .{ .unique'
+    -> null
+[hover_attribute_option] hover @ '.email = .{ .uni§que = true'
+    -> null
+[def_attributes_key] definition @ '            .em§ail = .{ .unique'
+    -> null
+[def_attribute_option] definition @ '.email = .{ .uni§que = true'
+    -> null
+[hover_resource_decl] hover @ 'pub const reso§urce'
+    -> "```zig\nconst resource: zava.Options(@This()) = .{\n        .table = \"authors\",\n        .primary_key = .id,\n        .actions = &.{\n            .{ .name = \"register\", .kind = .create, .accept = &.{ .email, .name }, .after = .welcome },\n            .{ .name = \"rename\", .accept = &.{.name} },\n        },\n        .attributes = .{\n            .email = .{ .unique = true, .column = \"email_address\" },\n        },\n    }\n```\n```zig\n(Options(Author))\n```\n\nGo to [Options](file:///SCRATCH/q2/zava.zig#L42) | [Author](file:///SCRATCH/q2/domain_a_adr0001.zig#L7)"
+[hover_options_call] hover @ 'pub const resource: zava.Opt§ions'
+    -> "```zig\nfn Options(comptime T: type) type\n```\n```zig\n(fn (comptime type) type)\n```\n\nEverything the fields cannot say. Attribute names are an enum derived from the struct's fields."
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: std.meta.FieldEnum(T)\n```\n```zig\n((unknown type))\n```\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> null
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const std.meta.FieldEnum(T) = &.{}\n```\n```zig\n([]const (unknown type))\n```\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?std.meta.DeclEnum(T) = null\n```\n```zig\n(?(unknown type))\n```\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:47:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> null
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> null
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attributes_block_keys] completion @ '.attributes = .{\n            .§\n        },\n    }'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> null
+
+===== q2 domain_b_enum_via_T.zig =====
+variant: Variant B: the developer writes `pub const Field = enum { ... }` inside the struct, and `zava.OptionsDecl(@This())` reads it as `T.Field` (checked at comptime against the struct's fields). The attributes block is keyed by field name (`std.enums.EnumFieldStruct`).
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> null
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 91 items: zava [type]; Author [type]; Post [type]; Field [type]; resource [OptionsDecl(Author)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const; break ... (+61 more)
+[attributes_block_keys] completion @ '.attributes = .{\n            .§\n'
+    -> null
+[attribute_option_names] completion @ '.email = .{ .unique = true, .§ },'
+    -> null
+[hover_attributes_key] hover @ '            .em§ail = .{ .unique'
+    -> null
+[hover_attribute_option] hover @ '.email = .{ .uni§que = true'
+    -> null
+[def_attributes_key] definition @ '            .em§ail = .{ .unique'
+    -> null
+[def_attribute_option] definition @ '.email = .{ .uni§que = true'
+    -> null
+[hover_resource_decl] hover @ 'pub const reso§urce'
+    -> "```zig\nconst resource: zava.OptionsDecl(@This()) = .{\n        .table = \"authors\",\n        .primary_key = .id,\n        .actions = &.{\n            .{ .name = \"register\", .kind = .create, .accept = &.{ .email, .name }, .after = .welcome },\n            .{ .name = \"rename\", .accept = &.{.name} },\n        },\n        .attributes = .{\n            .email = .{ .unique = true, .column = \"email_address\" },\n        },\n    }\n```\n```zig\n(OptionsDecl(Author))\n```\n\nGo to [OptionsDecl](file:///SCRATCH/q2/zava.zig#L64) | [Author](file:///SCRATCH/q2/domain_b_enum_via_T.zig#L7)"
+[hover_options_call] hover @ 'pub const resource: zava.Opt§ions'
+    -> "```zig\nfn OptionsDecl(comptime T: type) type\n```\n```zig\n(fn (comptime type) type)\n```\n\nAttribute names are `T.Field`, an enum the developer writes inside the struct."
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: T.Field\n```\n```zig\n(unknown)\n```\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> null
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const T.Field = &.{}\n```\n```zig\n(unknown)\n```"
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?std.meta.DeclEnum(T) = null\n```\n```zig\n(?(unknown type))\n```"
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:70:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> null
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> null
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attributes_block_keys] completion @ '.attributes = .{\n            .§\n        },\n    }'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> null
+
+===== q2 domain_c_enum_param.zig =====
+variant: Variant C: the developer writes `pub const Field = enum { ... }` and passes it in: `zava.OptionsF(@This(), Field)`. The generic parameter is used directly as the type of attribute names. The attributes block is still keyed by field name (`std.enums.EnumFieldStruct`), the hook is still `std.meta.DeclEnum(T)`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> null
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 91 items: zava [type]; Author [type]; Post [type]; Field [type]; resource [OptionsF(Author,Field)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const; break ... (+61 more)
+[attributes_block_keys] completion @ '.attributes = .{\n            .§\n'
+    -> null
+[attribute_option_names] completion @ '.email = .{ .unique = true, .§ },'
+    -> null
+[hover_attributes_key] hover @ '            .em§ail = .{ .unique'
+    -> null
+[hover_attribute_option] hover @ '.email = .{ .uni§que = true'
+    -> null
+[def_attributes_key] definition @ '            .em§ail = .{ .unique'
+    -> null
+[def_attribute_option] definition @ '.email = .{ .uni§que = true'
+    -> null
+[hover_resource_decl] hover @ 'pub const reso§urce'
+    -> "```zig\nconst resource: zava.OptionsF(@This(), Field) = .{\n        .table = \"authors\",\n        .primary_key = .id,\n        .actions = &.{\n            .{ .name = \"register\", .kind = .create, .accept = &.{ .email, .name }, .after = .welcome },\n            .{ .name = \"rename\", .accept = &.{.name} },\n        },\n        .attributes = .{\n            .email = .{ .unique = true, .column = \"email_address\" },\n        },\n    }\n```\n```zig\n(OptionsF(Author,Field))\n```\n\nGo to [OptionsF](file:///SCRATCH/q2/zava.zig#L96) | [Author](file:///SCRATCH/q2/domain_c_enum_param.zig#L8) | [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L13)"
+[hover_options_call] hover @ 'pub const resource: zava.Opt§ions'
+    -> "```zig\nfn OptionsF(comptime T: type, comptime F: type) type\n```\n```zig\n(fn (comptime type, comptime type) type)\n```\n\nAttribute names are `F`, an enum the developer writes and passes in. Keyed attributes block."
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: F\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L13)\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> "```zig\nid\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L13)"
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const F = &.{}\n```\n```zig\n([]const Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L13)\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L13)"
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?std.meta.DeclEnum(T) = null\n```\n```zig\n(?(unknown type))\n```\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:102:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> domain_c_enum_param.zig:13:30
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> domain_c_enum_param.zig:13:34
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L13)"
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attributes_block_keys] completion @ '.attributes = .{\n            .§\n        },\n    }'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> "```zig\ntitle\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_c_enum_param.zig#L39)"
+
+===== q2 domain_d2_enum_param_list_fn_arg.zig =====
+variant: Variant D2: the typing of D (developer-written `Field` and `Hook` enums, attributes as a list), but the literal is a function argument: `pub const resource = zava.resourceList(@This(), Field, Hook, .{ ... });`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 92 items: zava [type]; Author [type]; Post [type]; Field [type]; Hook [type]; resource [OptionsList(Author,Field,Hook)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const ... (+62 more)
+[attribute_entry_field_value] completion @ '.{ .field = .§, .unique = true'
+    -> null
+[attribute_entry_option_names] completion @ '.{ .field = .email, .§ },'
+    -> null
+[hover_attribute_entry_field] hover @ '.{ .field = .em§ail, .unique'
+    -> null
+[hover_attribute_entry_option] hover @ '.field = .email, .uni§que = true'
+    -> null
+[def_attribute_entry_field] definition @ '.{ .field = .em§ail, .unique'
+    -> null
+[def_attribute_entry_option] definition @ '.field = .email, .uni§que = true'
+    -> null
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> null
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> null
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> null
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> null
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> null
+[hover_after_value] hover @ '.after = .wel§come'
+    -> null
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> null
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> null
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> null
+[def_after_value] definition @ '.after = .wel§come'
+    -> null
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> null
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attribute_entry_field_value] completion @ '.{ .field = .§, .column = "headline"'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> null
+
+===== q2 domain_d3_enum_param_list_typed_init.zig =====
+variant: Variant D3: the typing of D, but the literal names its type: `pub const resource = zava.OptionsList(@This(), Field, Hook){ ... };`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 92 items: zava [type]; Author [type]; Post [type]; Field [type]; Hook [type]; resource [OptionsList(Author,Field,Hook)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const ... (+62 more)
+[attribute_entry_field_value] completion @ '.{ .field = .§, .unique = true'
+    -> null
+[attribute_entry_option_names] completion @ '.{ .field = .email, .§ },'
+    -> null
+[hover_attribute_entry_field] hover @ '.{ .field = .em§ail, .unique'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L10)"
+[hover_attribute_entry_option] hover @ '.field = .email, .uni§que = true'
+    -> "```zig\nunique: bool = false\n```\n```zig\n(bool)\n```\n\nEnforce uniqueness in the data layer."
+[def_attribute_entry_field] definition @ '.{ .field = .em§ail, .unique'
+    -> domain_d3_enum_param_list_typed_init.zig:10:34
+[def_attribute_entry_option] definition @ '.field = .email, .uni§que = true'
+    -> zava.zig:116:9
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: F\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L10)\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> "```zig\nid\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L10)"
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const F = &.{}\n```\n```zig\n([]const Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L10)\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L10)"
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?Hook = null\n```\n```zig\n(?Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L11)\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> "```zig\nwelcome\n```\n```zig\n(Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L11)"
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:131:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> domain_d3_enum_param_list_typed_init.zig:10:30
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> domain_d3_enum_param_list_typed_init.zig:10:34
+[def_after_value] definition @ '.after = .wel§come'
+    -> domain_d3_enum_param_list_typed_init.zig:11:29
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L10)"
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attribute_entry_field_value] completion @ '.{ .field = .§, .column = "headline"'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> "```zig\ntitle\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d3_enum_param_list_typed_init.zig#L37)"
+
+===== q2 domain_d4_enum_param_list_alias.zig =====
+variant: Variant D4: the typing of D, annotated through an alias: `const Options = zava.OptionsList(@This(), Field, Hook); pub const resource: Options = .{ ... };`.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> 3 items: id; email; name
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 93 items: zava [type]; Author [type]; Post [type]; Field [type]; Hook [type]; Options [type]; resource [OptionsList(Author,Field,Hook)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}] ... (+63 more)
+[attribute_entry_field_value] completion @ '.{ .field = .§, .unique = true'
+    -> null
+[attribute_entry_option_names] completion @ '.{ .field = .email, .§ },'
+    -> null
+[hover_attribute_entry_field] hover @ '.{ .field = .em§ail, .unique'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L10)"
+[hover_attribute_entry_option] hover @ '.field = .email, .uni§que = true'
+    -> "```zig\nunique: bool = false\n```\n```zig\n(bool)\n```\n\nEnforce uniqueness in the data layer."
+[def_attribute_entry_field] definition @ '.{ .field = .em§ail, .unique'
+    -> domain_d4_enum_param_list_alias.zig:10:34
+[def_attribute_entry_option] definition @ '.field = .email, .uni§que = true'
+    -> zava.zig:116:9
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: F\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L10)\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> "```zig\nid\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L10)"
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const F = &.{}\n```\n```zig\n([]const Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L10)\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L10)"
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?Hook = null\n```\n```zig\n(?Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L11)\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> "```zig\nwelcome\n```\n```zig\n(Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L11)"
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:131:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> domain_d4_enum_param_list_alias.zig:10:30
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> domain_d4_enum_param_list_alias.zig:10:34
+[def_after_value] definition @ '.after = .wel§come'
+    -> domain_d4_enum_param_list_alias.zig:11:29
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L10)"
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> 5 items: id; author_id; title; body; published
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attribute_entry_field_value] completion @ '.{ .field = .§, .column = "headline"'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> "```zig\ntitle\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d4_enum_param_list_alias.zig#L38)"
+
+===== q2 domain_d_enum_param_list.zig =====
+variant: Variant D: as C, with every derived type removed. The developer writes two enums, `Field` and `Hook`, and passes them in: `zava.OptionsList(@This(), Field, Hook)`. Per-attribute options are a list of entries naming their field instead of a block keyed by field name.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> null
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> null
+[accept_member_first] completion @ '.name = "rename", .accept = &.{.§} },'
+    -> null
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_option_names] completion @ '.{ .name = "rename", .§ },'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> null
+[after_decl_name] completion @ '.after = .§ },'
+    -> null
+[after_identifier_in_scope] completion @ '.after = wel§ },'
+    -> 92 items: zava [type]; Author [type]; Post [type]; Field [type]; Hook [type]; resource [OptionsList(Author,Field,Hook)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub; asm; for [for ($1) |${2:value}| {$0}]; test [test "$1" {$0}]; else [else {$0}]; enum [enum {$0}]; const ... (+62 more)
+[attribute_entry_field_value] completion @ '.{ .field = .§, .unique = true'
+    -> null
+[attribute_entry_option_names] completion @ '.{ .field = .email, .§ },'
+    -> null
+[hover_attribute_entry_field] hover @ '.{ .field = .em§ail, .unique'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12)"
+[hover_attribute_entry_option] hover @ '.field = .email, .uni§que = true'
+    -> "```zig\nunique: bool = false\n```\n```zig\n(bool)\n```\n\nEnforce uniqueness in the data layer."
+[def_attribute_entry_field] definition @ '.{ .field = .em§ail, .unique'
+    -> domain_d_enum_param_list.zig:12:34
+[def_attribute_entry_option] definition @ '.field = .email, .uni§que = true'
+    -> zava.zig:116:9
+[hover_resource_decl] hover @ 'pub const reso§urce'
+    -> "```zig\nconst resource: zava.OptionsList(@This(), Field, Hook) = .{\n        .table = \"authors\",\n        .primary_key = .id,\n        .actions = &.{\n            .{ .name = \"register\", .kind = .create, .accept = &.{ .email, .name }, .after = .welcome },\n            .{ .name = \"rename\", .accept = &.{.name} },\n        },\n        .attributes = &.{\n            .{ .field = .email, .unique = true, .column = \"email_address\" },\n        },\n    }\n```\n```zig\n(OptionsList(Author,Field,Hook))\n```\n\nGo to [OptionsList](file:///SCRATCH/q2/zava.zig#L124) | [Author](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L7) | [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12) | [Hook](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L13)"
+[hover_options_call] hover @ 'pub const resource: zava.Opt§ions'
+    -> "```zig\nfn OptionsList(comptime T: type, comptime F: type, comptime Hook: type) type\n```\n```zig\n(fn (comptime type, comptime type, comptime type) type)\n```\n\nAs `OptionsF`, with every derived type removed: per-attribute options are a\nlist of entries naming their field, and hooks are an enum the developer writes."
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: F\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12)\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> "```zig\nid\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12)"
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const F = &.{}\n```\n```zig\n([]const Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12)\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12)"
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?Hook = null\n```\n```zig\n(?Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L13)\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> "```zig\nwelcome\n```\n```zig\n(Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L13)"
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:131:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> domain_d_enum_param_list.zig:12:30
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> domain_d_enum_param_list.zig:12:34
+[def_after_value] definition @ '.after = .wel§come'
+    -> domain_d_enum_param_list.zig:13:29
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> null
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L12)"
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> null
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_after_decl_name] completion @ '.after = .§ },\n            .{ .name = "publish"'
+    -> null
+[post_attribute_entry_field_value] completion @ '.{ .field = .§, .column = "headline"'
+    -> null
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> "```zig\ntitle\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_d_enum_param_list.zig#L39)"
+
+===== q2 domain_e_flat.zig =====
+variant: Variant E: the typing of D (developer-written `Field` and `Hook` enums), with the declaration flattened so that every literal sits directly on a declaration annotated with a local alias. Actions and attribute entries are separate constants; `resource` lists them by name.
+[option_names] completion @ '        .§\n        .primary_key = .id,'
+    -> 1 items: table [[]const u8]
+[primary_key_value] completion @ '.primary_key = .§,'
+    -> 3 items: id; email; name
+[accept_member_second] completion @ '.accept = &.{ .email, .§ }, .after'
+    -> null
+[action_kind_value] completion @ '.kind = .§, .accept = &.{ .email'
+    -> 3 items: create; read; update
+[attribute_entry_field_value] completion @ '.{ .field = .§, .unique = true'
+    -> 3 items: id; email; name
+[hover_attribute_entry_field] hover @ '.{ .field = .em§ail, .unique'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12)"
+[hover_attribute_entry_option] hover @ '.field = .email, .uni§que = true'
+    -> "```zig\nunique: bool = false\n```\n```zig\n(bool)\n```\n\nEnforce uniqueness in the data layer."
+[def_attribute_entry_field] definition @ '.{ .field = .em§ail, .unique'
+    -> domain_e_flat.zig:12:34
+[def_attribute_entry_option] definition @ '.field = .email, .uni§que = true'
+    -> zava.zig:116:9
+[hover_resource_decl] hover @ 'pub const reso§urce'
+    -> "```zig\nconst resource: Options = .{\n        .table = \"authors\",\n        .primary_key = .id,\n        .actions = &.{ register, rename },\n        .attributes = &.{email_options},\n    }\n```\n```zig\n(OptionsList(Author,Field,Hook))\n```\n\nGo to [OptionsList](file:///SCRATCH/q2/zava.zig#L124) | [Author](file:///SCRATCH/q2/domain_e_flat.zig#L7) | [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12) | [Hook](file:///SCRATCH/q2/domain_e_flat.zig#L13)"
+[hover_option_table] hover @ '.tab§le = "authors"'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```\n\nTable name in the data layer."
+[hover_option_primary_key] hover @ '.prim§ary_key = '
+    -> "```zig\nprimary_key: F\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12)\n\nThe attribute that identifies a record."
+[hover_primary_key_value] hover @ '.primary_key = .i§d'
+    -> "```zig\nid\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12)"
+[hover_action_accept] hover @ '"register", .kind = .create, .acc§ept = '
+    -> "```zig\naccept: []const F = &.{}\n```\n```zig\n([]const Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12)\n\nAttributes the caller may set."
+[hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12)"
+[hover_after_option] hover @ '.name }, .af§ter = .welcome'
+    -> "```zig\nafter: ?Hook = null\n```\n```zig\n(?Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_e_flat.zig#L13)\n\nA function of the resource, by declaration name, run after the action."
+[hover_after_value] hover @ '.after = .wel§come'
+    -> "```zig\nwelcome\n```\n```zig\n(Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_e_flat.zig#L13)"
+[def_option_primary_key] definition @ '.prim§ary_key = '
+    -> zava.zig:131:9
+[def_primary_key_value] definition @ '.primary_key = .i§d'
+    -> domain_e_flat.zig:12:30
+[def_accept_member] definition @ '.accept = &.{ .em§ail, .name }'
+    -> domain_e_flat.zig:12:34
+[def_after_value] definition @ '.after = .wel§come'
+    -> domain_e_flat.zig:13:29
+[flat_action_option_names] completion @ 'const rename: Action = .{ .name = "rename", .§ };'
+    -> 3 items: kind [ActionKind = .update]; accept [[]const Field = &.{}]; after [?Hook = null]
+[flat_action_kind_value] completion @ '"register", .kind = .§, .accept'
+    -> 3 items: create; read; update
+[flat_accept_member_anon] completion @ '.accept = &.{ .email, .§ }, .after = .welcome };'
+    -> null
+[flat_accept_member_typed_array] completion @ '.accept = &[_]Field{.§} };'
+    -> null
+[flat_after_value] completion @ '.name }, .after = .§ };'
+    -> 1 items: welcome
+[flat_attr_option_names] completion @ 'const email_options: Attr = .{ .field = .email, .§ };'
+    -> 2 items: unique [bool = false]; column [?[]const u8 = null]
+[flat_attr_field_value] completion @ 'const email_options: Attr = .{ .field = .§, .unique'
+    -> 3 items: id; email; name
+[flat_actions_list_identifier] completion @ '.actions = &.{ register, ren§ },'
+    -> 98 items: zava [type]; Author [type]; Post [type]; Field [type]; Hook [type]; Options [type]; Action [type]; Attr [type]; register [ActionL(Field,Hook)]; rename [ActionL(Field,Hook)]; email_options [AttrEntry(Field)]; resource [OptionsList(Author,Field,Hook)]; welcome [fn (self: *Author) void]; asmv [asm volatile (${1:input}, ${0:input})]; fori [for ($1, 0..) |${2:value}, ${3:i}| {$0}]; if else [if ($1) {$2} else {$0}]; catch switch [catch |${1:err}| switch (${1:err}) {$0};]; print [std.debug.print("$1", .{$0});]; log err [std.log.err("$1", .{$0});]; log warn [std.log.warn("$1", .{$0});]; log info [std.log.info("$1", .{$0});]; log debug [std.log.debug("$1", .{$0});]; format [pub fn format(
+    self: @This(),
+    writer: *std.Io.Writer,
+) std.Io.Writer.Error!void {}]; fn [fn ${1:name}($2) ${3:!void} {$0}]; or; if [if ($1) {$0}]; var; try; and; pub ... (+68 more)
+[flat_hover_after_value] hover @ '.name }, .after = .wel§come };'
+    -> "```zig\nwelcome\n```\n```zig\n(Hook)\n```\n\nGo to [Hook](file:///SCRATCH/q2/domain_e_flat.zig#L13)"
+[flat_def_after_value] definition @ '.name }, .after = .wel§come };'
+    -> domain_e_flat.zig:13:29
+[flat_hover_accept_member] hover @ '.accept = &.{ .em§ail, .name }, .after'
+    -> "```zig\nemail\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L12)"
+[flat_def_attr_field_value] definition @ 'const email_options: Attr = .{ .field = .em§ail, .unique'
+    -> domain_e_flat.zig:12:34
+[post_primary_key_value] completion @ '"posts",\n        .primary_key = .§,'
+    -> 5 items: id; author_id; title; body; published
+[post_accept_member] completion @ '.accept = &.{ .author_id, .§ }, .after'
+    -> null
+[post_attribute_entry_field_value] completion @ '.{ .field = .§, .column = "headline"'
+    -> 5 items: id; author_id; title; body; published
+[post_hover_accept_member] hover @ '.accept = &.{ .author_id, .ti§tle }'
+    -> "```zig\ntitle\n```\n```zig\n(Field)\n```\n\nGo to [Field](file:///SCRATCH/q2/domain_e_flat.zig#L41)"
+[post_flat_after_value] completion @ '.title }, .after = .§ };'
+    -> 1 items: stamp
+[post_flat_attr_field_value] completion @ 'const title_options: Attr = .{ .field = .§, .column'
+    -> 5 items: id; author_id; title; body; published
+
+===== q2 extras.zig =====
+variant: Further cheap things ZLS's builtin handling suggests might help a declaration.
+[e1_FieldType_string_completion] completion @ 'const E1a = @FieldType(Author, "§");'
+    -> null
+[e1_field_string_completion] completion @ 'return @field(a, "§");'
+    -> null
+[e1_hasField_string_completion] completion @ 'const e1d = @hasField(Author, "§");'
+    -> null
+[e1_hover_FieldType_alias] hover @ 'const E§1a = @FieldType'
+    -> "```zig\nconst E1a = @FieldType(Author, \"email\")\n```\n```zig\n(type = []const u8)\n```"
+[e1_hover_value_of_FieldType] hover @ 'const e§1b: E1a'
+    -> "```zig\nconst e1b: E1a = \"x\"\n```\n```zig\n([]const u8)\n```"
+[e1_def_FieldType_string] definition @ '@FieldType(Author, "em§ail")'
+    -> null
+[e1_def_field_string] definition @ 'return @field(a, "na§me");'
+    -> null
+[e2_hover_generic_FieldType] hover @ 'const e§2: Default(Author, "id")'
+    -> "```zig\nconst e2: Default(Author, \"id\") = .{ .value = 1 }\n```\n```zig\n(Default(Author))\n```\n\nGo to [Default](file:///SCRATCH/q2/extras.zig#L23) | [Author](file:///SCRATCH/q2/extras.zig#L4)"
+[e2_literal_fields_generic] completion @ 'const e2: Default(Author, "id") = .{ .§ };'
+    -> null
+[e2_hover_direct_field] hover @ 'const e2_direct: struct { val§ue: @FieldType'
+    -> "```zig\nvalue: @FieldType(Author, \"id\")\n```\n```zig\n(i64)\n```"
+[e3_fn_value_members] completion @ 'const e3: Hooked = .{ .after = Author.§ };'
+    -> 1 items: welcome [fn (self: *Author) void]
+[e4_decl_literal_members] completion @ 'const e4: AuthorField = .§;'
+    -> 3 items: name [[]const u8]; id [AuthorField]; email [AuthorField]
+[e4_def_decl_literal] definition @ 'const e4: AuthorField = .em§ail;'
+    -> extras.zig:38:15
+[e5_FieldEnum_of_union] completion @ 'const e5: std.meta.FieldEnum(AuthorAttr) = .§;'
+    -> null
+[e5_Tag_of_union] completion @ 'const e5_tag: std.meta.Tag(AuthorAttr) = .§;'
+    -> 3 items: id [@typeInfo(AuthorAttr).@"union".tag_type.?]; email [@typeInfo(AuthorAttr).@"union".tag_type.?]; name [@typeInfo(AuthorAttr).@"union".tag_type.?]
+[e5_union_value_members] completion @ 'const e5_value: AuthorAttr = .{ .§ };'
+    -> 3 items: id [i64]; email [[]const u8]; name [[]const u8]
+
+ZLS warnings/errors: none
+
