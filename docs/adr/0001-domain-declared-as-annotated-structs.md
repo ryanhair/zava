@@ -1,0 +1,20 @@
+# The domain is declared as annotated struct types
+
+A developer declares a resource by writing its record as an ordinary Zig struct and attaching one typed `resource` declaration to it, which carries everything the fields cannot say: table, primary key, relationships, actions, and per-attribute options in a block keyed by field name. We chose this over a single comptime data literal, a chain of builder functions, and a build-step generator because it turns the common modelling mistakes into ordinary compiler errors on the exact token, and compile-error quality is a first-class constraint.
+
+## Considered Options
+
+The same two-resource domain was written in all four shapes and the same seven mistakes made in each (prototype branch `prototype/declaration-surface`, Zig 0.17.0).
+
+- **Comptime data literal** (`zava.Resource(.{ .attributes = &.{ ... } })`): the declaration is the model, so lowering is free. Rejected because attribute names are strings checked by the framework, so errors land on the resource rather than the line; the derived record type has an unreadable name that appears in every error mentioning it; and two resources cannot name each other by type (`dependency loop`), only by string.
+- **Builder functions** (`zava.resource(...).attribute(...).build()`): shortest, and errors land on the call line. Rejected because checks only see what was declared above the call, cross-resource references are still strings, the record name is still unreadable, and the declaration reads as a procedure rather than as data.
+- **Build-step generated**: best consumer surface (readable names, methods on records, whole-model validation) and worst declaration errors, since the developer's file never appears in them. Not a rival way to declare: the generator needs the model as comptime data, so it can sit behind this decision later if a need appears.
+- **Per-attribute options carried in the field** (wrapper field types such as `email: zava.Attr([]const u8, .{ ... })`, or naming conventions on sibling declarations): Zig has no field annotations, so every in-field carrier changes the field's type and the struct stops being the record. That gives up the reason for choosing this shape.
+
+## Consequences
+
+- Attribute references (`accept`, keys, primary key) are enum literals typed against the struct's own fields; relationships name the destination struct by type. Mutual references work because declarations inside a struct resolve lazily.
+- The record type is the developer's struct and keeps its name. The framework never generates it.
+- Metadata sits away from the field it describes. This is the accepted cost; the options block is typed so a wrong field name or option is still an exact compiler error.
+- The declaration is lowered once, by reflection, to the normalized model that every derivation and extension reads. Derivations never see the declaration shape.
+- The weakest error is a field whose type has no data-layer mapping: it is reported from the domain, naming the resource and attribute in the message.
