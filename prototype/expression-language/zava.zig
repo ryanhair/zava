@@ -206,6 +206,16 @@ pub fn Term(comptime R: type, comptime V: type) type {
             return .{ .any = .of(.{ .exists = @tagName(rel) }, &.{where.any.expr()}) };
         }
 
+        // ---------------- VARIANT: relationships crossed without naming the destination
+
+        pub fn existsLoose(comptime rel: @EnumLiteral(), where: Loose) Self {
+            comptime mustBe(bool, "'exists'");
+            return .{ .any = .of(.{ .exists = @tagName(rel) }, &.{where.any.expr()}) };
+        }
+        pub fn relatedLoose(comptime rel: @EnumLiteral(), t: Loose) Self {
+            return .{ .any = .of(.{ .related = @tagName(rel) }, &.{t.any.expr()}) };
+        }
+
         // ---------------- spelling B: methods (see `of`). Only the boolean joins live here.
 
         pub fn andAlso(a: Self, b: Self) Self {
@@ -227,6 +237,34 @@ pub fn Term(comptime R: type, comptime V: type) type {
         }
     };
 }
+
+/// VARIANT for the relationship question: a term over a destination nobody named.
+/// Nothing here is typed by the compiler; the checker does all of it.
+pub const Loose = struct {
+    any: Any,
+    fn looseValue(v: anytype) Value {
+        return switch (@typeInfo(@TypeOf(v))) {
+            .enum_literal => .{ .text = @tagName(v) },
+            .pointer => .{ .text = v },
+            else => toValue(v),
+        };
+    }
+    pub fn value(v: anytype) Loose {
+        return .{ .any = .of(.{ .value = looseValue(v) }, &.{}) };
+    }
+    pub fn attr(comptime a: @EnumLiteral()) Loose {
+        return .{ .any = .of(.{ .ref = @tagName(a) }, &.{}) };
+    }
+    pub fn arg(comptime a: @EnumLiteral()) Loose {
+        return .{ .any = .of(.{ .arg = @tagName(a) }, &.{}) };
+    }
+    pub fn eq(comptime a: @EnumLiteral(), rhs: Loose) Loose {
+        return .{ .any = .of(.{ .call = .{ .op = .eq, .arity = 2 } }, &.{ &.{.{ .ref = @tagName(a) }}, rhs.any.expr() }) };
+    }
+    pub fn gt(comptime a: @EnumLiteral(), rhs: Loose) Loose {
+        return .{ .any = .of(.{ .call = .{ .op = .gt, .arity = 2 } }, &.{ &.{.{ .ref = @tagName(a) }}, rhs.any.expr() }) };
+    }
+};
 
 /// Spelling B: `const p = zava.of(Post); p.attr(.views).gt(.value(10))`.
 pub fn of(comptime R: type) type {

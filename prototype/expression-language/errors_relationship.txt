@@ -1,0 +1,114 @@
+=== [destination named] 1 missing attribute on the far side
+    domain.zig: `.not(.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.not(.exists(Comment, .comments, .eq(.flaged, .value(true)))),`
+domain.zig:70:59: error: enum 'meta.FieldEnum(domain.Comment)' has no member named 'flaged'
+                    .not(.exists(Comment, .comments, .eq(.flaged, .value(true)))),
+                                                         ~^~~~~~
+
+=== [destination not named] 1 missing attribute on the far side
+    domain.zig: `.not(.existsLoose(.comments, .eq(.flagged, .value(true)))),` -> `.not(.existsLoose(.comments, .eq(.flaged, .value(true)))),`
+zava.zig:525:48: error: post, action 'trending_loose', filter: 'comment' has no attribute or calculation 'flaged'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [destination named] 2 literal of the wrong type on the far side
+    domain.zig: `.not(.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.not(.exists(Comment, .comments, .eq(.flagged, .value("yes")))),`
+domain.zig:70:75: error: expected type 'bool', found '*const [3:0]u8'
+                    .not(.exists(Comment, .comments, .eq(.flagged, .value("yes")))),
+                                                                          ^~~~~
+zava.zig:136:25: note: parameter type declared here
+        pub fn value(v: V) Self {
+                        ^
+
+=== [destination not named] 2 literal of the wrong type on the far side
+    domain.zig: `.not(.existsLoose(.comments, .eq(.flagged, .value(true)))),` -> `.not(.existsLoose(.comments, .eq(.flagged, .value("yes")))),`
+zava.zig:525:48: error: post, action 'trending_loose', filter: 'eq' compares boolean with text
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [destination named] 3 relationship that does not exist
+    domain.zig: `.not(.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.not(.exists(Comment, .coments, .eq(.flagged, .value(true)))),`
+zava.zig:525:48: error: post, action 'trending_a', filter: 'post' has no relationship 'coments'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [destination not named] 3 relationship that does not exist
+    domain.zig: `.not(.existsLoose(.comments, .eq(.flagged, .value(true)))),` -> `.not(.existsLoose(.coments, .eq(.flagged, .value(true)))),`
+zava.zig:525:48: error: post, action 'trending_loose', filter: 'post' has no relationship 'coments'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [destination named] 4 far attribute of the wrong type for the comparison
+    domain.zig: `.related(Author, .author, .attr(.name))` -> `.related(Author, .author, .attr(.id))`
+zava.zig:131:25: error: attribute 'id' gives i64, but []const u8 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:71:74: note: called at comptime here
+                    .cmp([]const u8, .eq, .related(Author, .author, .attr(.id)), .arg(.author_name)),
+                                                                    ~~~~~^~~~~
+
+=== [destination not named] 4 far attribute of the wrong type for the comparison
+    domain.zig: `.relatedLoose(.author, .attr(.name))` -> `.relatedLoose(.author, .attr(.id))`
+zava.zig:525:48: error: post, action 'trending_loose', filter: 'eq' compares integer with text
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [destination named] 5 wrong destination named, attribute exists on both with the same type (id)
+    domain.zig: `.cmp(i64, .gt, .calc(.popularity), .value(100)),` -> `.cmp(i64, .gt, .related(Comment, .author, .attr(.id)), .value(100)),`
+(compiled without error)
+
+=== [destination named] 6 wrong destination named, attribute only on the wrong one
+    domain.zig: `.not(.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.not(.exists(Author, .comments, .eq(.name, .value("x")))),`
+zava.zig:525:48: error: post, action 'trending_a', filter: 'comment' has no attribute or calculation 'name'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [destination named] 7 to-one relationship given to exists
+    domain.zig: `.not(.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.not(.exists(Author, .author, .eq(.name, .value("x")))),`
+zava.zig:525:48: error: post, action 'trending_a', filter: 'exists' needs a to-many relationship; 'author' is to-one
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:510:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~

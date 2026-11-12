@@ -24,6 +24,10 @@ trending_c
   sql     select t0.* from posts t0 where ((((t0.views + t0.likes) > $1) and not exists (select 1 from comments t1 where t1.post_id = t0.id and (t1.flagged = $2))) and ((select t2.name from authors t2 where t2.id = t0.author_id) = $3))
   params  $1=100 $2=true $3=argument author_name  
 
+trending_loose
+  sql     select t0.* from posts t0 where (((t0.views + t0.likes) > $1) and not exists (select 1 from comments t1 where t1.post_id = t0.id and (t1.flagged = $2)) and ((select t2.name from authors t2 where t2.id = t0.author_id) = $3))
+  params  $1=100 $2=true $3=argument author_name  
+
 the representation of popular_a, as stored in the model:
   all/2 eq/2 status 'published' gt/2 views $min_views 
 the representation of trending_c:

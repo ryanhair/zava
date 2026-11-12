@@ -31,3 +31,12 @@ Run: `zig run main.zig` (output in `output.txt`). Mistakes: `python3 errors.py` 
 ## Not exercised
 
 Null and optional attributes, `in`, text functions, sort and pagination, aggregates, a reference from inside `exists` back to the outer record, the context as an operand, policies, public/sensitive flags on request filters, a real Postgres round trip, ZLS behaviour, compile cost.
+
+## Follow-up: relationship crossing with and without the destination named
+
+`trending_a` names the destination (`.exists(Comment, .comments, ...)`); `trending_loose` does not (`.existsLoose(.comments, ...)`, inner term is the untyped `Loose`). Same node list, same SQL. Mistakes both ways in `errors_relationship.txt`.
+
+- Named: a missing far attribute and a far literal of the wrong type are compiler errors on the exact token. Not named: both are checker errors pointing at framework code, naming resource and action.
+- A missing relationship is a checker error both ways.
+- Naming the wrong destination never produces wrong SQL: the checker and the lowering use the relationship's real destination from the model. It compiles silently when the attribute exists on both with the same type, and otherwise gives a checker error about the real destination. The node does not record the named type, so the mismatch itself is not reported; recording it would let the checker say so.
+- The branch quota is per comptime entry point: adding one action pushed `main.zig`'s comptime statement derivation past 1000 until it raised the quota itself.

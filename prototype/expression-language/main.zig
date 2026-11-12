@@ -10,8 +10,11 @@ pub fn main() void {
     const print = std.debug.print;
 
     print("=== 1. Declared in the resource: statement text is a comptime constant\n\n", .{});
-    inline for (.{ "popular_a", "popular_b", "popular_c", "trending_a", "trending_b", "trending_c" }) |name| {
-        const st = comptime zava.statement(zava.select(&model, post, &.{post.action(name).filter.?}));
+    inline for (.{ "popular_a", "popular_b", "popular_c", "trending_a", "trending_b", "trending_c", "trending_loose" }) |name| {
+        const st = comptime blk: {
+            @setEvalBranchQuota(100_000); // the quota is per comptime entry point
+            break :blk zava.statement(zava.select(&model, post, &.{post.action(name).filter.?}));
+        };
         zava.show(name, st.text, st.params);
     }
     print("the representation of popular_a, as stored in the model:\n  ", .{});
@@ -20,7 +23,10 @@ pub fn main() void {
     zava.dump(post.action("trending_c").filter.?);
 
     print("\n=== 2. An expression in a change (atomic update), also a comptime constant\n\n", .{});
-    const up = comptime zava.statement(zava.update(&model, post, post.action("view")));
+    const up = comptime blk: {
+        @setEvalBranchQuota(100_000);
+        break :blk zava.statement(zava.update(&model, post, post.action("view")));
+    };
     zava.show("view", up.text, up.params);
 
     print("=== 3. Written at a call site with a runtime value, and-ed with the declared filter\n\n", .{});

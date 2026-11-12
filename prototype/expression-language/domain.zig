@@ -84,6 +84,17 @@ pub const Post = struct {
                 .filter = .parse("popularity > 100 and not exists(comments, flagged == true) and author.name == $author_name"),
             },
 
+            // ---- VARIANT: the same filter as trending_a, destination not named
+            .{
+                .name = "trending_loose",
+                .arguments = &.{.{ .name = "author_name", .type = []const u8 }},
+                .filter = .all(&.{
+                    .cmp(i64, .gt, .calc(.popularity), .value(100)),
+                    .not(.existsLoose(.comments, .eq(.flagged, .value(true)))),
+                    .cmp([]const u8, .eq, .relatedLoose(.author, .attr(.name)), .arg(.author_name)),
+                }),
+            },
+
             // ---- an expression in a change: an atomic update
             .{ .name = "view", .kind = .update, .set = &.{.to(.views, .add(.attr(.views), .value(1)))} },
         },
