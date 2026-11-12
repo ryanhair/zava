@@ -31,11 +31,11 @@ A named, typed, stored value of a record. Every field of a resource's struct is 
 _Avoid_: Field, column, property
 
 **Public**:
-Said of an attribute that an API surface may expose. Attributes are not public unless declared so.
+Said of an attribute or calculation that an API surface may expose. Neither is public unless declared so.
 _Avoid_: Visible, exposed
 
 **Sensitive**:
-Said of an attribute or value type whose values are kept out of logs and failure detail.
+Said of an attribute, calculation or value type whose values are kept out of logs and failure detail.
 _Avoid_: Secret, private, redacted
 
 **Built-in type**:
@@ -51,7 +51,7 @@ A declared bound on the values a value type or an attribute may hold.
 _Avoid_: Rule, restriction, limit
 
 **Calculation**:
-A named, typed value computed for a record rather than stored.
+A named, typed value computed for a record rather than stored, either by an expression or by a developer-written function. It is computed only when asked for, and its name is unique among the resource's attributes, calculations and relationships.
 _Avoid_: Computed field, virtual attribute, derived attribute
 
 **Expression**:
