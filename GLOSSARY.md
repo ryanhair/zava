@@ -135,6 +135,14 @@ _Avoid_: Stage, hook point
 The per-call value an action's steps work on: the input and the attribute values to be written.
 _Avoid_: Changeset
 
+**Failure**:
+The outcome of an action call that did not complete, made of a failure kind and its detail.
+_Avoid_: Error, exception, fault
+
+**Failure kind**:
+One of the six reasons an action call can fail: invalid, forbidden, not found, conflict, rejected, or unavailable. The list is closed.
+_Avoid_: Error type, error class, error code
+
 ### Deriving
 
 **Kernel**:
