@@ -1,0 +1,308 @@
+=== [A prefix] 1 missing attribute
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.published)),
+                    .gt(.viewz, .arg(.min_views)),`
+domain.zig:50:26: error: enum 'meta.FieldEnum(domain.Post)' has no member named 'viewz'
+                    .gt(.viewz, .arg(.min_views)),
+                        ~^~~~~
+
+=== [B method] 1 missing attribute
+    domain.zig: `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.arg(.min_views)))` -> `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.viewz).gt(.arg(.min_views)))`
+domain.zig:56:82: error: enum 'meta.FieldEnum(domain.Post)' has no member named 'viewz'
+                .filter = p.attr(.status).eq(.value(.published)).andAlso(p.attr(.viewz).gt(.arg(.min_views))),
+                                                                                ~^~~~~
+
+=== [C string] 1 missing attribute
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'published' and viewz > $min_viewz"`
+zava.zig:487:48: error: post, action 'popular_c', filter: 'post' has no attribute or calculation 'viewz'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 2 literal of the wrong type
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.published)),
+                    .gt(.views, .value("ten")),`
+domain.zig:50:40: error: expected type 'i64', found '*const [3:0]u8'
+                    .gt(.views, .value("ten")),
+                                       ^~~~~
+zava.zig:136:25: note: parameter type declared here
+        pub fn value(v: V) Self {
+                        ^
+
+=== [B method] 2 literal of the wrong type
+    domain.zig: `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.arg(.min_views)))` -> `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.value("ten")))`
+domain.zig:56:99: error: expected type 'i64', found '*const [3:0]u8'
+                .filter = p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.value("ten"))),
+                                                                                                  ^~~~~
+zava.zig:136:25: note: parameter type declared here
+        pub fn value(v: V) Self {
+                        ^
+
+=== [C string] 2 literal of the wrong type
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'published' and views > 'ten'"`
+zava.zig:487:48: error: post, action 'popular_c', filter: 'gt' compares integer with text
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 3 enum value that does not exist
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.publishd)),
+                    .gt(.views, .arg(.min_views)),`
+domain.zig:49:42: error: enum 'domain.Status' has no member named 'publishd'
+                    .eq(.status, .value(.publishd)),
+                                        ~^~~~~~~~
+domain.zig:4:20: note: enum declared here
+pub const Status = enum { draft, published };
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [B method] 3 enum value that does not exist
+    domain.zig: `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.arg(.min_views)))` -> `p.attr(.status).eq(.value(.publishd)).andAlso(p.attr(.views).gt(.arg(.min_views)))`
+domain.zig:56:54: error: enum 'domain.Status' has no member named 'publishd'
+                .filter = p.attr(.status).eq(.value(.publishd)).andAlso(p.attr(.views).gt(.arg(.min_views))),
+                                                    ~^~~~~~~~
+domain.zig:4:20: note: enum declared here
+pub const Status = enum { draft, published };
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [C string] 3 enum value that does not exist (NOT CAUGHT: enum is text in this prototype)
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'publishd' and views > $min_views"`
+(compiled without error)
+
+=== [A prefix] 4 attribute compared with an attribute of another type
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.published)),
+                    .gt(.views, .attr(.title)),`
+zava.zig:131:25: error: attribute 'title' gives []const u8, but i64 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:50:38: note: called at comptime here
+                    .gt(.views, .attr(.title)),
+                                ~~~~~^~~~~~~~
+
+=== [B method] 4 attribute compared with an attribute of another type
+    domain.zig: `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.arg(.min_views)))` -> `p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.attr(.title)))`
+zava.zig:131:25: error: attribute 'title' gives []const u8, but i64 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:56:97: note: called at comptime here
+                .filter = p.attr(.status).eq(.value(.published)).andAlso(p.attr(.views).gt(.attr(.title))),
+                                                                                           ~~~~~^~~~~~~~
+
+=== [C string] 4 attribute compared with an attribute of another type
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'published' and views > title"`
+zava.zig:487:48: error: post, action 'popular_c', filter: 'gt' compares integer with text
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 5 argument that does not exist
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_view)),`
+zava.zig:487:48: error: post, action 'popular_a', filter: no argument 'min_view'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [C string] 5 argument that does not exist
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'published' and views > $min_view"`
+zava.zig:487:48: error: post, action 'popular_c', filter: no argument 'min_view'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 6 argument of the wrong type
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.published)),
+                    .eq(.title, .arg(.min_views)),`
+zava.zig:487:48: error: post, action 'popular_a', filter: 'eq' compares text with integer
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 7 calculation that does not exist
+    domain.zig: `.cmp(i64, .gt, .calc(.popularity), .value(100)),` -> `.cmp(i64, .gt, .calc(.popularty), .value(100)),`
+zava.zig:487:48: error: post, action 'trending_a', filter: 'post' has no attribute or calculation 'popularty'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 8 calculation used at the wrong type
+    domain.zig: `.cmp(i64, .gt, .calc(.popularity), .value(100)),` -> `.cmp([]const u8, .gt, .calc(.popularity), .value("x")),`
+zava.zig:487:48: error: post, action 'trending_a', filter: 'gt' compares integer with text
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 9 missing attribute on the far side of a relationship
+    domain.zig: `.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.exists(Comment, .comments, .eq(.flaged, .value(true)))),`
+domain.zig:70:59: error: enum 'meta.FieldEnum(domain.Comment)' has no member named 'flaged'
+                    .not(.exists(Comment, .comments, .eq(.flaged, .value(true)))),
+                                                         ~^~~~~~
+
+=== [C string] 9 missing attribute on the far side of a relationship
+    domain.zig: `exists(comments, flagged == true) and author.name` -> `exists(comments, flaged == true) and author.name`
+zava.zig:487:48: error: post, action 'trending_c', filter: 'comment' has no attribute or calculation 'flaged'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 10 relationship that does not exist
+    domain.zig: `.exists(Comment, .comments, .eq(.flagged, .value(true)))),` -> `.exists(Comment, .coments, .eq(.flagged, .value(true)))),`
+zava.zig:487:48: error: post, action 'trending_a', filter: 'post' has no relationship 'coments'
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [A prefix] 11 wrong destination named for a relationship (NOT CAUGHT unless an attribute name differs)
+    domain.zig: `.related(Author, .author, .attr(.name))` -> `.related(Comment, .author, .attr(.flagged))`
+zava.zig:131:25: error: attribute 'flagged' gives bool, but []const u8 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:71:75: note: called at comptime here
+                    .cmp([]const u8, .eq, .related(Comment, .author, .attr(.flagged)), .arg(.author_name)),
+                                                                     ~~~~~^~~~~~~~~~
+
+=== [A prefix] 12 non-boolean term in a boolean join
+    domain.zig: `.eq(.status, .value(.published)),
+                    .gt(.views, .arg(.min_views)),` -> `.eq(.status, .value(.published)),
+                    .attr(.views),`
+zava.zig:131:25: error: attribute 'views' gives i64, but bool is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:50:26: note: called at comptime here
+                    .attr(.views),
+                    ~~~~~^~~~~~~~
+
+=== [C string] 12 non-boolean term in a boolean join
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'published' and views"`
+zava.zig:487:48: error: post, action 'popular_c', filter: 'all' needs boolean operands, found integer
+    const got = check(m, r, args, e, &d) catch @compileError(where ++ ": " ++ d.message());
+                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:472:41: note: called at comptime here
+                if (a.filter) |f| expect(&m, r, a.arguments, f, .boolean, r.name ++ ", action '" ++ a.name ++ "', filter");
+                                  ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:37: note: called at comptime here
+const model: zava.Model = zava.model(domain.resources); // lowered and checked at comptime
+                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [C string] 13 syntax error
+    domain.zig: `"status == 'published' and views > $min_views"` -> `"status == 'published' and (views > $min_views"`
+zava.zig:270:9: error: expression "status == 'published' and (views > $min_views": expected ')' at offset 45
+        @compileError("expression \"" ++ src ++ "\": " ++ what ++ " at offset " ++ std.fmt.comptimePrint("{d}", .{pos}));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:341:43: note: called at comptime here
+            if (!take(src, pos, ")")) fail(src, pos.*, "expected ')'");
+                                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:326:26: note: called at comptime here
+        var e = parseAtom(src, pos);
+                ~~~~~~~~~^~~~~~~~~~
+zava.zig:320:29: note: called at comptime here
+        const lhs = parseSum(src, pos);
+                    ~~~~~~~~^~~~~~~~~~
+zava.zig:317:24: note: called at comptime here
+        return parseCmp(src, pos);
+               ~~~~~~~~^~~~~~~~~~
+
+=== [A prefix] 14 atomic update: value of the wrong type
+    domain.zig: `.to(.views, .add(.attr(.views), .value(1)))` -> `.to(.views, .attr(.title))`
+zava.zig:131:25: error: attribute 'title' gives []const u8, but i64 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:88:76: note: called at comptime here
+            .{ .name = "view", .kind = .update, .set = &.{.to(.views, .attr(.title))} },
+                                                                      ~~~~~^~~~~~~~
+
+=== [A prefix] 15 calculation body of the wrong type
+    domain.zig: `.calc("popularity", i64, .add(.attr(.views), .attr(.likes)))` -> `.calc("popularity", i64, .add(.attr(.views), .attr(.title)))`
+zava.zig:131:25: error: attribute 'title' gives []const u8, but i64 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:140:28: note: called at comptime here
+            comptime mustBe(AttrType(R, a), "attribute '" ++ @tagName(a) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:41:63: note: called at comptime here
+            .calc("popularity", i64, .add(.attr(.views), .attr(.title))),
+                                                         ~~~~~^~~~~~~~
+
+=== [A prefix] 16 call site: missing attribute
+    main.zig: `.gt(.likes, .value(min_likes))` -> `.gt(.liks, .value(min_likes))`
+main.zig:29:63: error: enum 'meta.FieldEnum(domain.Post)' has no member named 'liks'
+    const extra: zava.Term(domain.Post, bool) = .all(&.{ .gt(.liks, .value(min_likes)), .eq(.featured, .value(true)) });
+                                                             ~^~~~
+
+=== [A prefix] 17 call site: runtime value of the wrong type
+    main.zig: `.eq(.featured, .value(true))` -> `.eq(.featured, .value(min_likes))`
+main.zig:29:112: error: expected type 'bool', found 'i64'
+    const extra: zava.Term(domain.Post, bool) = .all(&.{ .gt(.likes, .value(min_likes)), .eq(.featured, .value(min_likes)) });
+                                                                                                               ^~~~~~~~~
+zava.zig:136:25: note: parameter type declared here
+        pub fn value(v: V) Self {
+                        ^

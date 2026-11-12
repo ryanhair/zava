@@ -1,0 +1,62 @@
+=== 1. Declared in the resource: statement text is a comptime constant
+
+popular_a
+  sql     select t0.* from posts t0 where ((t0.status = $1) and (t0.views > $2))
+  params  $1='published' $2=argument min_views  
+
+popular_b
+  sql     select t0.* from posts t0 where ((t0.status = $1) and (t0.views > $2))
+  params  $1='published' $2=argument min_views  
+
+popular_c
+  sql     select t0.* from posts t0 where ((t0.status = $1) and (t0.views > $2))
+  params  $1='published' $2=argument min_views  
+
+trending_a
+  sql     select t0.* from posts t0 where (((t0.views + t0.likes) > $1) and not exists (select 1 from comments t1 where t1.post_id = t0.id and (t1.flagged = $2)) and ((select t2.name from authors t2 where t2.id = t0.author_id) = $3))
+  params  $1=100 $2=true $3=argument author_name  
+
+trending_b
+  sql     select t0.* from posts t0 where ((((t0.views + t0.likes) > $1) and not exists (select 1 from comments t1 where t1.post_id = t0.id and (t1.flagged = $2))) and ((select t2.name from authors t2 where t2.id = t0.author_id) = $3))
+  params  $1=100 $2=true $3=argument author_name  
+
+trending_c
+  sql     select t0.* from posts t0 where ((((t0.views + t0.likes) > $1) and not exists (select 1 from comments t1 where t1.post_id = t0.id and (t1.flagged = $2))) and ((select t2.name from authors t2 where t2.id = t0.author_id) = $3))
+  params  $1=100 $2=true $3=argument author_name  
+
+the representation of popular_a, as stored in the model:
+  all/2 eq/2 status 'published' gt/2 views $min_views 
+the representation of trending_c:
+  all/2 all/2 gt/2 popularity 100 not/1 exists:comments eq/2 flagged true eq/2 related:author name $author_name 
+
+=== 2. An expression in a change (atomic update), also a comptime constant
+
+view
+  sql     update posts t0 set views = (t0.views + $1) where t0.id = $2
+  params  $1=1 $2=argument id  
+
+=== 3. Written at a call site with a runtime value, and-ed with the declared filter
+
+popular_a + caller's filter
+  sql     select t0.* from posts t0 where ((t0.status = $1) and (t0.views > $2)) and ((t0.likes > $3) and (t0.featured = $4))
+  params  $1='published' $2=argument min_views  $3=3 $4=true 
+
+=== 4. Built from a request at runtime: same representation, same checker, same lowering
+
+views.gt=10&status.eq=published
+  sql     select t0.* from posts t0 where ((t0.views > $1) and (t0.status = $2))
+  params  $1=10 $2='published' 
+
+title.eq=x' or 1=1 --
+  sql     select t0.* from posts t0 where ((t0.title = $1))
+  params  $1='x' or 1=1 --' 
+
+viewz.gt=10
+  rejected  'post' has no attribute 'viewz'
+
+views.gt=ten
+  rejected  attribute 'views' is integer; 'ten' is not
+
+featured.gt=true
+  rejected  'gt' cannot order booleans
+
