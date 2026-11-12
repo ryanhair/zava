@@ -27,8 +27,28 @@ The normalized build-time data lowered from all declarations; the only thing der
 _Avoid_: Schema, metadata, domain model
 
 **Attribute**:
-A named, typed, stored value of a record. Every field of a resource's struct is an attribute, and nothing else lives in the struct.
+A named, typed, stored value of a record. Every field of a resource's struct is an attribute, and nothing else lives in the struct. An attribute is private unless declared public, and may be declared sensitive.
 _Avoid_: Field, column, property
+
+**Public**:
+Said of an attribute that an API surface may expose. Attributes are not public unless declared so.
+_Avoid_: Visible, exposed
+
+**Sensitive**:
+Said of an attribute or value type whose values are kept out of logs and failure detail.
+_Avoid_: Secret, private, redacted
+
+**Built-in type**:
+A type supplied by the kernel for a kind of value that Zig has no type of its own for, such as a UUID or an instant. The list is closed.
+_Avoid_: Primitive, scalar, leaf
+
+**Value type**:
+A developer-declared type that gives values a domain meaning, such as an email address or a money amount, and carries its own constraints.
+_Avoid_: Semantic type, custom type, newtype, wrapper
+
+**Constraint**:
+A declared bound on the values a value type or an attribute may hold.
+_Avoid_: Rule, restriction, limit
 
 **Calculation**:
 A named, typed value computed for a record rather than stored.
