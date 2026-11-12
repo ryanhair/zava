@@ -30,6 +30,10 @@ _Avoid_: Schema, metadata, domain model
 A named, typed, stored value of a record. Every field of a resource's struct is an attribute, and nothing else lives in the struct.
 _Avoid_: Field, column, property
 
+**Calculation**:
+A named, typed value computed for a record rather than stored.
+_Avoid_: Computed field, virtual attribute, derived attribute
+
 **Relationship**:
 A named connection from one resource to another, of one of four kinds: belongs-to, has-one, has-many, or many-to-many. A many-to-many relationship always names a join resource.
 _Avoid_: Association, reference, link
