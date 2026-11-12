@@ -1,0 +1,640 @@
+ZLS 0.17.0  Zig 0.17.0
+
+===== probes[a_anon] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling a (ADR 0004 / the prototype, verbatim apart from line breaks): the entry is an anonymous literal. Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.53s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = .{'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> null
+[opt_names_after_table] completion in author @ '.§'
+    -> null
+[opt_names_prefix] completion in author @ '.ta§'
+    -> null
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = .{ .§ } },'
+    -> null
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = .{'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = .{'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> null
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = .{'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = .{'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> null
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> null
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+ZLS warnings/errors: none
+
+===== probes[b_named] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling b: the entry is written with the extension's named type, `postgres.Options(@This()){ ... }`. Needs no change to the prototype: `postgres.Options` is already public (the kernel calls it). Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.4s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = postgres.Options(@This()){'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_after_table] completion in author @ '.§'
+    -> 1 items: attributes [(unknown type) = .{}]
+[opt_names_prefix] completion in author @ '.ta§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = postgres.Options(@This()){ .§ } },'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = postgres.Options(@This()){'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = postgres.Options(@This()){'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```"
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> "```zig\nattributes: zava.PerAttribute(R, AttributeOptions) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[hover_named_type_Options] hover in author @ '.extensions = .{ .postgres = postgres.Opt§ions(@This()){'
+    -> "```zig\nfn Options(comptime R: type) type\n```\n```zig\n(fn (comptime type) type)\n```"
+[hover_named_type_module] hover in author @ '.extensions = .{ .postgres = post§gres.Options(@This()){'
+    -> "```zig\nconst postgres = @import(\"postgres\")\n```\n```zig\n(type)\n```\n\nPROTOTYPE, throwaway. One extension. It imports the kernel; the kernel never imports it."
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = postgres.Options(@This()){'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = postgres.Options(@This()){'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> postgres.zig:14:9
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> postgres.zig:15:9
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_named_type_Options] definition in author @ '.extensions = .{ .postgres = postgres.Opt§ions(@This()){'
+    -> postgres.zig:12:8
+[def_named_type_module] definition in author @ '.extensions = .{ .postgres = post§gres.Options(@This()){'
+    -> postgres.zig:6:7
+ZLS warnings/errors: none
+
+===== probes[b2_named_nested] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling b2: as b, and the per-attribute entry is also written with its named type, `postgres.AttributeOptions{ ... }` (already public in the prototype). Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.4s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = postgres.Options(@This()){'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_after_table] completion in author @ '.§'
+    -> 1 items: attributes [(unknown type) = .{}]
+[opt_names_prefix] completion in author @ '.ta§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = postgres.Options(@This()){ .§ } },'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = postgres.AttributeOptions{ .§ } },'
+    -> 1 items: column [?[]const u8 = null]
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = postgres.Options(@This()){'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = postgres.Options(@This()){'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```"
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = postgres.AttributeOptions{ .column = "email_address" } },'
+    -> "```zig\nattributes: zava.PerAttribute(R, AttributeOptions) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = postgres.AttributeOptions{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = postgres.AttributeOptions{ .col§umn = "email_address" } },'
+    -> "```zig\ncolumn: ?[]const u8 = null\n```\n```zig\n(?[]const u8)\n```"
+[hover_named_type_Options] hover in author @ '.extensions = .{ .postgres = postgres.Opt§ions(@This()){'
+    -> "```zig\nfn Options(comptime R: type) type\n```\n```zig\n(fn (comptime type) type)\n```"
+[hover_named_type_module] hover in author @ '.extensions = .{ .postgres = post§gres.Options(@This()){'
+    -> "```zig\nconst postgres = @import(\"postgres\")\n```\n```zig\n(type)\n```\n\nPROTOTYPE, throwaway. One extension. It imports the kernel; the kernel never imports it."
+[hover_named_type_AttributeOptions] hover in author @ '.attributes = .{ .email = postgres.Attribute§Options{ .column = "email_address" } },'
+    -> "```zig\nconst AttributeOptions = struct { column: ?[]const u8 = null }\n```\n```zig\n(type)\n```"
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = postgres.Options(@This()){'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = postgres.Options(@This()){'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> postgres.zig:14:9
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = postgres.AttributeOptions{ .column = "email_address" } },'
+    -> postgres.zig:15:9
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = postgres.AttributeOptions{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = postgres.AttributeOptions{ .col§umn = "email_address" } },'
+    -> postgres.zig:10:39
+[def_named_type_Options] definition in author @ '.extensions = .{ .postgres = postgres.Opt§ions(@This()){'
+    -> postgres.zig:12:8
+[def_named_type_module] definition in author @ '.extensions = .{ .postgres = post§gres.Options(@This()){'
+    -> postgres.zig:6:7
+[def_named_type_AttributeOptions] definition in author @ '.attributes = .{ .email = postgres.Attribute§Options{ .column = "email_address" } },'
+    -> postgres.zig:10:30
+ZLS warnings/errors: none
+
+===== probes[c_alias] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling c: an alias of the named type inside the resource struct, `const Pg = postgres.Options(@This());`, then `Pg{ ... }`. Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.4s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = Pg{'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> null
+[opt_names_after_table] completion in author @ '.§'
+    -> null
+[opt_names_prefix] completion in author @ '.ta§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = Pg{ .§ } },'
+    -> null
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = Pg{'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = Pg{'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```"
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> "```zig\nattributes: zava.PerAttribute(R, AttributeOptions) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[hover_alias_use] hover in author @ '.extensions = .{ .postgres = P§g{'
+    -> "```zig\nconst Pg = postgres.Options(@This())\n```\n```zig\n(type)\n```"
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = Pg{'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = Pg{'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> postgres.zig:14:9
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> postgres.zig:15:9
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_alias_use] definition in author @ '.extensions = .{ .postgres = P§g{'
+    -> postgres.zig:13:12
+ZLS warnings/errors: none
+
+===== probes[c2_file_alias] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling c2: an alias of the named type at file scope, `const AuthorPg = postgres.Options(Author);`, then `AuthorPg{ ... }`. Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.4s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = AuthorPg{'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_after_table] completion in author @ '.§'
+    -> 1 items: attributes [(unknown type) = .{}]
+[opt_names_prefix] completion in author @ '.ta§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = PostPg{ .§ } },'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = AuthorPg{'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = AuthorPg{'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```"
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> "```zig\nattributes: zava.PerAttribute(R, AttributeOptions) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[hover_alias_use] hover in author @ '.extensions = .{ .postgres = Author§Pg{'
+    -> "```zig\nconst AuthorPg = postgres.Options(Author)\n```\n```zig\n(type)\n```"
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = AuthorPg{'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = AuthorPg{'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> postgres.zig:14:9
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> postgres.zig:15:9
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_alias_use] definition in author @ '.extensions = .{ .postgres = Author§Pg{'
+    -> postgres.zig:13:12
+ZLS warnings/errors: none
+
+===== probes[d_helper] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling d: a helper function call, `postgres.entry(@This(), .{ ... })`. Needs one function ADDED to the extension (the driver appends it to postgres.zig):     pub fn entry(comptime R: type, o: Options(R)) Options(R) { return o; } Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.4s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = postgres.entry(@This(), .{'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_after_table] completion in author @ '.§'
+    -> 1 items: attributes [(unknown type) = .{}]
+[opt_names_prefix] completion in author @ '.ta§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = postgres.entry(@This(), .{ .§ }) },'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = postgres.entry(@This(), .{'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = postgres.entry(@This(), .{'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> null
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[hover_helper_call] hover in author @ '.extensions = .{ .postgres = postgres.ent§ry(@This(), .{'
+    -> "```zig\nfn entry(comptime R: type, o: Options(R)) Options(R)\n```\n```zig\n(fn (comptime type, Options(R)) Options(R))\n```\n\nGo to [Options](file:///SCRATCH/probe-d_helper/postgres.zig#L12) | [R](file:///SCRATCH/probe-d_helper/postgres.zig#L189)\n\nADDED for spelling d (not in the prototype): gives the anonymous literal a result type."
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = postgres.entry(@This(), .{'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = postgres.entry(@This(), .{'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> null
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> null
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_helper_call] definition in author @ '.extensions = .{ .postgres = postgres.ent§ry(@This(), .{'
+    -> postgres.zig:189:8
+[sig_helper_call] signatureHelp in author @ '.extensions = .{ .postgres = postgres.entry(§@This(), .{'
+    -> activeParameter=1 fn entry(comptime R: type, o: Options(R)) Options(R) params=["comptime R: type", "o: Options(R)"] doc="ADDED for spelling d (not in the prototype): gives the anonymous literal a result type."
+ZLS warnings/errors: none
+
+===== probes[e_const] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling e: the entry is its own constant annotated through a local alias, `const Pg = postgres.Options(@This()); const pg: Pg = .{ ... };`, and the block names it. Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.4s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = pg },'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_after_table] completion in author @ '.§'
+    -> 1 items: attributes [(unknown type) = .{}]
+[opt_names_prefix] completion in author @ '.ta§'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[opt_names_one_line] completion in post @ 'const pg: Pg = .{ .§ };'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = pg },'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```"
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> "```zig\nattributes: zava.PerAttribute(R, AttributeOptions) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[hover_const_decl] hover in author @ 'const p§g: Pg = .{'
+    -> "```zig\nconst pg: Pg = .{\n        .table = \"authors\",\n        .attributes = .{ .email = .{ .column = \"email_address\" } },\n    }\n```\n```zig\n(Options(Author))\n```\n\nGo to [Options](file:///SCRATCH/probe-e_const/postgres.zig#L12) | [Author](file:///SCRATCH/probe-e_const/domain.zig#L7)"
+[hover_const_use] hover in author @ '.extensions = .{ .postgres = p§g },'
+    -> "```zig\nconst pg: Pg = .{\n        .table = \"authors\",\n        .attributes = .{ .email = .{ .column = \"email_address\" } },\n    }\n```\n```zig\n(Options(Author))\n```\n\nGo to [Options](file:///SCRATCH/probe-e_const/postgres.zig#L12) | [Author](file:///SCRATCH/probe-e_const/domain.zig#L7)"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = pg },'
+    -> null
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = pg },'
+    -> zava.zig:54:9
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> postgres.zig:14:9
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> postgres.zig:15:9
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_const_decl] definition in author @ 'const p§g: Pg = .{'
+    -> domain.zig:13:11
+[def_const_use] definition in author @ '.extensions = .{ .postgres = p§g },'
+    -> domain.zig:13:11
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = pg },'
+    -> null
+ZLS warnings/errors: none
+
+===== probes[f_control] =====
+`zig build run` exit 0; generated api.zig sha256 d8a5ca4a1c33e936
+variant: Spelling a plus a CONTROL at the end of the file: the same anonymous nesting under a hand-written block type. Otherwise prototype/extension-mechanism/domain.zig.
+time from didOpen(domain.zig) until the control completion answers: 0.39s
+[control_top_level_option_names] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .§ };'
+    -> 3 items: attributes [(unknown type) = .{}]; actions [[]const Action(R) = &.{}]; extensions [(unknown type) = .{}]
+[ext_names_empty_block] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .§ } };'
+    -> null
+[ext_names_before_existing_entry] completion in author @ '.extensions = .{ .§, .postgres = .{'
+    -> null
+[ext_names_prefix] completion in ping @ 'pub const resource = zava.Options(@This()){ .name = "ping", .primary_key = .id, .extensions = .{ .po§ } };'
+    -> null
+[opt_names_empty_entry] completion in author @ '.§'
+    -> null
+[opt_names_after_table] completion in author @ '.§'
+    -> null
+[opt_names_prefix] completion in author @ '.ta§'
+    -> null
+[opt_names_one_line] completion in post @ '.extensions = .{ .postgres = .{ .§ } },'
+    -> null
+[attr_keys] completion in author @ '.attributes = .{ .§ },'
+    -> null
+[attr_entry_option_names] completion in author @ '.attributes = .{ .email = .{ .§ } },'
+    -> null
+[hover_extensions_option] hover in author @ '.exten§sions = .{ .postgres = .{'
+    -> "```zig\nextensions: ExtensionBlock(R) = .{}\n```\n```zig\n((unknown type))\n```"
+[hover_extension_name] hover in author @ '.extensions = .{ .post§gres = .{'
+    -> null
+[hover_option_table] hover in author @ '.tab§le = "authors",'
+    -> null
+[hover_option_attributes] hover in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_key] hover in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[hover_attr_entry_option] hover in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[def_extensions_option] definition in author @ '.exten§sions = .{ .postgres = .{'
+    -> zava.zig:54:9
+[def_extension_name] definition in author @ '.extensions = .{ .post§gres = .{'
+    -> null
+[def_option_table] definition in author @ '.tab§le = "authors",'
+    -> null
+[def_option_attributes] definition in author @ '.attri§butes = .{ .email = .{ .column = "email_address" } },'
+    -> null
+[def_attr_key] definition in author @ '.attributes = .{ .em§ail = .{ .column = "email_address" } },'
+    -> null
+[def_attr_entry_option] definition in author @ '.attributes = .{ .email = .{ .col§umn = "email_address" } },'
+    -> null
+[control_ext_names] completion in control @ 'const hand = Hand{ .extensions = .{ .§ } };'
+    -> 1 items: postgres [?Options(Author) = null]
+[control_opt_names] completion in control @ 'const hand = Hand{ .extensions = .{ .postgres = .{ .§ } } };'
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[control_attr_keys] completion in control @ 'const hand = Hand{ .extensions = .{ .postgres = .{ .table = "authors", .attributes = .{ .§ } } } };'
+    -> null
+[control_hover_extension_name] hover in control @ 'const hand = Hand{ .extensions = .{ .post§gres = .{ .table = "authors", .attributes = .{ .email = .{ .column = "email_address" } } } } };'
+    -> "```zig\npostgres: ?postgres.Options(Author) = null\n```\n```zig\n(?Options(Author))\n```\n\nGo to [Options](file:///SCRATCH/probe-f_control/postgres.zig#L12) | [Author](file:///SCRATCH/probe-f_control/domain.zig#L6)"
+[control_hover_option_table] hover in control @ 'const hand = Hand{ .extensions = .{ .postgres = .{ .tab§le = "authors", .attributes = .{ .email = .{ .column = "email_address" } } } } };'
+    -> "```zig\ntable: []const u8\n```\n```zig\n([]const u8)\n```"
+[control_hover_attr_entry_option] hover in control @ 'const hand = Hand{ .extensions = .{ .postgres = .{ .table = "authors", .attributes = .{ .email = .{ .col§umn = "email_address" } } } } };'
+    -> null
+[control_def_extension_name] definition in control @ 'const hand = Hand{ .extensions = .{ .post§gres = .{ .table = "authors", .attributes = .{ .email = .{ .column = "email_address" } } } } };'
+    -> domain.zig:50:28
+[control_def_option_table] definition in control @ 'const hand = Hand{ .extensions = .{ .postgres = .{ .tab§le = "authors", .attributes = .{ .email = .{ .column = "email_address" } } } } };'
+    -> postgres.zig:14:9
+[control_def_attr_entry_option] definition in control @ 'const hand = Hand{ .extensions = .{ .postgres = .{ .table = "authors", .attributes = .{ .email = .{ .col§umn = "email_address" } } } } };'
+    -> null
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/a_anon/extension_name] check_step=True enable_build_on_save=None =====
+misspelling: '.postgres = ' -> '.postgers = '; identifier 'postgers' is at 19:27 (its '.' at 19:26)
+`zig build`: exit 1
+    domain.zig:19:27: error: no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'
+    zava.zig:45:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.52s
+    domain.zig 19:27-19:35 severity=1 source='zls' [ON the misspelt identifier] "no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'"
+        related: zava.zig:45:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.04; 12.1:0, 12.49:1, 14.12:1, 14.21:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/a_anon/option_name] check_step=True enable_build_on_save=None =====
+misspelling: '.table = "authors"' -> '.tabel = "authors"'; identifier 'tabel' is at 20:14 (its '.' at 20:13)
+`zig build`: exit 1
+    domain.zig:20:14: error: no field named 'tabel' in struct 'postgres.Options(domain.Author)'
+    postgres.zig:13:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.77s
+    domain.zig 20:14-20:19 severity=1 source='zls' [ON the misspelt identifier] "no field named 'tabel' in struct 'postgres.Options(domain.Author)'"
+        related: postgres.zig:13:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.27s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.29; 12.11:0, 12.52:1, 14.38:1, 14.52:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/a_anon/attribute_key] check_step=True enable_build_on_save=None =====
+misspelling: '.email = .{ .column' -> '.emial = .{ .column'; identifier 'emial' is at 21:31 (its '.' at 21:30)
+`zig build`: exit 1
+    domain.zig:21:31: error: no field named 'emial' in struct 'zava.PerAttribute(domain.Author,postgres.AttributeOptions)'
+    zava.zig:30:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.52s
+    domain.zig 21:31-21:36 severity=1 source='zls' [ON the misspelt identifier] "no field named 'emial' in struct 'zava.PerAttribute(domain.Author,postgres.AttributeOptions)'"
+        related: zava.zig:30:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.03; 12.09:0, 12.47:1, 14.11:1, 14.27:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/a_anon/attribute_option] check_step=True enable_build_on_save=None =====
+misspelling: '.column = "email_address"' -> '.colum = "email_address"'; identifier 'colum' is at 21:43 (its '.' at 21:42)
+`zig build`: exit 1
+    domain.zig:21:43: error: no field named 'colum' in struct 'postgres.AttributeOptions'
+    postgres.zig:10:30: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.52s
+    domain.zig 21:43-21:48 severity=1 source='zls' [ON the misspelt identifier] "no field named 'colum' in struct 'postgres.AttributeOptions'"
+        related: postgres.zig:10:30 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.03; 12.08:0, 12.46:1, 14.11:1, 14.25:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/b_named/extension_name] check_step=True enable_build_on_save=None =====
+misspelling: '.postgres = ' -> '.postgers = '; identifier 'postgers' is at 20:27 (its '.' at 20:26)
+`zig build`: exit 1
+    domain.zig:20:27: error: no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'
+    zava.zig:45:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.78s
+    domain.zig 20:27-20:35 severity=1 source='zls' [ON the misspelt identifier] "no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'"
+        related: zava.zig:45:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.3; 12.1:0, 12.54:1, 14.4:1, 14.51:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/b_named/option_name] check_step=True enable_build_on_save=None =====
+misspelling: '.table = "authors"' -> '.tabel = "authors"'; identifier 'tabel' is at 21:14 (its '.' at 21:13)
+`zig build`: exit 1
+    domain.zig:21:14: error: no field named 'tabel' in struct 'postgres.Options(domain.Author)'
+    postgres.zig:13:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.77s
+    domain.zig 21:14-21:19 severity=1 source='zls' [ON the misspelt identifier] "no field named 'tabel' in struct 'postgres.Options(domain.Author)'"
+        related: postgres.zig:13:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.29; 12.1:0, 12.57:1, 14.36:1, 14.52:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/b_named/attribute_key] check_step=True enable_build_on_save=None =====
+misspelling: '.email = .{ .column' -> '.emial = .{ .column'; identifier 'emial' is at 22:31 (its '.' at 22:30)
+`zig build`: exit 1
+    domain.zig:22:31: error: no field named 'emial' in struct 'zava.PerAttribute(domain.Author,postgres.AttributeOptions)'
+    zava.zig:30:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.53s
+    domain.zig 22:31-22:36 severity=1 source='zls' [ON the misspelt identifier] "no field named 'emial' in struct 'zava.PerAttribute(domain.Author,postgres.AttributeOptions)'"
+        related: zava.zig:30:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.05; 12.1:0, 12.52:1, 14.15:1, 14.26:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[check_step_bos_default/b_named/attribute_option] check_step=True enable_build_on_save=None =====
+misspelling: '.column = "email_address"' -> '.colum = "email_address"'; identifier 'colum' is at 22:43 (its '.' at 22:42)
+`zig build`: exit 1
+    domain.zig:22:43: error: no field named 'colum' in struct 'postgres.AttributeOptions'
+    postgres.zig:10:30: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.51s
+    domain.zig 22:43-22:48 severity=1 source='zls' [ON the misspelt identifier] "no field named 'colum' in struct 'postgres.AttributeOptions'"
+        related: postgres.zig:10:30 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.02, fix saved at 14.04; 12.11:0, 12.48:1, 14.09:1, 14.26:0
+ZLS log lines mentioning build on save: ["Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[no_check_step_bos_default/a_anon/option_name] check_step=False enable_build_on_save=None =====
+misspelling: '.table = "authors"' -> '.tabel = "authors"'; identifier 'tabel' is at 20:14 (its '.' at 20:13)
+`zig build`: exit 1
+    domain.zig:20:14: error: no field named 'tabel' in struct 'postgres.Options(domain.Author)'
+    postgres.zig:13:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: NO diagnostics within 30.25s
+ZLS log lines mentioning build on save: []
+ZLS warnings/errors: none
+
+===== diagnostics[no_check_step_bos_true/a_anon/extension_name] check_step=False enable_build_on_save=True =====
+misspelling: '.postgres = ' -> '.postgers = '; identifier 'postgers' is at 19:27 (its '.' at 19:26)
+`zig build`: exit 1
+    domain.zig:19:27: error: no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'
+    zava.zig:45:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.53s
+    domain.zig 19:27-19:35 severity=1 source='zls' [ON the misspelt identifier] "no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'"
+        related: zava.zig:45:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.05; 12.1:0, 12.53:1, 14.11:1, 14.26:0
+ZLS log lines mentioning build on save: ["Set config option 'enable_build_on_save' to true", "Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[no_check_step_bos_true/a_anon/option_name] check_step=False enable_build_on_save=True =====
+misspelling: '.table = "authors"' -> '.tabel = "authors"'; identifier 'tabel' is at 20:14 (its '.' at 20:13)
+`zig build`: exit 1
+    domain.zig:20:14: error: no field named 'tabel' in struct 'postgres.Options(domain.Author)'
+    postgres.zig:13:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.52s
+    domain.zig 20:14-20:19 severity=1 source='zls' [ON the misspelt identifier] "no field named 'tabel' in struct 'postgres.Options(domain.Author)'"
+        related: postgres.zig:13:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.25s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.03; 12.1:0, 12.5:1, 14.12:1, 14.24:0
+ZLS log lines mentioning build on save: ["Set config option 'enable_build_on_save' to true", "Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[no_check_step_bos_true/b_named/extension_name] check_step=False enable_build_on_save=True =====
+misspelling: '.postgres = ' -> '.postgers = '; identifier 'postgers' is at 20:27 (its '.' at 20:26)
+`zig build`: exit 1
+    domain.zig:20:27: error: no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'
+    zava.zig:45:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.52s
+    domain.zig 20:27-20:35 severity=1 source='zls' [ON the misspelt identifier] "no field named 'postgers' in struct 'zava.ExtensionBlock(domain.Author)'"
+        related: zava.zig:45:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.26s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.04; 12.11:0, 12.52:1, 14.13:1, 14.26:0
+ZLS log lines mentioning build on save: ["Set config option 'enable_build_on_save' to true", "Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+
+===== diagnostics[no_check_step_bos_true/b_named/option_name] check_step=False enable_build_on_save=True =====
+misspelling: '.table = "authors"' -> '.tabel = "authors"'; identifier 'tabel' is at 21:14 (its '.' at 21:13)
+`zig build`: exit 1
+    domain.zig:21:14: error: no field named 'tabel' in struct 'postgres.Options(domain.Author)'
+    postgres.zig:13:12: note: struct declared here
+before the edit, 12.0s after didOpen: diagnostics for domain.zig = []
+after saving the misspelling: first non-empty publishDiagnostics after 0.52s
+    domain.zig 21:14-21:19 severity=1 source='zls' [ON the misspelt identifier] "no field named 'tabel' in struct 'postgres.Options(domain.Author)'"
+        related: postgres.zig:13:12 'struct declared here'
+after fixing and saving: diagnostics for domain.zig first empty after 0.25s; 6.0s later: 0 diagnostics
+    publishDiagnostics(domain.zig) timeline, seconds since ZLS start: misspelling saved at 12.01, fix saved at 14.04; 12.1:0, 12.51:1, 14.14:1, 14.26:0
+ZLS log lines mentioning build on save: ["Set config option 'enable_build_on_save' to true", "Build-On-Save is running for \"/SCRATCH/diag/\""]
+ZLS warnings/errors: none
+

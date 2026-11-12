@@ -1,0 +1,23 @@
+control (top-level option names) answered after 4.81s: ['attributes', 'actions', 'extensions']
+[file-scope alias of the generic call] 'FilePg{ .§ }' triggered by .
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[file-scope alias of a plain struct] 'AO{ .§ }' triggered by .
+    -> 1 items: column [?[]const u8 = null]
+[plain struct, no alias] 'Plain{ .§ }' triggered by .
+    -> 2 items: a [u8 = 0]; b [u8 = 0]
+[function-local alias of the generic call] 'LP{ .§ }' triggered by .
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[alias inside the resource struct; buffer does not parse] '.postgres = Pg{ .§ }' triggered by .
+    -> null
+[alias inside the resource struct; buffer does not parse] '.postgres = Pg{ .§ }' invoked
+    -> null
+[alias inside the resource struct; buffer parses] '.postgres = Pg{ .t§ }' invoked
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[alias inside the resource struct; buffer parses, no matching name] '.postgres = Pg{ .x§ }' invoked
+    -> 2 items: table [[]const u8]; attributes [(unknown type) = .{}]
+[alias inside the resource struct, after an option; buffer does not parse] '"posts", .§ }' triggered by .
+    -> null
+[alias inside the resource struct, after an option; buffer does not parse] '"posts", .a§ }' invoked
+    -> null
+[alias inside the resource struct, through @as] '@as(Pg, .{ .§ })' triggered by .
+    -> null
