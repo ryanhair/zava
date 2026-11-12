@@ -34,6 +34,14 @@ _Avoid_: Field, column, property
 A named, typed value computed for a record rather than stored.
 _Avoid_: Computed field, virtual attribute, derived attribute
 
+**Expression**:
+A typed computation over one record, written as data: it may read the record's attributes and calculations, the arguments of the action it belongs to, literal values, and records reached through a relationship.
+_Avoid_: Query, condition, predicate, formula
+
+**Filter**:
+An expression with a boolean result, used to select records.
+_Avoid_: Where clause, condition, criteria
+
 **Relationship**:
 A named connection from one resource to another, of one of four kinds: belongs-to, has-one, has-many, or many-to-many. A many-to-many relationship always names a join resource.
 _Avoid_: Association, reference, link
