@@ -107,6 +107,22 @@ An attribute of the resource that an action allows its input to set.
 A named, typed part of an action's input that is not an attribute of the resource.
 _Avoid_: Parameter, option
 
+**Query**:
+What a caller supplies to shape one call of a read action: a filter, a sort and a request for a page.
+_Avoid_: Options, params
+
+**Sort**:
+An ordered list of terms that decides the order of the records a read action returns. Each term names an attribute or a calculation and a direction.
+_Avoid_: Order, ordering, order by
+
+**Page**:
+A bounded run of records from a read action, together with what is needed to ask for the adjoining run. A page is asked for in one of two ways: keyset, from a cursor, or offset, from a count of records to skip.
+_Avoid_: Window, batch, chunk
+
+**Cursor**:
+An opaque value that marks a position in a sorted read.
+_Avoid_: Keyset, token, bookmark
+
 **Context**:
 The developer-written value passed with every action call and readable wherever the action runs. There is one context type per domain.
 _Avoid_: Actor, session, scope
