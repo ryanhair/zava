@@ -1,0 +1,29 @@
+# An action is a closed list of steps; there is no changeset
+
+Everything an action does is written in its declaration as lists of steps, one list per phase, and that list is the whole pipeline: no step can add another at runtime. Comptime code unrolls the lists into straight-line code. The only per-call state is a draft, a plain typed value generated per action that holds the input, the attribute values to be written, and optional per-action state. This replaces Ash's changeset, a runtime value on which each call collects hooks as closures and then interprets them. We chose it because it makes the full behaviour of every action a build-time fact: it is printed in the action's doc comment, readable by extensions, checked by the compiler, and nothing about it is discovered while a call runs.
+
+## Considered Options
+
+- **A runtime changeset** (Ash's shape): steps may add hooks conditionally, and a function may do anything to the pending write or query. Rejected because the pipeline of a call is then only known once the call has run, which is what makes Ash decide atomic-update eligibility, data-layer capability and the columns written at runtime, and report the clashes there.
+- **Functions that reshape a read's query** (Ash's `prepare`): rejected so that the shape of every query is known at build time, which SQL derivation and, later, authorization depend on. This is the strictest departure from Ash and the first thing to revisit if real use cases strain it; the escape today is two read actions, or an expression that reads an argument or the context.
+- **A manual implementation of a create, read, update or destroy** (Ash's `manual`): rejected because the action would look persisted to every derivation while its persistence is opaque. Custom persistence is a generic action.
+- **Update and destroy taking a record the caller read earlier**: rejected because the record can be stale and the common case pays for a read it does not need. They take the primary key.
+- **Steps declared once for the whole resource**: rejected so that an action's entry shows its whole pipeline. A step is reused by hoisting it into a constant and listing it.
+
+## Consequences
+
+- A step is a validation (inspects, may fail, never mutates) or a change (mutates the draft). Each is either built-in, which is plain data in the model, or a developer-written function named by declaration name (ADR 0003). Reuse across resources is ordinary Zig: a comptime function that returns a step function, bound to a declaration.
+- There are three phases. Before steps run before the data layer. After steps run after it, inside the transaction, and see the stored record without being able to alter it. After-commit steps run once the outermost transaction has committed and cannot return an error. There is no before-transaction phase and there are no around hooks.
+- A create, update or destroy always runs in one transaction spanning its before steps, the data-layer operation and its after steps. Reads open none. An action called from a step joins its caller's transaction when both resources use the same data layer. The kernel decides when; the data layer begins, commits and rolls back.
+- Validation failures accumulate until the next change or the data layer, where the action stops if there are any. Every other failure stops the action at once and rolls back.
+- The set of attributes an action may write is fixed at build time: its accepted attributes plus what each change declares it sets. The draft type has fields for exactly those, so a function writing anything else is a compiler error. Which accepted attributes a caller supplied is per-call data.
+- A step that needs the current record of an update or destroy declares it. Only then does the draft carry the current record, and only then does the kernel read it, with a lock, before writing. Otherwise the action is a single statement.
+- The kernel hands the data layer one closed operation per kind, shaped at build time; the data layer derives its statements at comptime and binds only values at runtime. The data layer returns the stored record.
+- Each step is recorded in the model as liftable to a set (built-in) or per record (function), and an action's liftability follows. Bulk actions are not designed; this is what keeps them addable.
+- Nothing in the contract of a create or of an after step says the record is new, which keeps upsert addable.
+- A generic action is one developer-written function with typed input and a declared return type, preceded by validations on its arguments, with an opt-in transaction.
+- A create, read, update or destroy on a resource with no data layer is a compile error; such a resource has generic actions only.
+- Results are fixed per kind: create and update return the stored record, destroy returns nothing, a read returns a slice or, when declared to return one, an optional record. Update or destroy of a missing primary key is a not-found failure.
+- Every action call takes the context: one developer-written struct for the whole domain, named at the domain root, passed to every step and forwarded unchanged to the data layer. The kernel gives its fields no meaning.
+- Because the list is closed, the kernel derives for each write action a function that runs its input constraints and those validations that need no current record, without executing the action.
+- The list of step kinds is open to extensions as data; how an extension supplies one is decided separately.

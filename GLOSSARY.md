@@ -79,6 +79,30 @@ An attribute of the resource that an action allows its input to set.
 A named, typed part of an action's input that is not an attribute of the resource.
 _Avoid_: Parameter, option
 
+**Context**:
+The developer-written value passed with every action call and readable wherever the action runs. There is one context type per domain.
+_Avoid_: Actor, session, scope
+
+**Step**:
+One declared unit of an action's execution, either a validation or a change.
+_Avoid_: Hook, callback, middleware
+
+**Validation**:
+A step that inspects and may fail, and never mutates.
+_Avoid_: Check, guard
+
+**Change**:
+A step that mutates the draft.
+_Avoid_: Mutation, transform
+
+**Phase**:
+Where in an action's execution a step runs: before, after, or after commit.
+_Avoid_: Stage, hook point
+
+**Draft**:
+The per-call value an action's steps work on: the input and the attribute values to be written.
+_Avoid_: Changeset
+
 ### Deriving
 
 **Kernel**:
