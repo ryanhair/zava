@@ -111,6 +111,10 @@ _Avoid_: Parameter, option
 The developer-written value passed with every action call and readable wherever the action runs. There is one context type per domain.
 _Avoid_: Actor, session, scope
 
+**Scope**:
+The kernel-defined value passed with every action call beside the context. It supplies the memory and I/O the call works with and carries the open transaction from an action to the actions its steps call.
+_Avoid_: Session, unit of work, environment, context
+
 **Step**:
 One declared unit of an action's execution, either a validation or a change.
 _Avoid_: Hook, callback, middleware

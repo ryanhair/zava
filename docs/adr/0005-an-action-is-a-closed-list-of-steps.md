@@ -25,5 +25,6 @@ Everything an action does is written in its declaration as lists of steps, one l
 - A create, read, update or destroy on a resource with no data layer is a compile error; such a resource has generic actions only.
 - Results are fixed per kind: create and update return the stored record, destroy returns nothing, a read returns a slice or, when declared to return one, an optional record. Update or destroy of a missing primary key is a not-found failure.
 - Every action call takes the context: one developer-written struct for the whole domain, named at the domain root, passed to every step and forwarded unchanged to the data layer. The kernel gives its fields no meaning.
+- Every action call and every function step also takes a scope, which carries the allocator, the I/O interface and the open transaction; a nested action joins its caller's transaction by receiving the same scope (ADR 0008).
 - Because the list is closed, the kernel derives for each write action a function that runs its input constraints and those validations that need no current record, without executing the action.
 - The list of step kinds is open to extensions as data; how an extension supplies one is decided separately.
