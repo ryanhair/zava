@@ -155,6 +155,14 @@ _Avoid_: Mutation, transform
 A built-in step that calls one action of a relationship's destination once for each element of an argument.
 _Avoid_: Manage relationship, nested write, cascade, sync
 
+**Extension step**:
+A step supplied by an extension, written under the extension's name and standing for one or more of the kernel's own steps.
+_Avoid_: Custom step, macro, plugin step
+
+**Implicit step**:
+A step an extension adds to an action that the developer did not list in it.
+_Avoid_: Transformer, hook, injected step
+
 **Phase**:
 Where in an action's execution a step runs: before, after, or after commit.
 _Avoid_: Stage, hook point
