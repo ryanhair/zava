@@ -1,0 +1,119 @@
+=== [probe_split.zig] 1 a calculation reads a calculation
+    `// CALC-TO-CALC ` -> ``
+    probe_split.zig:23:11: note: value of declaration 'probe_split.Term(probe_split.Post,i64).calc' uses value of declaration 'probe_split.Post.calculations' here
+        for (R.calculations) |c| if (c.type == V) {
+             ~^~~~~~~~~~~~~
+    probe_split.zig:87:36: note: value of declaration 'probe_split.Post.calculations' uses value of declaration 'probe_split.Term(probe_split.Post,i64).calc' here
+            .of("hot", bool, .gt(i64, .calc(.popularity), .value(100))),
+                                      ~^~~~
+
+=== [probe_split.zig] 2 relationship that does not exist
+    `.exists(.comments, .attr(.flagged)),
+        ),` -> `.exists(.coments, .attr(.flagged)),
+        ),`
+probe_split.zig:92:22: error: enum 'probe_split.enumOf(&.{&.{ ... }[0..(...)]}[0..1])' has no member named 'coments'
+            .exists(.coments, .attr(.flagged)),
+                    ~^~~~~~~
+probe_split.zig:9:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, names, &std.simd.iota(Tag, names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_split.zig] 3 calculation that does not exist
+    `.gt(i64, .calc(.popularity), .value(100)),
+            .exists` -> `.gt(i64, .calc(.popularty), .value(100)),
+            .exists`
+probe_split.zig:91:29: error: enum 'probe_split.enumOf(&.{&.{ ... }[0..(...)]}[0..1])' has no member named 'popularty'
+            .gt(i64, .calc(.popularty), .value(100)),
+                           ~^~~~~~~~~
+probe_split.zig:9:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, names, &std.simd.iota(Tag, names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_split.zig] 4 calculation used at the wrong type
+    `.gt(i64, .calc(.popularity), .value(100)),
+            .exists` -> `.gt(bool, .calc(.popularity), .value(true)),
+            .exists`
+probe_split.zig:91:30: error: enum 'probe_split.enumOf(&.{&.{ ... }[0..(...)]}[0..1])' has no member named 'popularity'
+            .gt(bool, .calc(.popularity), .value(true)),
+                            ~^~~~~~~~~~
+probe_split.zig:9:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, names, &std.simd.iota(Tag, names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_split.zig] 5 attribute that does not exist on the far side
+    `.exists(.comments, .attr(.flagged)),
+        ),` -> `.exists(.comments, .attr(.flaged)),
+        ),`
+probe_split.zig:92:39: error: enum 'meta.FieldEnum(probe_split.Comment)' has no member named 'flaged'
+            .exists(.comments, .attr(.flaged)),
+                                     ~^~~~~~
+
+=== [probe_types.zig] 1 a calculation reads a calculation
+    `` -> ``
+(compiled without error)
+
+=== [probe_types.zig] 2 relationship that does not exist
+    `.exists(.comments, .attr(.flagged)),
+        ),` -> `.exists(.coments, .attr(.flagged)),
+        ),`
+probe_types.zig:87:22: error: enum 'meta.FieldEnum(probe_types.Post.Related)' has no member named 'coments'
+            .exists(.coments, .attr(.flagged)),
+                    ~^~~~~~~
+
+=== [probe_types.zig] 3 calculation that does not exist
+    `.gt(i64, .calc(.popularity), .value(100)),
+            .exists` -> `.gt(i64, .calc(.popularty), .value(100)),
+            .exists`
+probe_types.zig:86:29: error: enum 'probe_types.NamesOf(probe_types.Post.Calculated,i64)' has no member named 'popularty'
+            .gt(i64, .calc(.popularty), .value(100)),
+                           ~^~~~~~~~~
+probe_types.zig:21:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, names, &std.simd.iota(Tag, names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_types.zig] 4 calculation used at the wrong type
+    `.gt(i64, .calc(.popularity), .value(100)),
+            .exists` -> `.gt(bool, .calc(.popularity), .value(true)),
+            .exists`
+probe_types.zig:86:30: error: enum 'probe_types.NamesOf(probe_types.Post.Calculated,bool)' has no member named 'popularity'
+            .gt(bool, .calc(.popularity), .value(true)),
+                            ~^~~~~~~~~~
+probe_types.zig:21:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, names, &std.simd.iota(Tag, names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_types.zig] 5 attribute that does not exist on the far side
+    `.exists(.comments, .attr(.flagged)),
+        ),` -> `.exists(.comments, .attr(.flaged)),
+        ),`
+probe_types.zig:87:39: error: enum 'meta.FieldEnum(probe_types.Comment)' has no member named 'flaged'
+            .exists(.comments, .attr(.flaged)),
+                                     ~^~~~~~
+
+=== [probe_types.zig] 6 calculation declared, body missing
+    `            .hot = .gt(i64, .calc(.popularity), .value(100)),
+` -> ``
+probe_types.zig:79:26: error: missing struct field: hot
+        .calculations = .{
+                        ~^
+probe_types.zig:57:12: note: struct declared here
+    return @Struct(.auto, null, names, &t, &@splat(.{}));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_types.zig] 7 body for a calculation that is not declared
+    `.hot = .gt(` -> `.hott = .gt(`
+probe_types.zig:83:14: error: no field named 'hott' in struct 'probe_types.CalculationsBlock(probe_types.Post)'
+            .hott = .gt(i64, .calc(.popularity), .value(100)),
+             ^~~~
+probe_types.zig:57:12: note: struct declared here
+    return @Struct(.auto, null, names, &t, &@splat(.{}));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [probe_types.zig] 8 body of the wrong type
+    `.hot = .gt(i64, .calc(.popularity), .value(100)),` -> `.hot = .calc(.popularity),`
+probe_types.zig:83:27: error: enum 'probe_types.NamesOf(probe_types.Post.Calculated,bool)' has no member named 'popularity'
+            .hot = .calc(.popularity),
+                         ~^~~~~~~~~~
+probe_types.zig:21:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, names, &std.simd.iota(Tag, names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

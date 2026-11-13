@@ -1,0 +1,2 @@
+split: filter has 6 nodes
+types: filter has 6 nodes, hot has 3 nodes

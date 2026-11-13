@@ -1,0 +1,9 @@
+post.popular_0
+  arguments  min_views: integer (min 0)  
+  filter     all/2 eq/2 status 'published' gt/2 views $min_views 
+post.popular_1
+  arguments  min_views: integer (min 0)  
+  filter     all/2 eq/2 status 'published' gt/2 views $min_views 
+post.popular_2
+  arguments  min_views: integer (min null)  
+  filter     all/2 eq/2 status 'published' gt/2 views $min_views 

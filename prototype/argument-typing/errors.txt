@@ -1,0 +1,143 @@
+=== [shape 0 current] 1 argument that does not exist
+    `.gt(.views, .arg(.min_views))` -> `.gt(.views, .arg(.min_view))`
+zava.zig:254:50: error: post, action 'popular_0', filter: no argument 'min_view'
+            const got = check(r, a, f, &d) catch @compileError(where ++ ": " ++ d.message());
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:25: note: called at comptime here
+const model = zava.model(domain.resources);
+              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [shape 1 function] 1 argument that does not exist
+    `.gt(.views, .arg(.min_views))` -> `.gt(.views, .arg(.min_view))`
+domain.zig:34:39: error: enum 'zava.ArgName(domain.Post.resource__struct_856,i64)' has no member named 'min_view'
+                    .gt(.views, .arg(.min_view)),
+                                     ~^~~~~~~~
+zava.zig:103:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, &kept, &std.simd.iota(Tag, n));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [shape 2 named] 1 argument that does not exist
+    `.gt(.views, .argOf(PopularArguments, .min_views))` -> `.gt(.views, .argOf(PopularArguments, .min_view))`
+domain.zig:44:59: error: enum 'meta.FieldEnum(domain.Post.PopularArguments)' has no member named 'min_view'
+                    .gt(.views, .argOf(PopularArguments, .min_view)),
+                                                         ~^~~~~~~~
+
+=== [shape 0 current] 2 argument of the wrong type
+    `.gt(.views, .arg(.min_views))` -> `.eq(.title, .arg(.min_views))`
+zava.zig:254:50: error: post, action 'popular_0', filter: 'eq' compares text with integer
+            const got = check(r, a, f, &d) catch @compileError(where ++ ": " ++ d.message());
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:25: note: called at comptime here
+const model = zava.model(domain.resources);
+              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [shape 1 function] 2 argument of the wrong type
+    `.gt(.views, .arg(.min_views))` -> `.eq(.title, .arg(.min_views))`
+domain.zig:34:39: error: enum 'zava.ArgName(domain.Post.resource__struct_856,[]const u8)' has no member named 'min_views'
+                    .eq(.title, .arg(.min_views)),
+                                     ~^~~~~~~~~
+zava.zig:100:24: note: enum declared here
+    if (n == 0) return enum {};
+                       ^~~~~~~
+
+=== [shape 2 named] 2 argument of the wrong type
+    `.gt(.views, .argOf(PopularArguments, .min_views))` -> `.eq(.title, .argOf(PopularArguments, .min_views))`
+zava.zig:113:25: error: argument 'min_views' gives i64, but []const u8 is expected here
+            if (V != T) @compileError(what ++ " gives " ++ @typeName(T) ++ ", but " ++ @typeName(V) ++ " is expected here");
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:131:28: note: called at comptime here
+            comptime mustBe(@FieldType(Args, @tagName(name)), "argument '" ++ @tagName(name) ++ "'");
+                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:44:39: note: called at comptime here
+                    .eq(.title, .argOf(PopularArguments, .min_views)),
+                                ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [shape 2 named] 3 another action's arguments type named
+    `.gt(.views, .argOf(PopularArguments, .min_views))` -> `.gt(.views, .argOf(RecentArguments, .min_views))`
+zava.zig:254:50: error: post, action 'popular_2', filter: argument 'min_views' is read from 'domain.Post.RecentArguments', but the action's arguments are 'domain.Post.PopularArguments'
+            const got = check(r, a, f, &d) catch @compileError(where ++ ": " ++ d.message());
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.zig:6:25: note: called at comptime here
+const model = zava.model(domain.resources);
+              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [shape 0 current] 4 attribute that does not exist (control: must stay on the token)
+    `.gt(.views, .arg(.min_views))` -> `.gt(.viewz, .arg(.min_views))`
+domain.zig:25:26: error: enum 'meta.FieldEnum(domain.Post)' has no member named 'viewz'
+                    .gt(.viewz, .arg(.min_views)),
+                        ~^~~~~
+
+=== [shape 1 function] 4 attribute that does not exist (control: must stay on the token)
+    `.gt(.views, .arg(.min_views))` -> `.gt(.viewz, .arg(.min_views))`
+domain.zig:34:26: error: enum 'meta.FieldEnum(domain.Post)' has no member named 'viewz'
+                    .gt(.viewz, .arg(.min_views)),
+                        ~^~~~~
+
+=== [shape 0 current] 5 misspelled entry field (control)
+    `.filter = .all(&.{` -> `.fliter = .all(&.{`
+domain.zig:23:18: error: no field named 'fliter' in struct 'zava.ActionEntry(domain.Post)'
+                .fliter = .all(&.{
+                 ^~~~~~
+zava.zig:177:12: note: struct declared here
+    return struct {
+           ^~~~~~
+
+=== [shape 1 function] 5 misspelled entry field (control)
+    `.filter = .all(&.{` -> `.fliter = .all(&.{`
+domain.zig:32:18: error: no field named 'fliter' in struct 'zava.ReadBody(domain.Post,domain.Post.resource__struct_856)'
+                .fliter = .all(&.{
+                 ^~~~~~
+zava.zig:170:12: note: struct declared here
+    return struct {
+           ^~~~~~
+
+=== [shape 0 current] 6 argument option that does not exist
+    `.type = i64, .min = 0` -> `.type = i64, .mni = 0`
+domain.zig:22:71: error: no field named 'mni' in struct 'zava.ArgumentEntry'
+                .arguments = &.{.{ .name = "min_views", .type = i64, .mni = 0 }},
+                                                                      ^~~
+zava.zig:158:27: note: struct declared here
+pub const ArgumentEntry = struct { name: []const u8, type: type, min: ?i64 = null };
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [shape 1 function] 6 argument option that does not exist
+    `.min_views = .{ .min = 0 }` -> `.min_views = .{ .mni = 0 }`
+domain.zig:31:50: error: no field named 'mni' in struct 'zava.ArgumentOptions'
+                .arguments = .{ .min_views = .{ .mni = 0 } },
+                                                 ^~~
+zava.zig:162:29: note: struct declared here
+pub const ArgumentOptions = struct { min: ?i64 = null };
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [shape 1 function] 7 options given for an argument that does not exist
+    `.min_views = .{ .min = 0 }` -> `.min_view = .{ .min = 0 }`
+domain.zig:31:34: error: no field named 'min_view' in struct 'zava.ArgumentsBlock(domain.Post.resource__struct_856)'
+                .arguments = .{ .min_view = .{ .min = 0 } },
+                                 ^~~~~~~~
+zava.zig:165:12: note: struct declared here
+    return @Struct(.auto, null, names, &@splat(ArgumentOptions), &@splat(.{ .default_value_ptr = &ArgumentOptions{} }));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=== [shape 0 current] 8 argument type that cannot appear in an expression
+    `.type = i64, .min = 0` -> `.type = f32, .min = 0`
+zava.zig:70:17: error: type 'f32' cannot appear in an expression
+        else => @compileError("type '" ++ @typeName(T) ++ "' cannot appear in an expression"),
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:233:88: note: called at comptime here
+                arguments = arguments ++ &[_]Argument{.{ .name = g.name, .kind = kindOf(g.type), .min = g.min }};
+                                                                                 ~~~~~~^~~~~~~~
+zava.zig:248:58: note: called at comptime here
+        for (resources, 0..) |R, i| rs[i] = lowerResource(R);
+                                            ~~~~~~~~~~~~~^~~
+main.zig:6:25: note: called at comptime here
+const model = zava.model(domain.resources);
+              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+
+=== [shape 1 function] 8 argument type that cannot appear in an expression
+    `struct { min_views: i64 }, .{` -> `struct { min_views: f32 }, .{`
+domain.zig:34:39: error: enum 'zava.ArgName(domain.Post.resource__struct_856,i64)' has no member named 'min_views'
+                    .gt(.views, .arg(.min_views)),
+                                     ~^~~~~~~~~
+zava.zig:100:24: note: enum declared here
+    if (n == 0) return enum {};
+                       ^~~~~~~
