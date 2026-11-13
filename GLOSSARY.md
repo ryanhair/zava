@@ -51,7 +51,7 @@ A declared bound on the values a value type or an attribute may hold.
 _Avoid_: Rule, restriction, limit
 
 **Calculation**:
-A named, typed value computed for a record rather than stored, either by an expression or by a developer-written function. It is computed only when asked for, and its name is unique among the resource's attributes, calculations and relationships.
+A named, typed value computed for a record rather than stored, either by an expression or by a developer-written function. It is computed only when a load or an expression asks for it, and its name is unique among the resource's attributes, calculations and relationships.
 _Avoid_: Computed field, virtual attribute, derived attribute
 
 **Expression**:
@@ -122,6 +122,14 @@ _Avoid_: Window, batch, chunk
 **Cursor**:
 An opaque value that marks a position in a sorted read.
 _Avoid_: Keyset, token, bookmark
+
+**Load**:
+What an action declares it returns with each record beyond the record's attributes: calculations and related records.
+_Avoid_: Include, preload, expand, eager load
+
+**Loaded record**:
+A record together with what an action loaded for it.
+_Avoid_: Result, row, hydrated record
 
 **Context**:
 The developer-written value passed with every action call and readable wherever the action runs. There is one context type per domain.
