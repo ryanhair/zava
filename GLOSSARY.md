@@ -151,6 +151,10 @@ _Avoid_: Check, guard
 A step that mutates the draft.
 _Avoid_: Mutation, transform
 
+**Related write**:
+A built-in step that calls one action of a relationship's destination once for each element of an argument.
+_Avoid_: Manage relationship, nested write, cascade, sync
+
 **Phase**:
 Where in an action's execution a step runs: before, after, or after commit.
 _Avoid_: Stage, hook point
