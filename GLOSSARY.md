@@ -55,8 +55,16 @@ A named, typed value computed for a record rather than stored, either by an expr
 _Avoid_: Computed field, virtual attribute, derived attribute
 
 **Expression**:
-A typed computation over one record, written as data: it may read the record's attributes and calculations, the arguments of the action it belongs to, literal values, and records reached through a relationship.
+A typed computation over one record, written as data: it may read the record's attributes and calculations, the arguments of the action it belongs to, the context, literal values, and records reached through a relationship.
 _Avoid_: Query, condition, predicate, formula
+
+**Operator**:
+A named computation an expression applies to its operands, such as a comparison or an addition. The kernel fixes the list; a data layer may add its own.
+_Avoid_: Function, predicate, builtin
+
+**Operand**:
+A value an operator is applied to: something the expression reads, a literal value, or the result of another operator.
+_Avoid_: Parameter, term
 
 **Filter**:
 An expression with a boolean result, used to select records.
