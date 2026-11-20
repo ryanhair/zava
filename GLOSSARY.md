@@ -156,8 +156,16 @@ A step that inspects and may fail, and never mutates.
 _Avoid_: Check, guard
 
 **Change**:
-A step that mutates the draft.
+A step that sets attribute values the action writes.
 _Avoid_: Mutation, transform
+
+**Assignment**:
+A built-in change that sets one attribute to the value of an expression. The data layer evaluates it as part of the write.
+_Avoid_: Set attribute, atomic update
+
+**Precondition**:
+A built-in validation: a filter the stored record must satisfy for an update or destroy to proceed.
+_Avoid_: Guard, check, where clause, condition
 
 **Related write**:
 A built-in step that calls one action of a relationship's destination once for each element of an argument.
@@ -176,7 +184,7 @@ Where in an action's execution a step runs: before, after, or after commit.
 _Avoid_: Stage, hook point
 
 **Draft**:
-The per-call value an action's steps work on: the input and the attribute values to be written.
+The per-call value an action's function steps work on: the input and the attribute values they and the caller supply. A value set by an assignment is not in it.
 _Avoid_: Changeset
 
 **Failure**:
