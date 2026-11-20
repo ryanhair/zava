@@ -11,7 +11,7 @@ The complete, closed set of resources in a build. There is exactly one, and it i
 _Avoid_: Application, registry, context, API
 
 **Resource**:
-A struct type together with its `resource` declaration; the declared kind of thing the application acts on. A resource need not be persisted.
+A struct type together with the declarations attached to it; the declared kind of thing the application acts on. A resource need not be persisted.
 _Avoid_: Entity, model, schema
 
 **Record**:
