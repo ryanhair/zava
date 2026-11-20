@@ -1,0 +1,76 @@
+== 0
+post filter 9 nodes, comment filter 5 nodes, author rels 0, hasDecl(hidden)=false
+== 1
+domain.zig:50:31: error: enum 'zava.RelName(domain.Post)' has no member named 'coments'
+                1 => .exists(.coments, .eq(.flagged, .value(true))), // misspelled relationship
+                             ~^~~~~~~
+zava.zig:30:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, &n, &std.simd.iota(Tag, rels.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    main: main.zig:7:15
+== 2
+domain.zig:51:46: error: enum 'meta.FieldEnum(domain.Comment)' has no member named 'flaged'
+                2 => .exists(.comments, .eq(.flaged, .value(true))), // misspelled far-side attribute
+                                            ~^~~~~~
+/Users/ryanhair/.local/share/mise/installs/zig/0.17.1/lib/std/meta.zig:423:12: note: enum declared here
+    return @Enum(IntTag, .exhaustive, field_names, &std.simd.iota(IntTag, field_names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    main: main.zig:7:15
+== 3
+domain.zig:52:62: error: expected type 'bool', found 'comptime_int'
+                3 => .exists(.comments, .eq(.flagged, .value(1))), // far-side literal of the wrong type
+                                                             ^
+zava.zig:44:25: note: parameter type declared here
+        pub fn value(_: V) Self {
+                        ^
+referenced by:
+    main: main.zig:7:15
+== 4
+zava.zig:62:17: error: 'author' is not a to-many relationship of domain.Post; an existence test needs one
+                @compileError("'" ++ @tagName(name) ++ "' is not a to-many relationship of " ++ @typeName(R) ++ "; an existence test needs one");
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+domain.zig:53:29: note: called at comptime here
+                4 => .exists(.author, .eq(.name, .value("ada"))), // existence test over a to-one
+                     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    main: main.zig:7:15
+== 5
+domain.zig:44:37: error: enum 'zava.RelName(domain.Post)' has no member named 'coments'
+            .load = &.{if (m == 5) .coments else .comments},
+                                   ~^~~~~~~
+zava.zig:30:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, &n, &std.simd.iota(Tag, rels.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    main: main.zig:7:15
+== 6
+domain.zig:17:103: error: enum 'meta.FieldEnum(domain.Comment)' has no member named 'post'
+        .{ .name = "post", .kind = .belongs_to, .destination = Post, .source_attribute = if (m == 6) .post else .post_id },
+                                                                                                     ~^~~~
+/Users/ryanhair/.local/share/mise/installs/zig/0.17.1/lib/std/meta.zig:423:12: note: enum declared here
+    return @Enum(IntTag, .exhaustive, field_names, &std.simd.iota(IntTag, field_names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    list [inlined]: zava.zig:21:13
+    RelName [inlined]: zava.zig:24:22
+== 7
+domain.zig:44:51: error: enum 'zava.RelName(domain.Post)' has no member named 'comments'
+            .load = &.{if (m == 5) .coments else .comments},
+                                                 ~^~~~~~~~
+zava.zig:25:31: note: enum declared here
+    if (rels.len == 0) return enum {};
+                              ^~~~~~~
+referenced by:
+    main: main.zig:7:15
+== 8
+zava.zig:19:9: error: domain.Tag declares 'relationship'; relationships are read from a declaration named 'relationships'
+        @compileError(@typeName(R) ++ " declares '" ++ n ++ "'; relationships are read from a declaration named 'relationships'");
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zava.zig:24:22: note: called at comptime here
+    const rels = list(R);
+                 ~~~~^~~
+zava.zig:78:30: note: called at comptime here
+        load: []const RelName(R) = &.{},
+                      ~~~~~~~^~~
