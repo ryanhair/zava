@@ -20,7 +20,7 @@ Excluded: pointers, arrays, error unions, unions of either kind, `usize`, intege
 ## Consequences
 
 - An extension maps every plain shape and every built-in type. It maps a value type by its fields unless told otherwise. A data layer may reject what it cannot hold (a `u64` in Postgres, a list of lists) with its own error naming the resource and attribute.
-- A value type's declaration follows the resource pattern: an `extensions` block keyed by registered extension name, typed by an optional per-type options type that the extension contract gains (ADR 0004 amended). That is how a type the data layer has natively but the kernel lacks is reached: a one-field text type with `.postgres = .{ .type = "inet" }`.
+- A value type's declaration follows the resource pattern: one field per registered extension at its root, keyed by extension name, typed by an optional per-type options type that the extension contract gains (ADR 0004 amended). That is how a type the data layer has natively but the kernel lacks is reached: a one-field text type with `.postgres = .{ .type = "inet" }`.
 - A one-field value type is transparent everywhere outside the program: `Email` is a JSON string, not an object. Inside the program the record field is read as `author.email.value`.
 - A plain nested struct needs no declaration. It becomes a value type when it wants constraints, a validate function, a sensitive flag or extension options.
 - A value type's fields may be any accepted type, including other value types. Tagged unions wait until a derivation needs them, as in descriptions (ADR 0004).
