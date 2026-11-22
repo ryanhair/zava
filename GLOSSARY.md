@@ -187,6 +187,14 @@ _Avoid_: Stage, hook point
 The per-call value an action's function steps work on: the input and the attribute values they and the caller supply. A value set by an assignment is not in it.
 _Avoid_: Changeset
 
+**Policy**:
+A named rule that decides whether a call of an action may proceed and which records it may touch. It is either a filter over the record or a developer-written function over the context and the input.
+_Avoid_: Permission, rule, check, guard, authorizer
+
+**Bypass**:
+A policy that, when it passes, lets the call proceed without any other policy being consulted.
+_Avoid_: Override, superuser, skip
+
 **Failure**:
 The outcome of an action call that did not complete, made of a failure kind and its detail.
 _Avoid_: Error, exception, fault
