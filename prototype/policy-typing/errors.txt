@@ -1,0 +1,58 @@
+=== case 0
+post policies 3, first filter 8 nodes, author policies 0
+post filter 9 nodes, comment filter 5 nodes, author rels 0, hasDecl(hidden)=false
+=== case 11
+domain.zig:41:64: error: enum 'zava.ActionName(domain.Post)' has no member named 'discused'
+        .{ .name = "own", .on = .{ .actions = &.{if (m == 11) .discused else .discussed} }, .filter = switch (m) {
+                                                              ~^~~~~~~~
+zava.zig:98:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, &n, &std.simd.iota(Tag, actions.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    policies__func_854: zava.zig:112:13
+    main: main.zig:6:102
+    4 reference(s) hidden; use '-freference-trace=6' to see all references
+=== case 12
+domain.zig:42:24: error: enum 'meta.FieldEnum(domain.Post)' has no member named 'author'
+            12 => .eq(.author, .value(1)), // misspelled attribute
+                      ~^~~~~~
+/Users/ryanhair/.local/share/mise/installs/zig/0.17.1/lib/std/meta.zig:423:12: note: enum declared here
+    return @Enum(IntTag, .exhaustive, field_names, &std.simd.iota(IntTag, field_names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    policies__func_854: zava.zig:112:13
+    main: main.zig:6:102
+    4 reference(s) hidden; use '-freference-trace=6' to see all references
+=== case 13
+domain.zig:43:28: error: enum 'zava.RelName(domain.Post)' has no member named 'coments'
+            13 => .exists(.coments, .eq(.flagged, .value(true))), // misspelled relationship
+                          ~^~~~~~~
+zava.zig:30:12: note: enum declared here
+    return @Enum(Tag, .exhaustive, &n, &std.simd.iota(Tag, rels.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    policies__func_854: zava.zig:112:13
+    main: main.zig:6:102
+    4 reference(s) hidden; use '-freference-trace=6' to see all references
+=== case 14
+domain.zig:46:67: error: enum 'meta.DeclEnum(domain.Post)' has no member named 'isAdmn'
+        .{ .name = "admin", .on = .all, .function = if (m == 14) .isAdmn else .isAdmin, .bypass = true },
+                                                                 ~^~~~~~
+/Users/ryanhair/.local/share/mise/installs/zig/0.17.1/lib/std/meta.zig:485:12: note: enum declared here
+    return @Enum(IntTag, .exhaustive, decl_names, &std.simd.iota(IntTag, decl_names.len));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    policies__func_854: zava.zig:112:13
+    main: main.zig:6:102
+    4 reference(s) hidden; use '-freference-trace=6' to see all references
+=== case 15
+domain.zig:47:60: error: enum 'zava.ActionKind' has no member named 'raed'
+        .{ .name = "k", .on = .{ .kinds = &.{if (m == 15) .raed else .read} }, .filter = .eq(.views, .value(0)) },
+                                                          ~^~~~
+zava.zig:100:24: note: enum declared here
+pub const ActionKind = enum { create, read, update, destroy, generic };
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    policies__func_854: zava.zig:112:13
+    main: main.zig:6:102
+    4 reference(s) hidden; use '-freference-trace=6' to see all references
